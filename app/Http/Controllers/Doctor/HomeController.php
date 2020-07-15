@@ -16,7 +16,7 @@ class HomeController extends Controller
         {
            abort(404);
         }
-        return view('doctor.home');
+        return view('doctor.dashboard');
     }
 
     public function checkProfileCompleted(){
