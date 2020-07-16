@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="col-md-8">
-          <div class="avail-header">June 11, 2020</div>
+          <div class="avail-header">{{now()->format('F d, Y')}}</div>
           <div class="card card-width">
             <div class="card-head py-3 px-3">
               Appointments
@@ -76,41 +76,35 @@
                 </tr>
               </thead>
               <tbody class="table-rows">
+              @if(isset($appointments) && !empty($appointments))
+              @php  
+                 $lists = collect($appointments->items())->toArray();
+              @endphp
+              @if(!empty($lists))
+              @foreach($lists as $key => $app)
                 <tr class="appoint-info">
                   <td>Mark</td>
                   <td>Consultation</td>
                   <td>10/22/2020</td>
                   <td>10AM</td>
                 </tr>
-                <tr class="appoint-info">
-                  <td>Jacob</td>
-                  <td>Consultation</td>
-                  <td>10/22/2020</td>
-                  <td>10AM</td>
-                </tr>
-                <tr class="appoint-info">
-                  <td>Larry</td>
-                  <td>Consultation</td>
-                  <td>10/22/2020</td>
-                  <td>10AM</td>
-                </tr>
-                <tr class="appoint-info">
-                  <td>Shwetha</td>
-                  <td>Consultation</td>
-                  <td>10/22/2020</td>
-                  <td>10AM</td>
-                </tr>
+                @endforeach
+                @else
+                <tr>
+                  <td colspan="4" class="appoint-info text-center"> No Record Found!</td>
+                  </tr>
+                @endif
+                @else
+                <tr>
+                      <td colspan="4" class="appoint-info text-center"> No Record Found!</td>
+                  </tr>
+                @endif
+            
               </tbody>
 
             </table>
-            <br><br><br><br><br><br>
-            <div class="p-4">
-              <button class="next-btn float-right"><span class="pr-2">Next</span><img src="{{ url('img/next.svg') }}"></button>
+            {{$appointments->links()}}
 
-              <div class="text-center"> <img src="{{ url('img/results.svg') }}">
-                <button class="next-btn float-left"><img src="{{ url('img/prev.svg') }}"><span class="pl-2">Previous</span></button>
-              </div>
-            </div>
           </div>
         </div>
       </div>

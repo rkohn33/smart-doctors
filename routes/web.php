@@ -31,9 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard', function () {
             return view('doctor.dashboard');
         });
-        Route::get('/appointment', function () {
-            return view('doctor.appointment');
-        });
+        Route::get('/appointment', 'Doctor\AppointmentController@index');
         Route::get('/availability', function () {
             return view('doctor.availability');
         });

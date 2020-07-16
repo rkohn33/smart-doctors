@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SmartDoctor\Doctor\DoctorDetails;
+use App\Http\Requests\Doctor\ProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -20,8 +21,22 @@ class ProfileController extends Controller
        abort(404);
        
     }
-    public function updateOrCreate()
+    public function updateOrCreate(Request $request)
     {
+        $input = $request->all();
+        $data['salutation'] = 'Mr.';
+        $data['first_name'] = 'Muhammad';
+        $data['last_name']  = 'Ahmed';
+        $data['speciality'] = 'Sleeping';
+        $data['consultation_type']  = 'Audio';
+        $data['website']     = 'www.com-wale.com';
+        $data['bio']         = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae voluptas ut. Quis qui consequuntur rerum vero explicabo architecto, eaque necessitatibus hic repudiandae ipsum ut quod, ea, accusamus quo accusantium.';
+        $data['education']   = 'Audio';
+        $data['employment']  = 'Audio';
+        $data['created_at']  = now();
+        $data['updated_at']  = now();
+        //$validate = (new ProfileRequest())->createOrUpdate($input);
+
         
     }
 }
