@@ -20,7 +20,15 @@ class ProfileRequest extends FormRequest
     public function createOrUpdate($data){
 
         $validator = Validator::make($data, [
-     
+            'salutation' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'speciality' => 'required',
+            'consultation_type' => 'required',
+            'website' => 'required',
+            'bio' => 'required',
+            'employment' => 'required',
+            'education' => 'required'
         ]);
 
         return $validator;

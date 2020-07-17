@@ -45,9 +45,11 @@
             <div class="card-header">Next consultation</div>
             <div class="card-body">
               <h6 class="next-name">Peter Thomas</h6>
-              <p class="next-time">10:30 AM</p>
-              <button class="start-now float-left"><span class="pr-2">Start Now</span>
-              <img src="{{ url('img/white-arrow.svg') }}"></button>
+              <p class="next-time">{{!empty($next_appointments['appointment']) ? date('H:i:s',strtotime($next_appointments['appointment'])): '00:00'}}</p>
+              @if(!empty($next_appointments))
+                <button class="start-now float-left"><span class="pr-2">Start Now</span>
+                <img src="{{ url('img/white-arrow.svg') }}"></button>
+              @endif
             </div>
           </div>
         </div>
