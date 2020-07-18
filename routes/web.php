@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
             return view('doctor.wallet');
         });
         Route::get('/profile', 'Doctor\ProfileController@index');
+
     });
     Route::group(['prefix' => 'patient'], function(){
         Route::get('/home', 'Patient\HomeController@index');
@@ -51,6 +52,19 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', 'Nurse\HomeController@index');
     });
 
+    Route::get('/', "twilio\VideoRoomsController@index");
+    Route::prefix('room')->group(function() {
+        Route::get('join/{roomName}', 'twilio\VideoRoomsController@joinRoom');
+        Route::post('create', 'twilio\VideoRoomsController@createRoom');
+    });
+
 });
+
+
+// Route::view('/', 'twilio.calls');
+// Route::post('/call', 'twilio\VoiceController@initiateCall')->name('initiate_call');
+
+        
+
 
 Route::get('/logout','Auth\UserAuthController@logout');
