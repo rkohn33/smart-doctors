@@ -1,11 +1,9 @@
 
 @extends('main-layout.master')
-
 @section('content')
-
-<div class="s-layout">
-@include('doctor.includes.side-nav-bar')
 @include('doctor.includes.header')
+@include('doctor.includes.side-nav-bar')
+
 
 <div class="container-fluid">
     <div class="inner-container hompage">
@@ -13,11 +11,11 @@
         <div class="row">
             <div class="col-lg-8 col-xs-12">
                 <br>
-                <h1 class="top-heading">Welcome Back</h1>
+                <h1 class="top-heading">Welcome Back, Dr John</h1>
                 <p class="sub-heading">Here is your account at a glance.</p>
             </div>
             <div class="col-lg-4  col-xs-12">
-                <img src="images/doctor.jpg" style="width: 100%;height: 100%">
+                <img src="{{ url('img/doctor.jpg') }}" style="width: 100%;height: 100%">
             </div>
         </div>
         <div class="row">
@@ -28,10 +26,11 @@
                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
                                 Today
                             </button>
+                            <img >
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"><img src="{{ url('img/dropdown.svg') }}">Today</a>
-                                <a class="dropdown-item" href="#">July 1st</a>
-                                <a class="dropdown-item" href="#">July 2nd</a>
+                                <a class="dropdown-item" href="#">Link 1</a>
+                                <a class="dropdown-item" href="#">Link 2</a>
+                                <a class="dropdown-item" href="#">Link 3</a>
                             </div>
                         </div>
                     </div>
@@ -40,10 +39,10 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>NAME</th>
-                                    <th>TYPE</th>
-                                    <th>DATE</th>
-                                    <th>TIME</th>
+                                <th scope="col">NAME</th>
+                                <th scope="col">TYPE</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">TIME</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -77,7 +76,7 @@
                                     <strong>3</strong> of 3 results
                                 </div>
                                 <div class="col-4">
-                                    <button class="btn btn-light float-right"><img src="{{ url('img/next.svg') }}">Next</button>
+                                    <button class="btn btn-light float-right">Next<img src="{{ url('img/next.svg') }}"></button>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +89,7 @@
                     <div class="card-body">
                         <h6><strong>Peter Thomas</strong></h6>
                         <h3><strong>10:30 AM</strong></h3>
-                        <button class="btn btn-info startnow"><img src="{{ url('img/white-arrow.svg') }}">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
+                        <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
                     </div>
                 </div>
                 <div class="card mb-5" style="margin-top: 20px;background: ">
@@ -104,7 +103,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="dropdown float-right mt-3">
-                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"><img src="{{ url('img/dropdown.svg') }}">
+                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
                                         Week
                                     </button>
                                     <div class="dropdown-menu">
@@ -113,7 +112,6 @@
                                         <a class="dropdown-item" href="#">Link 3</a>
                                     </div>
                                 </div>
-                                <img src="{{ url('img/card.svg') }}">
                             </div>
                         </div>
                     </div>
@@ -127,6 +125,5 @@
 </div>
 
 
+@include('doctor.includes.footer')
 @endsection
-
-

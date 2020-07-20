@@ -1,14 +1,11 @@
 @extends('main-layout.master')
 
 @section('content')
-
-<div class="s-layout">
-@include('doctor.includes.side-nav-bar')
 @include('doctor.includes.header')
+@include('doctor.includes.side-nav-bar')
+
 
 <div class="container-fluid">
-
-
     <div class="inner-container">
         <div class="row">
             <div class="col-xs-12 col-lg-4">
@@ -23,9 +20,9 @@
                     <div class="card-body">
                         <h6><strong>Peter Thomas</strong></h6>
                         <h3><strong>{{!empty($next_appointments['appointment']) ? date('H:i:s',strtotime($next_appointments['appointment'])): '00:00'}}</strong></h3>
-                        @if(!empty($next_appointments))
+              @if(!empty($next_appointments))
                         <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
-                        @endif
+              @endif
                     </div>
                 </div>
             </div>
@@ -56,46 +53,51 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+              @if(isset($appointments) && !empty($appointments))
+              @php
+                 $lists = collect($appointments->items())->toArray();
+              @endphp
+              @if(!empty($lists))
+              @foreach($lists as $key => $app)
                                 <tr class="table-success">
-                                    @if(isset($appointments) && !empty($appointments))
-                                    @php
-                                    $lists = collect($appointments->items())->toArray();
-                                    @endphp
-                                    @if(!empty($lists))
-                                    @foreach($lists as $key => $app)
-
-
-                                      <td>Mark</td>
-                                      <td>Consultation</td>
-                                      <td>10/22/2020</td>
-                                      <td>10AM</td>
-
-                                    @endforeach
-                                    @else
-                                    <tr>
-                                      <td colspan="4" class="appoint-info text-center"> No Record Found!</td>
-                                      </tr>
-                                    @endif
-                                    @else
-                                    <tr>
-                                          <td colspan="4" class="appoint-info text-center"> No Record Found!</td>
-                                      </tr>
-                                    @endif
-
-                                  </tbody>
+                                    <td>Peter Thomas</td>
+                                    <td>Consultation</td>
+                                    <td>10/22/2020</td>
+                                    <td>10:30AM</td>
+                                </tr>
+              @endforeach
+              @else
+                                <tr>
+                                    <td>Enrique Loss</td>
+                                    <td>Follow-up</td>
+                                    <td>10/22/2020</td>
+                                    <td>11:30AM</td>
+                                </tr>
+              @endif
+              @else
+                                <tr>
+                                    <td>Marissa Laos</td>
+                                    <td>Follow-up</td>
+                                    <td>10/22/2020</td>
+                                    <td>03:00PM</td>
+                                </tr>
+              @endif
+                                </tbody>
                             </table>
-                            {{$appointments->links()}}
+
+              {{$appointments->links()}}
+
                         </div>
                         <div class="paginate">
                             <div class="row">
                                 <div class="col-4">
-                                    <button class="btn btn-light disabled">Previous</button>
+                                    <button class="btn btn-light disabled"><img src="{{ url('img/prev.svg') }}">Previous</button>
                                 </div>
                                 <div class="col-4 text-center">
                                     <strong>3</strong> of 3 results
                                 </div>
                                 <div class="col-4">
-                                    <button class="btn btn-light float-right">Next</button>
+                                    <button class="btn btn-light float-right">Next<img src="{{ url('img/next.svg') }}"></button>
                                 </div>
                             </div>
                         </div>
@@ -105,12 +107,8 @@
 
         </div>
     </div>
-
 </div>
 
 
-
-
- @endsection
-
-
+@include('doctor.includes.footer')
+@endsection
