@@ -1,0 +1,510 @@
+@font-face {
+    font-family: Degular;
+    src: url('fonts/Degular-Regular.otf');
+}
+
+body {
+    font-family: Degular, sans-serif;
+    font-size: 14px;
+}
+
+p {
+    font-size: 18px;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+
+#sidebar-wrapper {
+    background: #202F4D !important;
+    color: #fff;
+}
+
+#sidebar-wrapper .list-group-item {
+    background: #202F4D !important;
+    color: #fff;
+    border: none;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+#sidebar-wrapper .list-group {
+    padding-left: 25px;
+}
+
+.list-group .ion-icon {
+    color: #04C6FF;
+    padding-right: 5px;
+    font-size: 22px;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#page-content-wrapper .top-bar {
+    background: #fff !important;
+}
+
+#page-content-wrapper {
+    background: #F5F5F5 !important;
+}
+
+
+.inner-container .top-heading {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.inner-container .sub-heading {
+    font-size: 20px;
+    color: #656565;
+    padding-bottom: 80px;
+}
+
+.inner-container .card-header {
+    background: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+.inner-container .card-body.appointments {
+    padding: 0;
+    min-height: 400px;
+}
+
+.inner-container .card-body.appointments .table-responsive {
+    min-height: 300px;
+}
+
+.hompage .card-body table th {
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 5px;
+    padding-left: 30px;
+    letter-spacing: 3px;
+}
+
+.hompage .card-body table td {
+    border: 0;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 14px;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.inner-container .card-header .dropdown button {
+    background: #fff;
+    box-shadow: 0 0 6px 1px #f1f1f1;
+    position: absolute;
+    left: -80px;
+    top: -6px;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 30px 20px;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+.inner-container .startnow {
+    background: #06BEF6;
+    border: none;
+    box-shadow: 0 0 20px 1px #e3e3e3;
+    margin-top: 20px;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+.paginate {
+    padding: 20px;
+}
+
+.paginate button {
+    background: #fff;
+    box-shadow: 0 0 10px 3px #e7e7e7;
+}
+
+
+.top-bar-profile {
+    height: 250px;
+    width: 100%;
+}
+
+.profile .profile-photo {
+    max-width: 100%;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.profile .profile-heading {
+    padding-top: 30px;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.profile .speciality-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.profile .progress {
+    height: 7px;
+    border-radius: 35px;
+}
+
+.profile .profile-completeness {
+    font-size: 20px;
+
+}
+
+.profile-completeness div {
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.profile .profile-completeness .ion-ios-checkmark-empty {
+    background: #04C6FF;
+    padding: 2px 12px;
+
+    border-radius: 50%;
+    color: #fff;
+}
+
+.profile .bio h6 {
+    letter-spacing: 3px;
+}
+
+
+.profile .hosiptals .btn-call {
+    background: #04C6FF;
+    color: #fff;
+    box-shadow: 0 0 20px 1px #e3e3e3;
+    border-radius: 7px;
+    padding: 10px 25px;
+    font-size: 14px;
+}
+
+.profile .map-view {
+    border-bottom: 1px solid #ccc8c8;
+    text-decoration: none;
+    color: #868282
+}
+
+
+.appointments {
+    padding-top: 100px !important;
+}
+
+.appointments .card-body table td, .appointments .card-body table th {
+    font-size: 14px;
+}
+
+.appointments .morning-dot {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    position: absolute;
+    background: orange;
+    border-radius: 50%;
+    display: inline-block;
+    left: 50px;
+    top: 45px;
+}
+
+.appointments .evening-dot, .appointments .evening-dot1 {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    position: absolute;
+    background: #04C6FF;
+    border-radius: 50%;
+    display: inline-block;
+    left: 50px;
+    top: 45px;
+}
+
+.appointments .evening-dot1 {
+    left: 40px;
+    background: #fff;
+}
+
+
+.appointments .add-slot {
+    margin-top: -75px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #000;
+    text-decoration: none;
+}
+
+.appointments .add-to-waitlist {
+    background: #04C6FF;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 1px #e9d9d9;
+
+}
+
+.appointments .appointment-time {
+    background: #fff;
+    box-shadow: 0px 0px 0px 1px #e2e2e2;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #e2e2e2;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.appointments .appointment-time.active {
+    background: #2E2D60;
+    color: #fff;
+    border-color: #2E2D60;
+}
+
+.nao-month td.today {
+    background: #000;
+    color: #fff;
+    box-shadow: none;
+}
+
+.nao-month th, .nao-month td {
+    text-align: center;
+    padding: 2px;
+    width: 1px;
+    text-transform: uppercase;
+}
+
+.ic-arrow-circle-angle-down, .ic-target {
+    display: none !important;
+}
+
+.ic-arrow-angle-left:before, .ic-arrow-angle-right:before {
+    color: #0000005c;
+}
+
+.nao-month > div + div {
+    height: 50px;
+}
+
+.nao-month {
+    min-width: 10px;
+}
+
+.appointments .card-body table td:hover {
+    background: #f1f1f1;
+}
+
+.nao-month td.active {
+    box-shadow: none;
+    background: #f1f1f1;
+}
+
+
+.wallet-outer-wrapper {
+    background: #fff;
+}
+
+
+
+.wallet .sub-heading1 {
+    padding-top: 20px;
+}
+
+
+.hompage .chart-data {
+    background:#202F4C;
+    color:#fff;
+    padding: 50px;
+    padding-bottom: 0;
+    padding-top: 30px;
+}
+.hompage .chart-data h5 {
+    color:#04C6FF;
+}
+
+
+.hompage .revenue {
+    font-size: 30px;
+    padding-right: 15px;
+}
+
+.hompage .revenue-arrow {
+    color: greenyellow;
+    font-size: 18px;
+}
+.hompage .revenue-arrow-down {
+    color: indianred;
+    font-size: 18px;
+}
+.hompage .revenue-percentage {
+    font-size: 18px;
+    padding-left: 2px;
+}
+
+
+.wallet .chart-data {
+    background:#202F4C;
+    color:#fff;
+    padding: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+.wallet .chart-data h5 {
+    color:#04C6FF;
+}
+
+.wallet .revenue {
+    font-size: 50px;
+    padding-right: 15px;
+}
+
+.wallet .revenue-arrow {
+    color: greenyellow;
+    font-size: 18px;
+}
+.wallet .revenue-arrow-down {
+    color: indianred;
+    font-size: 18px;
+}
+.wallet .revenue-percentage {
+    font-size: 18px;
+    padding-left: 2px;
+}
+
+.wallet .left-wrapper {
+    padding-right: 30px;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d0d0d0;
+    margin-left: -30px;
+
+}
+
+.wallet .left-wrapper-last {
+    border-bottom: none;
+}
+
+.wallet .left-wrapper h6 {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .appointments .evening-dot, .appointments .evening-dot1 {
+        left: 14px;
+        top: 14px;
+    }
+
+    .appointments .evening-dot1 {
+        left: 6px;
+    }
+
+    .appointments .appointments-list h3 {
+        padding-left: 28px;
+    }
+
+    .appointments .add-slot {
+        margin-top: -80px;
+    }
+
+    .appointments .morning-dot {
+        left: 15px !important;
+        top: 15px !important;
+    }
+
+    .appointments {
+        padding-top: 20px !important;
+    }
+
+    .appointments .add-to-waitlist {
+        width: 100%;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .profile .speciality-title {
+        margin-bottom: 0px;
+    }
+
+    .hompage .chart-data , .wallet .chart-data {
+        padding: 15px;
+    }
+
+    .wallet .revenue {
+        font-size: 30px;
+    }
+
+
+    .wallet .left-wrapper {
+        margin-left: 0;
+    }
+
+    .wallet .sub-heading {
+        padding-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+
+    .inner-container {
+        padding: 100px;
+        padding-top: 0;
+    }
+
+    #navbar-custom-title {
+        padding-left: 100px;
+        font-size: 23px;
+        font-weight: bolder;
+    }
+
+    .profile-right {
+        padding-left: 50px;
+    }
+
+    .appointments .appointments-list {
+        padding: 50px;
+        padding-left: 100px;
+    }
+}

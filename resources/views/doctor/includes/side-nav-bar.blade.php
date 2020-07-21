@@ -1,41 +1,33 @@
-<div class="s-layout__sidebar">
-    <div class="side sidebar-sticky w3-sidebar w3-light-grey w3-bar-block">
-    <ul class="nav flex-column">
-        <a href="{{ url(Auth::user()->utype.'/dashboard') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/logo.svg') }}">
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/dashboard') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/home.svg') }}"><span class="pl-3">Home</span>
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/profile') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/profile.svg') }}"><span class="pl-3">My Profile</span>
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/appointment') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/calender.svg') }}"><span class="pl-3">Appointments</span>
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/availability') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/clock.svg') }}"><span class="pl-3">Availability</span>
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/consultation') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/clock.svg') }}"><span class="pl-3">Consultation</span>
-        </li>
-        </a>
-        <a href="{{ url(Auth::user()->utype.'/wallet') }}">
-        <li class="nav-item side-items">
-            <img class="float-left" src="{{ url('img/wallet.svg') }}"><span class="pl-3">Wallet</span>
-        </li>
-        </a>
-    </ul>
-    </div>
-</div>
+
+
+<!-- Page Content -->
+    <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar border-bottom">
+            <span class="navbar-toggler-icon d-md-none" id="menu-toggle"></span>
+            <span id="navbar-custom-title" class="font-weight-bold"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-user"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>

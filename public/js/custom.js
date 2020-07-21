@@ -367,12 +367,5 @@ document.body.addEventListener('keyup', function (e) {
 /*!**************************************!*\
   !*** multi ./resources/js/custom.js ***!
   \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! D:\Websites\Smart Doctors\Original Smart Doctor\smart-doctors\resources\js\custom.js */"./resources/js/custom.js");
-
-
-/***/ })
 
 /******/ });
