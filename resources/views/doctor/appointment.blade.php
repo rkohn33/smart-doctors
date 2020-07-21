@@ -6,7 +6,157 @@
 
 
 <div class="container-fluid">
-    <div class="inner-container">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <div class="container">
+              <h1>Appointments</h1>
+            </div>
+          </div>
+        <div class="container">
+          
+          <div class="row">
+            <div class="calendar-box col-lg-4">
+               <div class="heading-wrap">
+                <h5>Calendar</h5>
+              </div>
+                <div class="card">
+                  <div id="calendar"></div>
+                </div>
+                <div class="card consultation">
+                  <div class="card-header">
+                    <div class="title-tag">
+                      <h5>Next consultation</h5>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Peter Thomas</p>
+                    <h4>10:30 AM</h4>
+                    <div class="btn-wrap">
+                      <a class="btn btn-info" href="">start now <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+                
+           
+            
+    
+            <div class="appointments-box col-lg-8">
+              <div class="heading-wrap">
+                <h5>June 11, 2020</h5>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                  <div class="col-sm-10 col-lg-10 title-tag p-0">
+                    <h5>Appointments</h5>
+                  </div>
+                  <div class="col-sm-2 col-lg-2 day-box p-0">
+                    <select class="form-control js-special-tags">
+                      <option selected="selected">today</option>
+                      <option>select 1</option>
+                      <option>select 2</option>
+                      <option>select 3</option>
+                      <option>select 4</option>
+                      <option>select 5</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="myTable" class="table table-hover table-responsive">  
+                      <thead>  
+                        <tr>  
+                          <th>NAME</th>  
+                          <th>TYPE</th>  
+                          <th>DATE</th>  
+                          <th>TIME</th>  
+                        </tr>  
+                      </thead>  
+                      <tbody>  
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr> 
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr> 
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr> 
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr> 
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr> 
+                        <tr>  
+                          <td>Peter Thomas</td>  
+                          <td>Consultation</td>  
+                          <td>10/22/2020</td>  
+                          <td>10:30 AM</td>  
+                        </tr>
+                      </tbody>  
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{-- <div class="inner-container">
         <div class="row">
             <div class="col-xs-12 col-lg-4">
                 <h5 class="font-weight-bold mb-5 mt-5">Calendars</h5>
@@ -106,7 +256,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 </div>
 
 

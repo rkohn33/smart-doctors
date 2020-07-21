@@ -20,5 +20,8 @@ mix.styles(
                 'resources/css/custom.css',
                 'resources/css/dd.css',
                 'resources/css/flags.css',
+                'resources/css/apppointment.css',
             ]
             , 'public/css/custom.css');
+
+
