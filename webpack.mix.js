@@ -15,4 +15,10 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 mix.js('resources/js/custom.js', 'public/js');
-mix.styles(['resources/css/custom.css'], 'public/css/custom.css');
+mix.styles(
+            [
+                'resources/css/custom.css',
+                'resources/css/dd.css',
+                'resources/css/flags.css',
+            ]
+            , 'public/css/custom.css');

@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@font-face {
+    font-family: 'degularbold';
+    src: url('../fonts/degular-bold.woff2') format('woff2'),
+         url('../fonts/degular-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'degularregular';
+    src: url('../fonts/degular-regular.woff2') format('woff2'),
+         url('../fonts/degular-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'degularsemibold';
+    src: url('../fonts/degular-semibold.woff2') format('woff2'),
+         url('../fonts/degular-semibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body {
     background-color: #E5E5E5;
     font-family: Degular;
@@ -1039,4 +1064,440 @@ border-radius: 3px;
     opacity: 1;
     transform: scale(1);
   }
+}
+
+
+.form-box.registration-page header  {
+	padding: 50px 0;
+	border-bottom: 4px solid #DCDCDC;
+	margin-bottom: 26px;position: relative;
+}
+.form-box.registration-page header::before {
+	position: absolute;
+	content: "";
+	height: 4px;
+	width: 246px;
+	bottom: -4px;
+	background: #06BEF6;
+}
+.container {
+	max-width: 1289px;
+}
+.form-box.registration-page {
+	margin-bottom: 117px;
+}
+.form-box header .signup-wrap a {
+	font-size: 14px;
+	line-height: 24px;
+	color: #06BEF6;
+	font-family: 'degularsemibold';
+	border: 2px solid #06BEF6 !important;
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+
+.form-box header .signup-wrap a:hover {
+	background: #2E2D60;color: #ffffff;border: 2px solid #2E2D60 !important;
+}
+.form-box .bg-light {
+	background-color: #fff !important;
+	background: #FFFFFF;
+	box-shadow: 0px 60px 74px rgba(0, 0, 0, 0.05);
+	border-radius: 8px;
+}
+.form-box .heading-wrap {
+	padding: 60px 15px 35px;
+}
+.heading-wrap h1 {
+	font-family: 'degularsemibold';
+	font-size: 69px;
+	line-height: 92px;
+	color: #2E2D60;
+}
+.heading-wrap h2 {
+	font-family: 'degularsemibold';
+	font-size: 51px;
+	line-height: 58px;
+	color: #2E2D60;
+}
+.heading-wrap p {
+	font-family: 'degularregular';
+	font-size: 24px;
+	line-height: 32px;
+	color: #2E2D60;
+	opacity: 0.6;
+}
+
+.form-box.registration-page .form-wrap-container.mx-auto {
+	max-width: 644px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 140px;
+}
+.countries-box {
+	display: flex;
+	align-items: center;
+}
+#registration_form .form-group {
+	margin-bottom: 13px;
+	padding: 0 11px;
+}
+#registration_form label {
+	font-size: 22px;
+	line-height: 20px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+	margin-bottom: 20px;
+}
+#registration_form .form-control {
+	height: 60px;
+	padding: 0 26px;
+	background: #FFFFFF;
+	border: 1px solid #B9B9B9;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+	border-radius: 9px;
+	font-weight: 500;
+	font-size: 19px;
+	line-height: 25px;
+	font-family: 'DM Sans', sans-serif;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#registration_form .form-control:focus {
+	border: 1px solid #06BEF6;
+}
+#registration_form .form-control::placeholder {color: #2E2D60; opacity: 0.6 }
+
+#registration_form .form-control:-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+#registration_form .form-control::-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+.countries-box #countries_msdd {
+	background: url(/img/arrow-down.png);
+	background-repeat: no-repeat;
+	background-position: 100% center;
+	width: 70px !important;
+	margin-right: 15px;
+}
+.countries-box #countries {
+	width: 45px !important;
+	margin-right: 15px;
+}
+.countries-box #countries_msdd .ddlabel {
+	display: none;
+}
+#registration_form .form-control.js-special-tags {
+	background: url(/img/arrow-blue.png);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-repeat: no-repeat;
+	background-position: 96% center;
+}
+#registration_form .verification-wrap {
+	margin-top: 30px;
+}
+#registration_form .verification-wrap .title {
+	border-bottom: 1px solid #c4c3c8;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	margin-bottom: 70px;
+}
+#registration_form .verification-wrap h5 {
+	font-size: 36px;
+	line-height: 35px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+	width: auto;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+	bottom: -30px;
+	display: inline-block;
+	max-width: 100%;
+	background: #fff;
+	padding: 0 55px;
+}
+#registration_form .verification-wrap p {
+	font-size: 19px;
+	line-height: 28px;
+	color: #2E2D60;
+	opacity: 0.6;
+	font-weight: 400;
+	font-family: 'DM Sans', sans-serif;
+}
+
+#registration_form .file-upload-wrap.form-group {
+	margin-top: 45px;
+}
+#registration_form .file-upload-wrap .file-upload {
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select {
+	color: #34495e;
+	cursor: pointer;
+	height: 98px;
+	line-height: 40px;
+	text-align: left;
+	overflow: hidden;
+	position: relative;
+	background: #FFFFFF;
+	padding: 0 35px;
+	border: 1px dashed #B9B9B9;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+	border-radius: 9px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-button {
+	padding: 0 10px;
+	background: #F0F0F0;
+	border-radius: 6px;
+	font-size: 16px;
+	line-height: 47px;
+	text-align: center;
+	font-family: 'degularsemibold';
+	height: 47px;
+	width: 170px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-name {
+	font-size: 20px;
+	line-height: 27px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+}
+#registration_form .file-upload-wrap .file-upload .file-select:hover {
+  border-color: #34495e;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload .file-select:hover .file-select-button {
+  background: #34495e;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload.active .file-select {
+  border-color: #3fa46a;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload.active .file-select .file-select-button {
+  background: #3fa46a;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload .file-select input[type="file"] {
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+
+#registration_form .btn-wrap {
+	display: block;
+	width: 100%;margin-top: 20px;
+}
+#registration_form .btn-wrap .btn {
+	font-size: 23px;
+	line-height: 31px;
+	background: #06BEF6;
+	border: 1px solid #06BEF6;
+	box-sizing: border-box;
+	border-radius: 900px;
+	font-family: 'degularsemibold';
+	display: block;
+	width: 100%;
+}
+#registration_form .btn-wrap .btn:hover {background: #2E2D60;border: 1px solid #2E2D60;
+}
+
+
+.Patient-page .form-box.registration-page .form-wrap-container.mx-auto {
+	max-width: 472px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 50px;
+}
+
+
+.social-login {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 70px;
+}
+.social-login .social-link {
+	padding: 0 4px;
+}
+.social-login .btn {
+	font-size: 15.4332px;
+	line-height: 20px;
+	color: #2E2D60;
+	font-family: 'degularregular';
+	background: #FFFFFF;
+	border: 0.812274px solid #DDDDDD;
+	box-sizing: border-box;
+	border-radius: 731.047px;
+	padding: 11px 0;
+}
+
+.social-login .btn img {
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+#registration_form .form-group.fpass {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 13px;
+	font-size: 22px;color: #6e6e8a;
+	line-height: 22px;
+}
+#registration_form .form-group.fpass span a {
+	display: inline-block;
+	font-family: 'degularregular';
+	font-size: 22px;
+	line-height: 29px;
+	width: auto;
+}
+#registration_form .form-group.fpass a {
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: normal;
+	text-align: right;
+	color: #2E2D60;
+	font-size: 17px;
+	line-height: 22px;
+	width: 100%;
+}
+.user-page #registration_form {
+	margin-top: 25px;
+}
+.user-page header {
+	border: none !important;
+	margin: 0 !important;
+	padding-bottom: 0 !important;
+}
+.user-page header::before {display: none; }
+
+.user-page .social-login {
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+.user-page .form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 0;
+}
+#registration_form .form-group.fpass span {
+	position: absolute;
+}
+
+
+@media(max-width: 767px){
+	.form-box.registration-page header::before {width: 115px; }
+	
+	#registration_form .form-control {height: 45px;font-size: 16px; padding: 0 15px; }
+
+	.form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 50px;
+}
+}
+
+
+@media(max-width: 575px){
+	.form-box .heading-wrap {padding: 30px 15px 25px; }
+
+	.heading-wrap h2 {font-size: 30px; line-height: 35px; }
+
+	.heading-wrap p {font-size: 16px; line-height: 22px; }
+
+	#registration_form .form-control {height: 40px; font-size: 15px; }
+
+	#registration_form label {font-size: 18px; line-height: 15px; margin-bottom: 10px; }
+	
+	#registration_form .file-upload-wrap .file-upload .file-select .file-select-name {font-size: 18px; line-height: 22px; }
+
+	#registration_form .verification-wrap .title {margin-bottom: 40px; }
+
+	#registration_form .verification-wrap h5 {font-size: 26px; line-height:25px; padding: 0 25px; }
+
+	#registration_form .verification-wrap p {font-size: 15px;padding: 0 15px; line-height: 22px; }
+
+#registration_form .file-upload-wrap .file-upload .file-select {
+	height: auto;
+	line-height: 40px;
+	text-align: center;
+	padding: 0 15px;
+	display: block;
+}
+.countries-box #countries_msdd {
+	background-size: 8px;width: 40px !important;
+}
+#registration_form .form-control.js-special-tags {
+	background-size: 8px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select {
+	padding: 15px 15px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-button {
+	font-size: 15px;
+	line-height: 37px;
+	height: 37px;
+	width: 150px;
+	margin: 10px auto;
+}
+#registration_form .file-upload-wrap.form-group {
+	margin-top: 25px;
+}
+.social-login {
+	margin-bottom: 30px;
+}
+.Patient-page .form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 50px;
+}
+.social-login .social-link {
+	padding: 10px 15px;
+}
+.form-box.registration-page header {
+	padding: 20px 0;border-bottom: 2px solid #DCDCDC;
+}
+.form-box.registration-page header::before {
+	height: 2px;
+	bottom: -2px;
+}
+#registration_form .form-group {
+	padding: 0 15px;
+}
+#registration_form .btn-wrap .btn {font-size: 18px; line-height: 31px; }
+
+.heading-wrap h1 {
+	font-size: 35px;
+	line-height: 35px;
+}
+#registration_form .form-group.fpass span {
+	position: static;
+	width: 100%;margin-bottom: 10px;
+	display: block;
+}
+#registration_form .form-group.fpass {
+	display: block;
+}
 }

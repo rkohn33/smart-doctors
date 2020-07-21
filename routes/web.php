@@ -58,6 +58,19 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('create', 'twilio\VideoRoomsController@createRoom');
     });
 
+
+    Route::get('doctor/login', function () {
+        return view('login.doctor-login');
+    });
+    Route::get('doctor/signup', function () {
+        return view('signup.doctor-signup');
+    });
+    Route::get('patient/signup', function () {
+        return view('signup.patient-signup');
+    });
+    Route::get('patient/login', function () {
+        return view('login.patient-login');
+    });
 });
 
 

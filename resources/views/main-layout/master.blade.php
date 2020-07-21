@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Smart Doctors - @yield('title')</title>
@@ -19,6 +22,8 @@
     <body>
             @yield('content')
         <!-- Scripts -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="{{ url('/js/jquery.dd.min.js') }}"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
         @yield('js')
     </body>
