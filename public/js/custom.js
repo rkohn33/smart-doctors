@@ -370,7 +370,7 @@ document.body.addEventListener('keyup', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Websites\Smart Doctors\V2\resources\js\custom.js */"./resources/js/custom.js");
+module.exports = __webpack_require__(/*! D:\Websites\Smart Doctors\Original Smart Doctor\smart-doctors\resources\js\custom.js */"./resources/js/custom.js");
 
 
 /***/ })
