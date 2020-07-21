@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@font-face {
+    font-family: 'degularbold';
+    src: url('/fonts/degular-bold.woff2') format('woff2'),
+         url('/fonts/degular-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'degularregular';
+    src: url('/fonts/degular-regular.woff2') format('woff2'),
+         url('/fonts/degular-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'degularsemibold';
+    src: url('/fonts/degular-semibold.woff2') format('woff2'),
+         url('/fonts/degular-semibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body {
     background-color: #E5E5E5;
     font-family: Degular;
@@ -1040,3 +1065,506 @@ border-radius: 3px;
     transform: scale(1);
   }
 }
+
+
+.form-box.registration-page header  {
+	padding: 50px 0;
+	border-bottom: 4px solid #DCDCDC;
+	margin-bottom: 26px;position: relative;
+}
+.form-box.registration-page header::before {
+	position: absolute;
+	content: "";
+	height: 4px;
+	width: 246px;
+	bottom: -4px;
+	background: #06BEF6;
+}
+.container {
+	max-width: 1289px;
+}
+.form-box.registration-page {
+	margin-bottom: 117px;
+}
+.form-box header .signup-wrap a {
+	font-size: 14px;
+	line-height: 24px;
+	color: #06BEF6;
+	font-family: 'degularsemibold';
+	border: 2px solid #06BEF6 !important;
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+
+.form-box header .signup-wrap a:hover {
+	background: #2E2D60;color: #ffffff;border: 2px solid #2E2D60 !important;
+}
+.form-box .bg-light {
+	background-color: #fff !important;
+	background: #FFFFFF;
+	box-shadow: 0px 60px 74px rgba(0, 0, 0, 0.05);
+	border-radius: 8px;
+}
+.form-box .heading-wrap {
+	padding: 60px 15px 35px;
+}
+.heading-wrap h1 {
+	font-family: 'degularsemibold';
+	font-size: 69px;
+	line-height: 92px;
+	color: #2E2D60;
+}
+.heading-wrap h2 {
+	font-family: 'degularsemibold';
+	font-size: 51px;
+	line-height: 58px;
+	color: #2E2D60;
+}
+.heading-wrap p {
+	font-family: 'degularregular';
+	font-size: 24px;
+	line-height: 32px;
+	color: #2E2D60;
+	opacity: 0.6;
+}
+
+.form-box.registration-page .form-wrap-container.mx-auto {
+	max-width: 644px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 140px;
+}
+.countries-box {
+	display: flex;
+	align-items: center;
+}
+#registration_form .form-group {
+	margin-bottom: 13px;
+	padding: 0 11px;
+}
+#registration_form label {
+	font-size: 22px;
+	line-height: 20px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+	margin-bottom: 20px;
+}
+#registration_form .form-control {
+	height: 60px;
+	padding: 0 26px;
+	background: #FFFFFF;
+	border: 1px solid #B9B9B9;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+	border-radius: 9px;
+	font-weight: 500;
+	font-size: 19px;
+	line-height: 25px;
+	font-family: 'DM Sans', sans-serif;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#registration_form .form-control:focus {
+	border: 1px solid #06BEF6;
+}
+#registration_form .form-control::placeholder {color: #2E2D60; opacity: 0.6 }
+
+#registration_form .form-control:-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+#registration_form .form-control::-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+.countries-box #countries_msdd {
+	background: url(/img/arrow-down.png);
+	background-repeat: no-repeat;
+	background-position: 100% center;
+	width: 70px !important;
+	margin-right: 15px;
+}
+.countries-box #countries {
+	width: 45px !important;
+	margin-right: 15px;
+}
+.countries-box #countries_msdd .ddlabel {
+	display: none;
+}
+#registration_form .form-control.js-special-tags {
+	background: url(/img/arrow-blue.png);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-repeat: no-repeat;
+	background-position: 96% center;
+}
+#registration_form .verification-wrap {
+	margin-top: 30px;
+}
+#registration_form .verification-wrap .title {
+	border-bottom: 1px solid #c4c3c8;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	margin-bottom: 70px;
+}
+#registration_form .verification-wrap h5 {
+	font-size: 36px;
+	line-height: 35px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+	width: auto;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+	bottom: -30px;
+	display: inline-block;
+	max-width: 100%;
+	background: #fff;
+	padding: 0 55px;
+}
+#registration_form .verification-wrap p {
+	font-size: 19px;
+	line-height: 28px;
+	color: #2E2D60;
+	opacity: 0.6;
+	font-weight: 400;
+	font-family: 'DM Sans', sans-serif;
+}
+
+#registration_form .file-upload-wrap.form-group {
+	margin-top: 45px;
+}
+#registration_form .file-upload-wrap .file-upload {
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select {
+	color: #34495e;
+	cursor: pointer;
+	height: 98px;
+	line-height: 40px;
+	text-align: left;
+	overflow: hidden;
+	position: relative;
+	background: #FFFFFF;
+	padding: 0 35px;
+	border: 1px dashed #B9B9B9;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+	border-radius: 9px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-button {
+	padding: 0 10px;
+	background: #F0F0F0;
+	border-radius: 6px;
+	font-size: 16px;
+	line-height: 47px;
+	text-align: center;
+	font-family: 'degularsemibold';
+	height: 47px;
+	width: 170px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-name {
+	font-size: 20px;
+	line-height: 27px;
+	color: #2E2D60;
+	font-family: 'degularsemibold';
+}
+#registration_form .file-upload-wrap .file-upload .file-select:hover {
+  border-color: #34495e;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload .file-select:hover .file-select-button {
+  background: #34495e;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload.active .file-select {
+  border-color: #3fa46a;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload.active .file-select .file-select-button {
+  background: #3fa46a;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#registration_form .file-upload-wrap .file-upload .file-select input[type="file"] {
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+
+#registration_form .btn-wrap {
+	display: block;
+	width: 100%;margin-top: 20px;
+}
+#registration_form .btn-wrap .btn {
+	font-size: 23px;
+	line-height: 31px;
+	background: #06BEF6;
+	border: 1px solid #06BEF6;
+	box-sizing: border-box;
+	border-radius: 900px;
+	font-family: 'degularsemibold';
+	display: block;
+	width: 100%;
+}
+#registration_form .btn-wrap .btn:hover {background: #2E2D60;border: 1px solid #2E2D60;
+}
+
+
+.Patient-page .form-box.registration-page .form-wrap-container.mx-auto {
+	max-width: 472px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 50px;
+}
+
+
+.social-login {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 70px;
+}
+.social-login .social-link {
+	padding: 0 4px;
+}
+.social-login .btn {
+	font-size: 15.4332px;
+	line-height: 20px;
+	color: #2E2D60;
+	font-family: 'degularregular';
+	background: #FFFFFF;
+	border: 0.812274px solid #DDDDDD;
+	box-sizing: border-box;
+	border-radius: 731.047px;
+	padding: 11px 0;
+}
+
+.social-login .btn img {
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+#registration_form .form-group.fpass {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 13px;
+	font-size: 22px;color: #6e6e8a;
+	line-height: 22px;
+}
+#registration_form .form-group.fpass span a {
+	display: inline-block;
+	font-family: 'degularregular';
+	font-size: 22px;
+	line-height: 29px;
+	width: auto;
+}
+#registration_form .form-group.fpass a {
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: normal;
+	text-align: right;
+	color: #2E2D60;
+	font-size: 17px;
+	line-height: 22px;
+	width: 100%;
+}
+.user-page #registration_form {
+	margin-top: 25px;
+}
+.user-page header {
+	border: none !important;
+	margin: 0 !important;
+	padding-bottom: 0 !important;
+}
+.user-page header::before {display: none; }
+
+.user-page .social-login {
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+.user-page .form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 0;
+}
+#registration_form .form-group.fpass span {
+	position: absolute;
+}
+
+
+@media(max-width: 767px){
+	.form-box.registration-page header::before {width: 115px; }
+	
+	#registration_form .form-control {height: 45px;font-size: 16px; padding: 0 15px; }
+
+	.form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 50px;
+}
+}
+
+
+@media(max-width: 575px){
+	.form-box .heading-wrap {padding: 30px 15px 25px; }
+
+	.heading-wrap h2 {font-size: 30px; line-height: 35px; }
+
+	.heading-wrap p {font-size: 16px; line-height: 22px; }
+
+	#registration_form .form-control {height: 40px; font-size: 15px; }
+
+	#registration_form label {font-size: 18px; line-height: 15px; margin-bottom: 10px; }
+	
+	#registration_form .file-upload-wrap .file-upload .file-select .file-select-name {font-size: 18px; line-height: 22px; }
+
+	#registration_form .verification-wrap .title {margin-bottom: 40px; }
+
+	#registration_form .verification-wrap h5 {font-size: 26px; line-height:25px; padding: 0 25px; }
+
+	#registration_form .verification-wrap p {font-size: 15px;padding: 0 15px; line-height: 22px; }
+
+#registration_form .file-upload-wrap .file-upload .file-select {
+	height: auto;
+	line-height: 40px;
+	text-align: center;
+	padding: 0 15px;
+	display: block;
+}
+.countries-box #countries_msdd {
+	background-size: 8px;width: 40px !important;
+}
+#registration_form .form-control.js-special-tags {
+	background-size: 8px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select {
+	padding: 15px 15px;
+}
+#registration_form .file-upload-wrap .file-upload .file-select .file-select-button {
+	font-size: 15px;
+	line-height: 37px;
+	height: 37px;
+	width: 150px;
+	margin: 10px auto;
+}
+#registration_form .file-upload-wrap.form-group {
+	margin-top: 25px;
+}
+.social-login {
+	margin-bottom: 30px;
+}
+.Patient-page .form-box.registration-page .form-wrap-container.mx-auto {
+	padding-bottom: 50px;
+}
+.social-login .social-link {
+	padding: 10px 15px;
+}
+.form-box.registration-page header {
+	padding: 20px 0;border-bottom: 2px solid #DCDCDC;
+}
+.form-box.registration-page header::before {
+	height: 2px;
+	bottom: -2px;
+}
+#registration_form .form-group {
+	padding: 0 15px;
+}
+#registration_form .btn-wrap .btn {font-size: 18px; line-height: 31px; }
+
+.heading-wrap h1 {
+	font-size: 35px;
+	line-height: 35px;
+}
+#registration_form .form-group.fpass span {
+	position: static;
+	width: 100%;margin-bottom: 10px;
+	display: block;
+}
+#registration_form .form-group.fpass {
+	display: block;
+}
+}
+
+.borderRadius{-moz-border-radius:0px; border-radius:0px; }
+.borderRadiusTp{-moz-border-radius:0; border-radius:0;}
+.borderRadiusBtm{-moz-border-radius:0; border-radius:0;}
+
+.ddcommon {position:relative;display:-moz-inline-stack; zoom:1; display:inline-block; *display:inline; cursor:default;}
+.ddcommon ul{padding:0;margin:0;}
+.ddcommon ul li{list-style-type:none;}
+.borderRadiusTp ul li:last-child{-moz-border-radius:0 0 5px 5px ; border-radius:0 0 5px 5px;border-bottom:0 none #c3c3c3; }
+.borderRadiusBtm ul li:first-child{-moz-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0 ;border-bottom:1 solid #c3c3c3; }
+
+.ddcommon .disabled img, .ddcommon .disabled span, .ddcommon.disabledAll{
+opacity: .5; /* standard: ff gt 1.5, opera, safari */
+-ms-filter:"alpha(opacity=50)"; /* ie 8 */
+filter:alpha(opacity=50); /* ie lt 7 */
+-khtml-opacity:.5; /* safari 1.x */
+-moz-opacity:.5; /* ff lt 1.5, netscape */
+color:#999999;
+}
+.ddcommon .clear{clear:both}
+.ddcommon .shadow{-moz-box-shadow:5px 5px 5px -5px #888888;-webkit-box-shadow:5px 5px 5px -5px #888888;box-shadow: 5px 5px 5px -5px #888888;}
+.ddcommon .text{color:#7e7e7e;padding:0; position:absolute; background:#fff; display:block; width:98%; height:98%; left:2px; top:0; border:none;}
+.ddOutOfVision{position:relative; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline;}
+.borderRadius .shadow{-moz-box-shadow:5px 5px 5px -5px #888888;-webkit-box-shadow:5px 5px 5px -5px #888888;box-shadow: 5px 5px 5px -5px #888888;}
+.borderRadiusBtm .shadow{-moz-box-shadow:-5px -5px 5px -5px #888888;-webkit-box-shadow:-5px -5px 5px -5px #888888;box-shadow: -5px -5px 5px -5px #888888}
+.borderRadiusTp .border, .borderRadius .border{-moz-border-radius:0 0 5px 5px ; border-radius:0 0 5px 5px;}
+.borderRadiusBtm .border{-moz-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0;}
+img.fnone{float:none !important}
+.ddcommon .divider{width:0; height:100%; position:absolute;}
+.ddcommon .arrow{display:inline-block; position:absolute; top:50%; right:4px;}
+.ddcommon .arrow:hover{background-position:0 100%;}
+.ddcommon .ddTitle{padding:0; position:relative; display:inline-block; width:100%}
+.ddcommon .ddTitle .ddTitleText{display:block;}
+.ddcommon .ddTitle .ddTitleText .ddTitleText{padding:0;}
+.ddcommon .ddTitle .description{display:block;}
+.ddcommon .ddTitle .ddTitleText img{position:relative; vertical-align:middle; float:left}
+.ddcommon .ddChild{position:absolute;display:none;width:100%;overflow-y:auto; overflow-x:hidden; zoom:1;}
+.ddcommon .ddChild li{clear:both;}
+.ddcommon .ddChild li .description{display:block;}
+.ddcommon .ddChild li img{border:0 none; position:relative;vertical-align:middle;float:left}
+.ddcommon .ddChild li.optgroup{padding:0;}
+.ddcommon .ddChild li.optgroup .optgroupTitle{padding:0 5px; font-weight:bold; font-style:italic}
+.ddcommon .ddChild li.optgroup ul li{padding:5px 5px 5px 15px}
+.ddcommon .noBorderTop{border-top:none 0  !important; padding:0; margin:0;}
+
+/*************** default theme **********************/
+/*.dd{border:1px solid #c3c3c3;}*/
+/*.dd .divider{border-left:1px solid #c3c3c3; border-right:1px solid #fff;; right:24px;}*/
+/*.dd .arrow{width:16px;height:16px; margin-top:-8px; background:url(../../images/msdropdown/skin1/dd_arrow.gif) no-repeat;}*/
+.dd .arrow:hover{background-position:0 100%;}
+
+/*.dd .ddTitle .ddTitleText{padding:5px 20px 5px 5px;}*/
+.dd .ddTitle .ddTitleText .ddTitleText{padding:0;}
+.dd .ddTitle .description{font-size:12px; color:#666}
+.dd .ddTitle .ddTitleText img{padding-right:5px;}
+.dd .ddChild{border:1px solid #c3c3c3; background-color:#fff; left:-1px;}
+.dd .ddChild li{padding:5px; background-color:#fff; border-bottom:1px solid #c3c3c3;}
+.dd .ddChild li .description{color:#666;}
+.dd .ddChild li .ddlabel{color:#333;}
+.dd .ddChild li.hover{background-color:#f2f2f2}
+.dd .ddChild li img{padding:0 6px 0 0;}
+.dd .ddChild li.optgroup{padding:0;}
+.dd .ddChild li.optgroup .optgroupTitle{padding:0 5px; font-weight:bold; font-style:italic}
+.dd .ddChild li.optgroup ul li{padding:5px 5px 5px 15px}
+.dd .ddChild li.selected{background-color:#d5d5d5; color:#000;}
+
+.flag{float:left;padding:0 !important;margin:0 5px 0 0;width:16px;height:11px;background:url(/img/flagssprite_small.png) no-repeat;}.flag.ad{background-position:0 0}.flag.ae{background-position:0 -11px}.flag.af{background-position:0 -22px}.flag.ag{background-position:0 -33px}.flag.ai{background-position:0 -44px}.flag.al{background-position:0 -55px}.flag.am{background-position:0 -66px}.flag.an{background-position:0 -77px}.flag.ao{background-position:0 -88px}.flag.ar{background-position:0 -99px}.flag.as{background-position:0 -110px}.flag.at{background-position:0 -121px}.flag.au{background-position:0 -132px}.flag.aw{background-position:0 -143px}.flag.ax{background-position:0 -154px}.flag.az{background-position:0 -165px}.flag.ba{background-position:0 -176px}.flag.bb{background-position:0 -187px}.flag.bd{background-position:0 -198px}.flag.be{background-position:0 -209px}.flag.bf{background-position:0 -220px}.flag.bg{background-position:0 -231px}.flag.bh{background-position:0 -242px}.flag.bi{background-position:0 -253px}.flag.bj{background-position:0 -264px}.flag.bm{background-position:0 -275px}.flag.bn{background-position:0 -286px}.flag.bo{background-position:0 -297px}.flag.br{background-position:0 -308px}.flag.bs{background-position:0 -319px}.flag.bt{background-position:0 -330px}.flag.bv{background-position:0 -341px}.flag.bw{background-position:0 -352px}.flag.by{background-position:0 -363px}.flag.bz{background-position:0 -374px}.flag.ca{background-position:0 -385px}.flag.catalonia{background-position:0 -396px}.flag.cc{background-position:0 -407px}.flag.cd{background-position:0 -418px}.flag.cf{background-position:0 -429px}.flag.cg{background-position:0 -440px}.flag.ch{background-position:0 -451px}.flag.ci{background-position:0 -462px}.flag.ck{background-position:0 -473px}.flag.cl{background-position:0 -484px}.flag.cm{background-position:0 -495px}.flag.cn{background-position:0 -506px}.flag.co{background-position:0 -517px}.flag.cu{background-position:0 -528px}.flag.cr{background-position:0 -539px}.flag.cs{background-position:0 -550px}.flag.cv{background-position:0 -561px}.flag.cx{background-position:0 -572px}.flag.cy{background-position:-16px 0}.flag.cz{background-position:-16px -11px}.flag.de{background-position:-16px -22px}.flag.dj{background-position:-16px -33px}.flag.dk{background-position:-16px -44px}.flag.dm{background-position:-16px -55px}.flag.do{background-position:-16px -66px}.flag.dz{background-position:-16px -77px}.flag.ec{background-position:-16px -88px}.flag.ee{background-position:-16px -99px}.flag.eg{background-position:-16px -110px}.flag.eh{background-position:-16px -121px}.flag.england{background-position:-16px -132px}.flag.er{background-position:-16px -143px}.flag.es{background-position:-16px -154px}.flag.et{background-position:-16px -165px}.flag.eu{background-position:-16px -176px}.flag.fam{background-position:-16px -187px}.flag.fi{background-position:-16px -198px}.flag.fj{background-position:-16px -209px}.flag.fk{background-position:-16px -220px}.flag.fm{background-position:-16px -231px}.flag.fo{background-position:-16px -242px}.flag.fr{background-position:-16px -253px}.flag.ga{background-position:-16px -264px}.flag.gb{background-position:-16px -275px}.flag.gd{background-position:-16px -286px}.flag.ge{background-position:-16px -297px}.flag.gf{background-position:-16px -308px}.flag.gh{background-position:-16px -319px}.flag.gi{background-position:-16px -330px}.flag.gl{background-position:-16px -341px}.flag.gm{background-position:-16px -352px}.flag.gn{background-position:-16px -363px}.flag.gp{background-position:-16px -374px}.flag.gq{background-position:-16px -385px}.flag.gr{background-position:-16px -396px}.flag.gs{background-position:-16px -407px}.flag.gt{background-position:-16px -418px}.flag.gu{background-position:-16px -429px}.flag.gw{background-position:-16px -440px}.flag.gy{background-position:-16px -451px}.flag.hk{background-position:-16px -462px}.flag.hm{background-position:-16px -473px}.flag.hn{background-position:-16px -484px}.flag.hr{background-position:-16px -495px}.flag.ht{background-position:-16px -506px}.flag.hu{background-position:-16px -517px}.flag.id{background-position:-16px -528px}.flag.ie{background-position:-16px -539px}.flag.il{background-position:-16px -550px}.flag.in{background-position:-16px -561px}.flag.io{background-position:-16px -572px}.flag.iq{background-position:-32px 0}.flag.ir{background-position:-32px -11px}.flag.is{background-position:-32px -22px}.flag.it{background-position:-32px -33px}.flag.jm{background-position:-32px -44px}.flag.jo{background-position:-32px -55px}.flag.jp{background-position:-32px -66px}.flag.ke{background-position:-32px -77px}.flag.kg{background-position:-32px -88px}.flag.kh{background-position:-32px -99px}.flag.ki{background-position:-32px -110px}.flag.km{background-position:-32px -121px}.flag.kn{background-position:-32px -132px}.flag.kp{background-position:-32px -143px}.flag.kr{background-position:-32px -154px}.flag.kw{background-position:-32px -165px}.flag.ky{background-position:-32px -176px}.flag.kz{background-position:-32px -187px}.flag.la{background-position:-32px -198px}.flag.lb{background-position:-32px -209px}.flag.lc{background-position:-32px -220px}.flag.li{background-position:-32px -231px}.flag.lr{background-position:-32px -242px}.flag.lk{background-position:-32px -253px}.flag.ls{background-position:-32px -264px}.flag.lt{background-position:-32px -275px}.flag.lu{background-position:-32px -286px}.flag.lv{background-position:-32px -297px}.flag.ly{background-position:-32px -308px}.flag.ma{background-position:-32px -319px}.flag.mc{background-position:-32px -330px}.flag.md{background-position:-32px -341px}.flag.me{background-position:-32px -352px}.flag.mg{background-position:-32px -363px}.flag.mh{background-position:-32px -374px}.flag.mk{background-position:-32px -385px}.flag.ml{background-position:-32px -396px}.flag.mm{background-position:-32px -407px}.flag.mn{background-position:-32px -418px}.flag.mo{background-position:-32px -429px}.flag.mp{background-position:-32px -440px}.flag.mq{background-position:-32px -451px}.flag.mr{background-position:-32px -462px}.flag.ms{background-position:-32px -473px}.flag.mt{background-position:-32px -484px}.flag.mu{background-position:-32px -495px}.flag.mv{background-position:-32px -506px}.flag.mw{background-position:-32px -517px}.flag.mx{background-position:-32px -528px}.flag.my{background-position:-32px -539px}.flag.mz{background-position:-32px -550px}.flag.na{background-position:-32px -561px}.flag.nc{background-position:-32px -572px}.flag.ne{background-position:-48px 0}.flag.nf{background-position:-48px -11px}.flag.ng{background-position:-48px -22px}.flag.ni{background-position:-48px -33px}.flag.nl{background-position:-48px -44px}.flag.no{background-position:-48px -55px}.flag.np{background-position:-48px -66px}.flag.nr{background-position:-48px -77px}.flag.nu{background-position:-48px -88px}.flag.nz{background-position:-48px -99px}.flag.om{background-position:-48px -110px}.flag.pa{background-position:-48px -121px}.flag.pe{background-position:-48px -132px}.flag.pf{background-position:-48px -143px}.flag.pg{background-position:-48px -154px}.flag.ph{background-position:-48px -165px}.flag.pk{background-position:-48px -176px}.flag.pl{background-position:-48px -187px}.flag.pm{background-position:-48px -198px}.flag.pn{background-position:-48px -209px}.flag.pr{background-position:-48px -220px}.flag.ps{background-position:-48px -231px}.flag.pt{background-position:-48px -242px}.flag.pw{background-position:-48px -253px}.flag.py{background-position:-48px -264px}.flag.qa{background-position:-48px -275px}.flag.re{background-position:-48px -286px}.flag.ro{background-position:-48px -297px}.flag.rs{background-position:-48px -308px}.flag.ru{background-position:-48px -319px}.flag.rw{background-position:-48px -330px}.flag.sa{background-position:-48px -341px}.flag.sb{background-position:-48px -352px}.flag.sc{background-position:-48px -363px}.flag.scotland{background-position:-48px -374px}.flag.sd{background-position:-48px -385px}.flag.se{background-position:-48px -396px}.flag.sg{background-position:-48px -407px}.flag.sh{background-position:-48px -418px}.flag.si{background-position:-48px -429px}.flag.sj{background-position:-48px -440px}.flag.sk{background-position:-48px -451px}.flag.sl{background-position:-48px -462px}.flag.sm{background-position:-48px -473px}.flag.sn{background-position:-48px -484px}.flag.so{background-position:-48px -495px}.flag.sr{background-position:-48px -506px}.flag.st{background-position:-48px -517px}.flag.sv{background-position:-48px -528px}.flag.sy{background-position:-48px -539px}.flag.sz{background-position:-48px -550px}.flag.tc{background-position:-48px -561px}.flag.td{background-position:-48px -572px}.flag.tf{background-position:-64px 0}.flag.tg{background-position:-64px -11px}.flag.th{background-position:-64px -22px}.flag.tj{background-position:-64px -33px}.flag.tk{background-position:-64px -44px}.flag.tl{background-position:-64px -55px}.flag.tm{background-position:-64px -66px}.flag.tn{background-position:-64px -77px}.flag.to{background-position:-64px -88px}.flag.tr{background-position:-64px -99px}.flag.tt{background-position:-64px -110px}.flag.tv{background-position:-64px -121px}.flag.tw{background-position:-64px -132px}.flag.tz{background-position:-64px -143px}.flag.ua{background-position:-64px -154px}.flag.ug{background-position:-64px -165px}.flag.um{background-position:-64px -176px}.flag.us{background-position:-64px -187px}.flag.uy{background-position:-64px -198px}.flag.uz{background-position:-64px -209px}.flag.va{background-position:-64px -220px}.flag.vc{background-position:-64px -231px}.flag.ve{background-position:-64px -242px}.flag.vg{background-position:-64px -253px}.flag.vi{background-position:-64px -264px}.flag.vn{background-position:-64px -275px}.flag.vu{background-position:-64px -286px}.flag.wales{background-position:-64px -297px}.flag.wf{background-position:-64px -308px}.flag.ws{background-position:-64px -319px}.flag.ye{background-position:-64px -330px}.flag.yt{background-position:-64px -341px}.flag.za{background-position:-64px -352px}.flag.zm{background-position:-64px -363px}.flag.zw{background-position:-64px -374px}

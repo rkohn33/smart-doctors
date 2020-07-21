@@ -1,19 +1,4 @@
-<script>
-    $('.myCalendar').calendar({
-        date: new Date(),
-        autoSelect: false, // false by default
-        select: function (date) {
-            console.log('SELECT', date)
-        },
-        toggle: function (y, m) {
-            console.log('TOGGLE', y, m)
-        }
-    });
-    $('#navbar-custom-title').text('Appointments');
-</script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
 <script type="text/javascript">
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -80,34 +65,12 @@
             chart.draw(data, options);
         });
     }
-</script>
 
-<script>
     $('#navbar-custom-title').text('My Profile');
-</script>
-
-<script>
-            $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
-        <script src="{{ asset('js/custom.js') }}"></script>
-
-        <script>
-    $('#navbar-custom-title').text('My Profile');
-</script>
-
-<script>
-    $('.myCalendar').calendar({
-        date: new Date(),
-        autoSelect: false, // false by default
-        select: function (date) {
-            console.log('SELECT', date)
-        },
-        toggle: function (y, m) {
-            console.log('TOGGLE', y, m)
-        }
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
     });
+    $('#navbar-custom-title').text('My Profile');
     $('#navbar-custom-title').text('Appointments');
 </script>

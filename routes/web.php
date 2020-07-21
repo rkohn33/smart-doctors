@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
             return view('doctor.wallet');
         });
         Route::get('/profile', 'Doctor\ProfileController@index');
+
     });
     Route::group(['prefix' => 'patient'], function(){
         Route::get('/home', 'Patient\HomeController@index');
@@ -51,6 +52,32 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', 'Nurse\HomeController@index');
     });
 
+    Route::get('/', "twilio\VideoRoomsController@index");
+    Route::prefix('room')->group(function() {
+        Route::get('join/{roomName}', 'twilio\VideoRoomsController@joinRoom');
+        Route::post('create', 'twilio\VideoRoomsController@createRoom');
+    });
+
+
+    Route::get('doctor/login', function () {
+        return view('login.doctor-login');
+    });
+    Route::get('doctor/signup', function () {
+        return view('signup.doctor-signup');
+    });
+    Route::get('patient/signup', function () {
+        return view('signup.patient-signup');
+    });
+    Route::get('patient/login', function () {
+        return view('login.patient-login');
+    });
 });
+
+
+// Route::view('/', 'twilio.calls');
+// Route::post('/call', 'twilio\VoiceController@initiateCall')->name('initiate_call');
+
+        
+
 
 Route::get('/logout','Auth\UserAuthController@logout');
