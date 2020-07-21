@@ -15,11 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',function(){
-    return redirect('/login');
+    return view('welcome');
+});
+Route::group(['prefix' => 'doctor'], function(){
+    Auth::routes();
+    Route::post('/login', 'Auth\UserAuthController@login');
 });
 
-Auth::routes();
-Route::post('/login', 'Auth\UserAuthController@login');
+Route::group(['prefix' => 'patient'], function(){
+    Auth::routes();
+    Route::post('/login', 'Auth\UserAuthController@login');
+
+});
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -45,6 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/profile', 'Doctor\ProfileController@index');
 
     });
+
     Route::group(['prefix' => 'patient'], function(){
         Route::get('/home', 'Patient\HomeController@index');
     });
@@ -52,7 +60,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', 'Nurse\HomeController@index');
     });
 
-    Route::get('/', "twilio\VideoRoomsController@index");
+    Route::get('/video_chat', "twilio\VideoRoomsController@index");
     Route::prefix('room')->group(function() {
         Route::get('join/{roomName}', 'twilio\VideoRoomsController@joinRoom');
         Route::post('create', 'twilio\VideoRoomsController@createRoom');

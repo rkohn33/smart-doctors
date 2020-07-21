@@ -55,10 +55,10 @@ class UserAuthController extends Controller
     
     }
     public function logout(){
-      
+        $prefix = strtolower(Auth::user()->utype);
         Auth::logout();
         session()->flush();
-        return redirect('/login');
+        return redirect($prefix.'/login');
 
    }
 }
