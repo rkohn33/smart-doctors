@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 @font-face {
     font-family: 'degularbold';
-    src: url('../fonts/degular-bold.woff2') format('woff2'),
-         url('../fonts/degular-bold.woff') format('woff');
+    src: url('/fonts/degular-bold.woff2') format('woff2'),
+         url('/fonts/degular-bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'degularregular';
-    src: url('../fonts/degular-regular.woff2') format('woff2'),
-         url('../fonts/degular-regular.woff') format('woff');
+    src: url('/fonts/degular-regular.woff2') format('woff2'),
+         url('/fonts/degular-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'degularsemibold';
-    src: url('../fonts/degular-semibold.woff2') format('woff2'),
-         url('../fonts/degular-semibold.woff') format('woff');
+    src: url('/fonts/degular-semibold.woff2') format('woff2'),
+         url('/fonts/degular-semibold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
