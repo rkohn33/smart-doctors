@@ -33,6 +33,22 @@ class LoginController extends Controller
      *
      * @return void
      */
+    public function showLoginForm()
+    {  
+        if(request()->getRequestUri() == '/doctor/login'){
+            return view('auth.doctor-login');
+        }
+        else if(request()->getRequestUri() == '/patient/login'){
+            return view('auth.patient-login');
+        }
+        else if(request()->getRequestUri() == '/nurse/login'){
+            return view('auth.nurse-login');
+        }
+        else if(request()->getRequestUri() == '/admin/login'){
+            return view('auth.admin-login');
+        }
+       
+    }
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
