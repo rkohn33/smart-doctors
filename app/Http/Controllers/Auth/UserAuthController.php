@@ -30,9 +30,10 @@ class UserAuthController extends Controller
        }
 
        $user_exists = Users::where('email',$input['email'])
+                                 ->where('utype',$input['user_type'])
+                                 ->where('approval','A')
                                 ->first();
        if(!empty($user_exists)){
-
            $user_data = $user_exists->toArray();
            if(Hash::check($input['password'], $user_data['password'])){
                $request->session()->regenerate();
@@ -47,7 +48,6 @@ class UserAuthController extends Controller
                    
            }
        }
-       
        else{
         return redirect()->back()
                    ->withErrors(['email'=>'Invalid email']);

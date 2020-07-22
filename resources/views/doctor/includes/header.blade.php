@@ -41,7 +41,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ url(Auth::user()->utype.'/dashboard') }}">
+            <a class="nav-link" href="{{ url(Auth::user()->utype.'/home') }}">
                 <img class="float-left" src="{{ url('img/home.svg') }}"><span class="pl-3">Home</span>
             </a>
           </li>
