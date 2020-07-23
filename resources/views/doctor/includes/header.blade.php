@@ -1,9 +1,7 @@
 <div class="d-flex" id="wrapper">
     <!-- /#sidebar-wrapper -->
 
-    <div class="top-nav">
-        <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <a class="navbar-brand" href="index.html"><img src="/img/logo.png"></a>
       <div class="page-header"><h1>Appointments</h1></div>
   
@@ -39,7 +37,7 @@
   
   
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <ul class="navbar-nav navbar-sidenav " id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
             <a class="nav-link" href="{{ url(Auth::user()->utype.'/home') }}">
                 <img class="float-left" src="{{ url('img/home.svg') }}"><span class="pl-3">Home</span>
@@ -100,6 +98,4 @@
           </li>
         </ul>
       </div>
-          </nav>
-        </div>
-      </div>
+    </nav>

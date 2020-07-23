@@ -21,7 +21,10 @@ mix.styles(
                 'resources/css/dd.css',
                 'resources/css/flags.css',
                 'resources/css/apppointment.css',
+                'resources/css/wallet.css',
             ]
             , 'public/css/custom.css');
+
+// mix.styles('resources/css/wallet.css', 'public/css/wallet.css');
 
 

@@ -489,8 +489,9 @@ p {
     }
 
     .inner-container {
-        padding: 100px;
-        padding-top: 0;
+        padding-right: 100px;
+        padding-left: 300px;
+        padding-top: 100px;
     }
 
     #navbar-custom-title {
