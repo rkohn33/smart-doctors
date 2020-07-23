@@ -23,17 +23,31 @@
           <p>Lorem Ipsum is simply dummy text of the typesetting industry.</p>
         </div>
         <div class="form-wrap-container mx-auto">
-          <form name="doc_registration_form" id='registration_form' method="POST" action="{{url('doctor/signup')}}">
+          <form name="doc_registration_form" id='registration_form' method="POST" action="{{url('doctor/signup')}}" enctype="multipart/form-data">
              @csrf
+             @if($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{!! $error !!}</li>  
+                  @endforeach
+                </ul>
+                </div>
+            @endif
+            @if(session()->has('success'))
+              <div class="alert alert-success text-center">
+                   {{ session()->get('success') }}
+                </div>
+            @endif
             <div class="row">
               <div class="form-group col-lg-12">
                 <label for="UserName">Name</label>
                 <div class="row">
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="fname" name="first_name" placeholder="first name">
+                      <input type="text" class="form-control" id="fname" name="first_name" value="{{old('first_name')}}" placeholder="first name">
                     </div>
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="lname" name="last_name" placeholder="last name">
+                      <input type="text" class="form-control" id="lname" name="last_name" value="{{old('last_name')}}" placeholder="last name">
                     </div>
                 </div>
               </div>
@@ -55,40 +69,40 @@
                     <option value='ar' data-image="/img/blank.gif" data-imagecss="flag ar" data-title="Argentina">Argentina</option>
                     <option value='in' data-image="/img/blank.gif" data-imagecss="flag in" data-title="India" selected="selected">India</option>
                   </select>
-                  <input type="text" class="form-control" id="phone" name ="phone" placeholder="+ 1 786 453 3242">
+                  <input type="text" class="form-control" id="phone" name ="phone" value="{{old('phone')}}" placeholder="+ 1 786 453 3242">
                 </div>
               </div>
 
               <div class="form-group col-sm-6 col-lg-6">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Email Address">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="hadd">Home Address</label>
-                <input type="text" class="form-control" id="hadd" name="address" placeholder="Home Address">
+                <input type="text" class="form-control" id="hadd" name="address" value="{{old('address')}}" placeholder="Home Address">
               </div>
 
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                <input type="text" class="form-control" id="city" name="city" value="{{old('city')}}" placeholder="City">
               </div>
 
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="state" name="state" placeholder="State">
+                <input type="text" class="form-control" id="state" name="state" value="{{old('state')}}" placeholder="State">
               </div>
 
               <div class="form-group col-sm-12 col-lg-4">
                 <label for="post">Post/ZIP Code</label>
-                <input type="text" class="form-control" id="post" name="postal_code" placeholder="Post/ZIP Code">
+                <input type="text" class="form-control" id="post" name="postal_code" value="{{old('postal_code')}}" placeholder="Post/ZIP Code">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="spe">Specialization</label>
                 <select class="form-control js-special-tags" name="speciality">
                   <option selected="selected">Choose one...</option>
-                  <option>select 1</option>
+                  <option >select 1</option>
                   <option>select 2</option>
                   <option>select 3</option>
                   <option>select 4</option>
@@ -103,7 +117,7 @@
 
               <div class="form-group col-lg-12">
                 <label for="cpwd">Confirm Password</label>
-                <input type="password" class="form-control" id="cpwd" name="confirm_password" placeholder="••••••">
+                <input type="password" class="form-control" id="cpwd" name="password_confirmation" placeholder="••••••">
               </div>
 
 

@@ -28,6 +28,26 @@ class UserRequest extends FormRequest
         return $validator;
     }
 
+    public function register($data){
+
+        $validator = Validator::make($data, [
+            'first_name'=> 'required',
+            'last_name' => 'required',
+            'email'     => 'required|email|unique:users,email',
+            'phone'     => 'required',
+            'password'  => 'required|confirmed',
+            'address' => 'required',
+            'speciality' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'medical_registration' => 'required',
+            'medical_degree' => 'required',
+            'medical_proof' => 'required'
+        ]);
+
+        return $validator;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

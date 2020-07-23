@@ -31,11 +31,14 @@ class UserAuthController extends Controller
 
        $user_exists = Users::where('email',$input['email'])
                                  ->where('utype',$input['user_type'])
-                                 ->where('approval','A')
                                 ->first();
        if(!empty($user_exists)){
            $user_data = $user_exists->toArray();
            if(Hash::check($input['password'], $user_data['password'])){
+               if($user_data['approval']!= 'A'){
+                    return redirect()->back()
+                          ->withErrors(['password'=>'Your account is currently not active.']);
+                 }
                $request->session()->regenerate();
                Auth::loginUsingId($user_data['id']);
                $this-> session->set($user_data);
@@ -44,13 +47,13 @@ class UserAuthController extends Controller
            }
            else{
                return redirect()->back()
-                   ->withErrors(['password'=>'Invalid password.']);
+                   ->withErrors(['password'=>'Password is invalid.']);
                    
            }
        }
        else{
         return redirect()->back()
-                   ->withErrors(['email'=>'Invalid email']);
+                   ->withErrors(['email'=>'Email is invalid']);
        }
     
     }

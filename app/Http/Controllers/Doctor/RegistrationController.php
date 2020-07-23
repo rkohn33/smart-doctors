@@ -7,17 +7,47 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\SmartDoctor\Doctor\DoctorDetails;
+use App\Http\Requests\Request\User\UserRequest;
+use App\Http\Controllers\DocumentUploadController;
 
 class RegistrationController extends Controller
 {
     public function doctorRegister(Request $request)
     {
         $input = $request ->all();
-        $users_id = $this->createUser($input);
+        $validator = (new UserRequest())->register($input);
+        if ($validator->fails()) {
+            return redirect()->back()
+                       ->withErrors($validator)
+                       ->withInput();
+       }
+        $document_paths = $this->uploadDocuments($request);
+        $data      =  array_merge($document_paths,$input);
+        $users_id = $this->createUser($data);
         $input['user_id']   = $users_id;
         $users_id = $this->createProfile($input);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Register Succesfully!');
     }
+
+    public function uploadDocuments($request)
+    {
+        $medical_registration = $medical_degree = $medical_proof = "";
+        $document = new DocumentUploadController();
+        if($request->hasFile('medical_registration')){ 
+            $name = 'medical_registration_'.uniqid().'.'.$request->file('medical_registration')->extension();
+            $medical_registration = $document-> documentUpload($request,$name,'medical_registration');
+        }
+        if($request->hasFile('medical_degree')){ 
+            $name = 'medical_degree_'.md5(uniqid()).'.'.$request->file('medical_degree')->extension();
+            $medical_registration = $document-> documentUpload($request,$name,'medical_degree');
+        }
+        if($request->hasFile('medical_proof')){ 
+            $name = 'medical_proof_'.md5(uniqid()).'.'.$request->file('medical_proof')->extension();
+            $medical_registration = $document-> documentUpload($request,$name,'medical_proof');
+        }
+        return ['medical_registration_path'=>$medical_registration,'medical_degree_path'=>$medical_degree,'medical_proof_path'=>$medical_proof];
+    }
+
     public function createProfile($input){
 
         $data['salutation'] = 'Dr.';
@@ -42,6 +72,9 @@ class RegistrationController extends Controller
            $details['state']     = $data['state'];
            $details['city']      = $data['city'];
            $details['zip']       = $data['postal_code'];
+           $details['medical_registration']  = $data['medical_registration_path'];
+           $details['medical_proof']       = $data['medical_proof_path'];
+           $details['medical_degree']       = $data['medical_degree_path'];
            $details['utype']     = 'doctor';
            $details['approval']     = 'P';
            $details['CreatedTime']  = now();
