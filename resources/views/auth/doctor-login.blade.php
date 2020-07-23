@@ -21,22 +21,26 @@
         <div class="heading-wrap text-center">
           <h1>Doctor Login</h1>
         </div>
-
       
         <div class="form-wrap-container mx-auto">
         <form method="POST" id='registration_form' action="{{ url('doctor/login') }}">
          @csrf
+           @if($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{!! $error !!}</li>  
+                  @endforeach
+                </ul>
+                </div>
+            @endif
             <div class="row">
               <div class="form-group col-lg-12">
                 <label for="UserName">Email / User ID</label>
                 <div class="row">
                     <div class="form-group col-12">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address or user ID">
-                      @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                      @enderror
+                      <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Enter your email address or user ID">
+                    
                     </div>
                 </div>
               </div>
@@ -45,12 +49,6 @@
               <div class="form-group col-lg-12">
                 <label for="pwd">Password</label>
                 <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter your password">
-                @error('password')
-                     <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                @enderror
-             
               </div>
               
               <div class="btn-wrap text-center col-12">
@@ -58,7 +56,7 @@
               </div>
 
               <div class="form-group col-lg-12 fpass">
-                <span> Not a doctor yet? <a href="#">Sign up</a></span>
+                <span> Not a doctor yet? <a href="{{ url('doctor/signup') }}">Sign up</a></span>
                 <a href="#">Forgot Password?</a>
               </div>
             </div>
