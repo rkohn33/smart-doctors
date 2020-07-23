@@ -12,7 +12,7 @@
         </div>
         <div class="col-9 col-lg-9">
           <div class="signup-wrap text-right">
-            <a href="#" class="btn border border-primary">Doctor Signup</a>
+            <a href="{{url('doctor/login')}}" class="btn border border-primary">Doctor Login</a>
           </div>
         </div>
       </div>
@@ -23,16 +23,17 @@
           <p>Lorem Ipsum is simply dummy text of the typesetting industry.</p>
         </div>
         <div class="form-wrap-container mx-auto">
-          <form name="doc_registration_form" id='registration_form' post="#">
+          <form name="doc_registration_form" id='registration_form' method="POST" action="{{url('doctor/signup')}}">
+             @csrf
             <div class="row">
               <div class="form-group col-lg-12">
                 <label for="UserName">Name</label>
                 <div class="row">
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="fname" placeholder="first name">
+                      <input type="text" class="form-control" id="fname" name="first_name" placeholder="first name">
                     </div>
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="lname" placeholder="last name">
+                      <input type="text" class="form-control" id="lname" name="last_name" placeholder="last name">
                     </div>
                 </div>
               </div>
@@ -54,38 +55,38 @@
                     <option value='ar' data-image="/img/blank.gif" data-imagecss="flag ar" data-title="Argentina">Argentina</option>
                     <option value='in' data-image="/img/blank.gif" data-imagecss="flag in" data-title="India" selected="selected">India</option>
                   </select>
-                  <input type="text" class="form-control" id="phone" placeholder="+ 1 786 453 3242">
+                  <input type="text" class="form-control" id="phone" name ="phone" placeholder="+ 1 786 453 3242">
                 </div>
               </div>
 
               <div class="form-group col-sm-6 col-lg-6">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="Email Address">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="hadd">Home Address</label>
-                <input type="text" class="form-control" id="hadd" placeholder="Home Address">
+                <input type="text" class="form-control" id="hadd" name="address" placeholder="Home Address">
               </div>
 
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City">
+                <input type="text" class="form-control" id="city" name="city" placeholder="City">
               </div>
 
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State">
+                <input type="text" class="form-control" id="state" name="state" placeholder="State">
               </div>
 
               <div class="form-group col-sm-12 col-lg-4">
                 <label for="post">Post/ZIP Code</label>
-                <input type="text" class="form-control" id="post" placeholder="Post/ZIP Code">
+                <input type="text" class="form-control" id="post" name="postal_code" placeholder="Post/ZIP Code">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="spe">Specialization</label>
-                <select class="form-control js-special-tags">
+                <select class="form-control js-special-tags" name="speciality">
                   <option selected="selected">Choose one...</option>
                   <option>select 1</option>
                   <option>select 2</option>
@@ -96,13 +97,13 @@
               </div>
               
               <div class="form-group col-lg-12">
-                <label for="pwd">Choose Password</label>
-                <input type="password" class="form-control" id="pwd" placeholder="••••••">
+                <label for="pwd">Enter Password</label>
+                <input type="password" class="form-control" id="pwd" name="password" placeholder="••••••">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="cpwd">Confirm Password</label>
-                <input type="password" class="form-control" id="cpwd" placeholder="••••••">
+                <input type="password" class="form-control" id="cpwd" name="confirm_password" placeholder="••••••">
               </div>
 
 
@@ -115,24 +116,24 @@
                 <div class="file-upload">
                   <div class="file-select">
                     <div class="file-select-name" id="noFile">Medical Registration Proof</div> 
-                    <div class="file-select-button" id="fileName">Choose File...</div>
-                    <input type="file" name="chooseFile" id="chooseFile">
+                    <div class="file-select-button" id="medical_registration">Choose File...</div>
+                    <input type="file" name="medical_registration" >
                   </div>
                 </div>
 
                 <div class="file-upload">
                   <div class="file-select">
                     <div class="file-select-name" id="noFile">Medical Degree Certification Proof</div> 
-                    <div class="file-select-button" id="fileName">Choose File...</div>
-                    <input type="file" name="chooseFile" id="chooseFile">
+                    <div class="file-select-button" id="medical_degree">Choose File...</div>
+                    <input type="file" name="medical_degree" >
                   </div>
                 </div>
 
                 <div class="file-upload">
                   <div class="file-select">
                     <div class="file-select-name" id="noFile">Government-Issued Photo ID Proof</div> 
-                    <div class="file-select-button" id="fileName">Choose File...</div>
-                    <input type="file" name="chooseFile" id="chooseFile">
+                    <div class="file-select-button" id="medical_proof">Choose File...</div>
+                    <input type="file" name="medical_proof" >
                   </div>
                 </div>
               </div>
