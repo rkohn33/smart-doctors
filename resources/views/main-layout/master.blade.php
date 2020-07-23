@@ -31,7 +31,7 @@
         <script src="{{ asset('vendor/calendar/jquery-pseudo-ripple.js') }}"></script>
         <script src="{{ asset('vendor/calendar/jquery-nao-calendar.js') }}"></script>
         <script src="{{ url('/js/jquery.dd.min.js') }}"></script>
-        <script src="{{ asset('js/custom.js') }}"></script>
+        {{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
 
         @yield('js')
     </body>

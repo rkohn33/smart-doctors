@@ -22,17 +22,6 @@
     font-style: normal;
 }
 
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {font-family: 'degularregular';
-  overflow-x: hidden;
-}
-
-
 .scroll-to-top {
   position: fixed;
   right: 15px;
@@ -81,11 +70,14 @@ body {font-family: 'degularregular';
 #mainNav .navbar-collapse .navbar-nav .nav-item .nav-link {
   cursor: pointer;
   border-right: 1px solid #d7d6dc;
-  padding: 0 16px;
+  padding: 0 10px;
   font-size: 17px;position: relative;
   line-height: 23px;color: #2E2D60;
   font-family: 'degularsemibold';
   text-transform: capitalize;
+}
+#mainNav .navbar-collapse .navbar-nav .nav-item .nav-link i {
+  margin-right: 10px;
 }
 #mainNav .navbar-collapse .navbar-nav .nav-item .nav-link .badge-warning {
   color: #fff;
@@ -365,7 +357,7 @@ table.dataTable thead .sorting_asc {
 }
 
 .appointments-box .form-control.js-special-tags {
-  background: url(../images/arrow-down.png);
+  background: url(/img/arrow-down.png);
   -moz-appearance: none;
   -webkit-appearance: none;
   background-repeat: no-repeat;
@@ -543,6 +535,14 @@ div.dataTables_wrapper div.dataTables_paginate span a {
   padding: 5px 15px;
   margin-top: 15px;
 }
+.user-edit .btn-wrap a:hover {
+  background: #202f4c;
+}
+.user-edit .btn-wrap a i {
+  float: right;
+  line-height: 24px;
+  display: block;
+}
 .earning-chart {
   background: #202f4c;
   min-height: 100%;
@@ -553,13 +553,34 @@ div.dataTables_wrapper div.dataTables_paginate span a {
   -webkit-user-select: none;
   -ms-user-select: none;
   position: absolute;
-  bottom: 0;
+  bottom: 0;height: 247px !important;
+}
+.earning-chart .aspect-ratio .chart-caption .js-special-tags {
+  background-image: url(/img/arrow-down.png);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: 85% center;
+  font-size: 12.3537px;
+  color: #2E2D60;
+  font-family: 'degularsemibold';
+  text-transform: capitalize;
+  border: 0.882404px solid #E9E9E9;
+  box-sizing: border-box;
+  float: right;
+  border-radius: 3.52961px;
+  width: 91.96px;
+  background-size: 9px;
+  background-color: #fff;
 }
 
 
-
 .earning-box .earning-details {
-  background: #fff;padding: 0;
+  padding: 0;
 }
 .earning-box .earning-details .earning-list {
   padding: 0;
@@ -581,8 +602,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 }
 .earning-box .earning-details .earning-list li h5 {
   font-family: degularsemibold;
-  font-style: normal;
-  font-weight: 600;
+ 
   font-size: 28px;
   display: flex;
   align-items: center;
@@ -592,8 +612,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 }
 .earning-box .earning-details .earning-list li span {
   font-family: degularregular;
-  font-style: normal;
-  font-weight: 600;
+ 
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -621,12 +640,14 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 .earning-chart .aspect-ratio .chart-caption {
   position: absolute;
   width: 100%;
-  padding: 0 40px;
+  padding: 45px 40px;
+  background: #202f4c;
+  z-index: 9;
 }
 .earning-chart .aspect-ratio .chart-caption h1 {
   font-family: degularsemibold;
   font-size: 44px;
-  line-height: 48px;
+  line-height: 22px;
   color: #FFFFFF;
 }
 .earning-chart .aspect-ratio .chart-caption h1 span {
@@ -640,7 +661,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 .earning-chart .aspect-ratio .chart-caption p {
   font-family: degularsemibold;
   font-size: 22px;
-  line-height: 22px;
+  line-height: 32px;
   color: #04C6FF;
   opacity: 0.95;
   margin: 0;
@@ -743,6 +764,45 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 
 
 @media (max-width: 991px) {
+  .navbar-nav.mobile-top .dropdown-menu .nav-link i {
+  margin-right: 10px;
+}
+  #mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item:last-child .nav-link {
+  border: none;
+  padding-bottom: 0;
+}
+  #mainNav .navbar-collapse .navbar-nav.user-nav {
+  display: none;
+}
+.earning-box .earning-details {
+  padding: 0 15px;
+}
+  .user-edit {
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 30px;
+}
+.earning-box .earning-wrap, .title-header {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+}
+  .earning-chart .aspect-ratio .chart-caption h1 {
+  font-size: 40px;
+}
+.earning-chart .aspect-ratio .chart-caption p {
+  font-size: 20px;
+}
+  .earning-chart canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  position: static;
+  bottom: 0;
+  height: auto;
+}
+.earning-chart .aspect-ratio .chart-caption {
+  padding: 25px 40px;position: static;
+}
   .heading-wrap h5 {
   margin-bottom: 10px;
   font-size: 20px;
@@ -851,6 +911,15 @@ font-family: 'degularsemibold'; }
   .content-wrapper {padding: 90px 0; margin-left: 0; }
 
   #mainNav.bg-light {background-color: #202F4D !important; padding: 15px 15px 15px 15px; }
+
+
+  .earning-box .earning-wrap, .title-header {
+  padding-right: 0;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
 }
 
 @media(max-width: 767px){
@@ -862,6 +931,46 @@ font-family: 'degularsemibold'; }
 
 
 @media(max-width: 575px){
+  .earning-box .earning-details .earning-list li h5 {
+  font-size: 25px;
+}
+  .earning-box .earning-details .earning-list li p {
+  font-size: 18px;
+}
+  .earning-box .earning-details .earning-list li {
+  padding: 10px 10px;
+}
+  .earning-chart .aspect-ratio .chart-caption h1 {
+  font-size: 25px;margin: 0;
+}
+.earning-chart .aspect-ratio .chart-caption p {
+  font-size: 15px;line-height: 22px;
+}
+  .earning-chart .aspect-ratio .chart-caption {
+  padding: 10px 10px;
+}
+  .earning-box {
+  margin-top: 40px;
+}
+  .user-edit .btn-wrap a {
+  min-width: 145px;
+}
+  .user-edit a i {
+  margin-left: 3px;
+  font-size: 14px;
+}
+  .user-edit {
+  margin-top: 15px;
+}
+  .user-edit a {
+  font-size: 18px;
+}
+  .title-header p {font-size: 18px; line-height: 15px; margin-top: 0px; }
+
+  .title-header h1 {
+  font-size: 28px;
+  line-height: 30px;
+}
 .content-wrapper .page-header h1 {
   margin: 0;
   font-size: 22px;
