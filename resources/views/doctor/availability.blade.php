@@ -6,122 +6,106 @@
 @include('doctor.includes.side-nav-bar')
 @include('doctor.includes.header')
 
-    <div class="content">
-    <div class="row m-3">
-        <div class="col-md-4">
-          <div class="avail-header">Calendar</div>
-          <div class="yellow">
-            <div id="calendar">
-              <div id="toolbar"></div>
-              <div id="dates" class="show">
-                <div id="lastMt">&lsaquo;</div>
-                <div id="nextMt">&rsaquo;</div>
-                <div id="months-cont">
-                  <div id="months">
-                    <span class="active month">January</span><span class="month">February</span><span
-                      class="month">March</span><span class="month">April</span><span class="month">May</span><span
-                      class="month">June</span><span class="month">July</span><span class="month">August</span><span
-                      class="month">September</span><span class="month">October</span><span
-                      class="month">November</span><span class="month">December</span>
+  <div class="container-fluid">
+    <div class="inner-container">
+      <div class="page-header">
+          <div class="container">
+            <h1>Availability</h1>
+          </div>
+      </div>
+    </div>
+    <div class="inner-container">
+      <div class="row">
+          <div class="calendar-box col-lg-4">
+            <div class="heading-wrap">
+                <h5>Calendar</h5>
+            </div>
+            <div class="card">
+                <div id="calendar"></div>
+            </div>
+          </div>
+          <div class="appointments-box col-lg-8">
+            <div class="heading-wrap">
+                <h5>June 11, 2020</h5>
+            </div>
+            <div class="card">
+                <div class="time-slice day">
+                  <div class="card-header">
+                      <h1><span></span>Morning</h1>
+                      <a href="#">+ ADD SLOT </a>
+                      <p>9:00 AM to 12:00 PM</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="tags">
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:00 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:10 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:20 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:30 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:40 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 9:50 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 10:00 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 10:10 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 10:20 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 10:30 AM</a>
+                      </div>
                   </div>
                 </div>
-                <div id="daysotweek">
-                  <div class="day">S</div>
-                  <div class="day">M</div>
-                  <div class="day">T</div>
-                  <div class="day">W</div>
-                  <div class="day">T</div>
-                  <div class="day">F</div>
-                  <div class="day">S</div>
+                <div class="time-slice night">
+                  <div class="card-header">
+                      <h1><span></span>evening</h1>
+                      <a href="#">+ ADD SLOT </a>
+                      <p>9:00 AM to 12:00 PM</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="tags">
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:00 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:10 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:20 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:30 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:40 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 5:50 AM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 6:00 PM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 6:10 PM</a>
+                        <a href="#" class="success"><i class="fa fa-angle-right" aria-hidden="true"></i> 6:20 PM</a>
+                      </div>
+                  </div>
                 </div>
-                <div id="days">
+                <div class="card-footer small text-muted">
+                  <div class="row align-items-center">
+                      <div class="col-sm-6 col-lg-6">
+                        <p><i class="far fa-clock"></i> Waiting List</p>
+                      </div>
+                      <div class="col-sm-6 col-lg-6">
+                        <a class="btn btn-info" href="">Add to waitlist <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                      </div>
+                  </div>
                 </div>
-              </div>
             </div>
-
           </div>
-        </div>
-        <div class="col-md-8">
-          <div class="avail-header">June 11, 2020</div>
-          <div class="card timings p-4">
-
-            <div class="inline">
-
-              <div class="inline">
-                <img class="time-img" src="{{ url('img/Morning.svg') }}">
-                <div class="time-heading">Morning</div>
-
-              </div>
-              <div class="float-right inline">
-                <img class="inline" src="{{ url('img/add.svg') }}">
-                <div class="add-slot">Add Slot</div>
-              </div>
-            </div>
-            <div class="time">9:00 AM to 12:00 PM</div>
-            <br>
-
-            <div class="mx-auto">
-              <div>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-              </div>
-              <br>
-
-              <div>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-              </div>
-            </div>
-            <br>
-            <hr>
-            <br>
-            <div class="inline">
-
-              <div class="inline">
-                <img class="time-img" src="{{ url('img/Evening.svg') }}">
-                <div class="time-heading">Evening</div>
-
-              </div>
-              <div class="float-right inline">
-                <img class="inline" src="{{ url('img/add.svg') }}">
-                <div class="add-slot">Add Slot</div>
-              </div>
-            </div>
-            <div class="time">5:00 PM to 09:00 PM</div>
-            <br>
-            <div class="mx-auto">
-              <div>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-              </div>
-
-              <br>
-              <div>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-                <button class="time-btn"><span><img src="{{ url('img/arrow-next.svg') }}"></span>9:00AM</button>
-              </div>
-            </div>
-            <br>
-          </div>
-
-
-
-        </div>
-
       </div>
     </div>
   </div>
+</div>
 
+@endsection
+
+@section('js')
+
+<script type="text/javascript">
+  var iCal = new iCalendar('calendar');
+  iCal.render();
+  document.addEventListener('iCalendarDateSelected', function(event) {
+  console.log(iCal.selectedDate);
+  });
+
+$(document).ready(function(){
+  $('#hamburger').click(function(){
+    $(this).toggleClass('open');
+  });
+});
+
+
+
+</script>
+    
 @endsection

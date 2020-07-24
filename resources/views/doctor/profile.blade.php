@@ -3,7 +3,6 @@
 @include('doctor.includes.header')
 @include('doctor.includes.side-nav-bar')
 
-
 <img src="{{ url('img/gradient.png') }}" class="top-bar-profile">
 <div class="container-fluid">
     <div class="inner-container profile">
@@ -97,3 +96,4 @@
     </div>
 </div>
 
+@endsection

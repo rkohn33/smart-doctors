@@ -22,6 +22,8 @@ mix.styles(
                 'resources/css/flags.css',
                 'resources/css/apppointment.css',
                 'resources/css/wallet.css',
+                'resources/css/header.css',
+                'resources/css/availibility.css',
             ]
             , 'public/css/custom.css');
 

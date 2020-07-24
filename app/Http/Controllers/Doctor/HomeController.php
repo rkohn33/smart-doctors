@@ -12,10 +12,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if(!$this->checkProfileCompleted())
-        {
-           abort(404);
-        }
+        // if(!$this->checkProfileCompleted())
+        // {
+        //    abort(404);
+        // }
         return view('doctor.dashboard');
     }
 

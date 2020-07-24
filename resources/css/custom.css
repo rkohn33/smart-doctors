@@ -23,12 +23,9 @@
 
 
 
-body {
-    background-color: #E5E5E5;
-    font-family: Degular;
-    font-style: normal;
-    font-weight: 600;
-  }
+body {font-family: 'degularregular';
+  overflow-x: hidden;
+}
   
   .welcome {
     font-family: degular, sans-serif;

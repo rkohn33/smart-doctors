@@ -26,11 +26,13 @@
     <body>
         @yield('content')
         <!-- Scripts -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
         <script src="{{ asset('vendor/calendar/jquery-pseudo-ripple.js') }}"></script>
         <script src="{{ asset('vendor/calendar/jquery-nao-calendar.js') }}"></script>
         <script src="{{ url('/js/jquery.dd.min.js') }}"></script>
+        <script src="{{ url('/js/iCalendar.js') }}"></script>
         {{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
 
         @yield('js')
