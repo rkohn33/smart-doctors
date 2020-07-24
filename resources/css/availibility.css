@@ -173,7 +173,7 @@ table.dataTable thead .sorting_asc {
 }
 
 .appointments-box .form-control.js-special-tags {
-	background: url(../images/arrow-down.png);
+	background: url(/img/arrow-down.png);
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	background-repeat: no-repeat;
@@ -390,7 +390,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 }
 
 .earning-chart .aspect-ratio .chart-caption .js-special-tags {
-	background-image: url(../images/arrow-down.png);
+	background-image: url(/img/arrow-down.png);
 	background-position-x: 0%;
 	background-position-y: 0%;
 	background-repeat: repeat;
@@ -520,7 +520,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 }
 
 .weekly-earning-chart .aspect-ratio .chart-caption .js-special-tags {
-	background-image: url(../images/arrow-down.png);
+	background-image: url(/img/arrow-down.png);
 	background-position-x: 0%;
 	background-position-y: 0%;
 	background-repeat: repeat;

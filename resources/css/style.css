@@ -133,7 +133,7 @@ body{
 #registration_form .form-control::-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
 
 .countries-box #countries_msdd {
-	background: url(../images/arrow-down.png);
+	background: url(/img/arrow-down.png);
 	background-repeat: no-repeat;
 	background-position: 100% center;
 	width: 70px !important;

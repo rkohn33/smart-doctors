@@ -185,7 +185,7 @@ table.dataTable thead .sorting_asc {
 }
 
 .appointments-box .form-control.js-special-tags {
-	background: url(../images/arrow-down.png);
+	background: url(/img/arrow-down.png);
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	background-repeat: no-repeat;
