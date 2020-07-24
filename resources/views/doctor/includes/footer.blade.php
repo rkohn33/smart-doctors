@@ -74,3 +74,5 @@
     $('#navbar-custom-title').text('My Profile');
     $('#navbar-custom-title').text('Appointments');
 </script>
+
+

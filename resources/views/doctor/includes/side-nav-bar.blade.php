@@ -1,33 +1,36 @@
 
+<div class="d-flex" id="wrapper">
 
-<!-- Page Content -->
-    <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar border-bottom">
-            <span class="navbar-toggler-icon d-md-none" id="menu-toggle"></span>
-            <span id="navbar-custom-title" class="font-weight-bold"></span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-user"></i>
-            </button>
+<div class="bg-light border-right" id="sidebar-wrapper">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="list-group list-group-flush">
+    <div class="sidebar-heading">
+        <a href="{{ url(Auth::user()->utype.'/dashboard') }}"><img class="float-left" src="{{ url('img/logo.svg') }}"></a>
+    </div>
+        <a href="{{ url(Auth::user()->utype.'/dashboard') }}" class = "list-group-item list-group-item-action"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.97333 9.56231H5.37815V10.1575V15.873H0.754112V7.31131L8.09908 1.01562L15.3052 7.23905V15.873H10.6102V10.1575V9.56231H10.015H5.97333Z" stroke="#8e96a3" stroke-width="2"/>
+        </svg><span class="pl-3">Home</span></a>
+        <a href="{{ url(Auth::user()->utype.'/profile') }}" class="list-group-item list-group-item-action"><svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="1">
+            <path d="M13.4593 12.542L13.4602 12.5431C14.2013 13.4626 14.6027 14.605 14.6027 15.7816C14.6027 16.5289 14.1169 17.1893 13.4066 17.4097L13.4065 17.4097C9.67564 18.568 5.68116 18.568 1.95027 17.4097L1.95022 17.4097C1.23989 17.1893 0.754112 16.5289 0.754112 15.7816C0.754112 14.6047 1.15551 13.4626 1.89663 12.5431L1.89746 12.542C2.56573 11.7091 3.54209 11.1799 4.60264 11.0704C6.53197 12.0642 8.82482 12.0642 10.7542 11.0704C11.8147 11.1799 12.7911 11.7091 13.4593 12.542Z" stroke="#8e96a3" stroke-width="2"/>
+            <path d="M11.6753 5.0979C11.6753 7.30531 9.88587 9.09476 7.67847 9.09476C5.47106 9.09476 3.6816 7.30531 3.6816 5.0979C3.6816 2.89049 5.47106 1.10104 7.67847 1.10104C9.88587 1.10104 11.6753 2.89049 11.6753 5.0979Z" stroke="#8e96a3" stroke-width="2"/>
+            </g>
+          </svg><span class="pl-3">My Profile</span></a>
+        <a href="{{ url(Auth::user()->utype.'/appointment') }}" class="list-group-item list-group-item-action"><svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path opacity="1" d="M14.6162 2.07208H13.2455V0.701416H12.332V2.07208H5.02395V0.701416H4.11044V2.07208H2.74059C1.48117 2.07208 0.456421 3.09683 0.456421 4.35625V14.862C0.456421 16.1214 1.48117 17.1461 2.74059 17.1461H14.6162C15.8756 17.1461 16.9003 16.1214 16.9003 14.862V6.63961V5.7261V4.35544C16.8995 3.09602 15.8748 2.07208 14.6162 2.07208ZM15.986 14.8612C15.986 15.6163 15.3713 16.231 14.6162 16.231H2.74059C1.98461 16.231 1.36993 15.6163 1.36993 14.8612V6.63961H15.986V14.8612ZM15.986 5.7261H1.36993V4.35544C1.36993 3.59946 1.98461 2.98477 2.74059 2.98477H4.11126V3.89828H5.02395V2.98559H12.332V3.89909H13.2455V2.98559H14.6162C15.3713 2.98559 15.986 3.59946 15.986 4.35544V5.7261Z" stroke="#8e96a3"/>
+        </svg><span class="pl-3">Appointments</span></li></a>
+        <a href="{{ url(Auth::user()->utype.'/availability') }}" class="list-group-item list-group-item-action"><svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.08404 9.80752V9.85656L9.12791 9.8785L11.8635 11.2463C12.2163 11.4227 12.3593 11.8517 12.1829 12.2045C12.0065 12.5573 11.5775 12.7003 11.2247 12.5239L8.05043 10.9368C7.80846 10.8158 7.65562 10.5685 7.65562 10.298V5.53656C7.65562 5.14211 7.97538 4.82235 8.36983 4.82235C8.76428 4.82235 9.08404 5.14211 9.08404 5.53656V9.80752ZM9.1634 18.1543C4.38619 18.1543 0.5135 14.2816 0.5135 9.5044C0.5135 4.72719 4.38619 0.854503 9.1634 0.854503C13.9406 0.854503 17.8133 4.72719 17.8133 9.5044C17.8133 14.2816 13.9406 18.1543 9.1634 18.1543ZM9.1634 16.7259C13.1517 16.7259 16.3849 13.4927 16.3849 9.5044C16.3849 5.51609 13.1517 2.28293 9.1634 2.28293C5.17509 2.28293 1.94192 5.51609 1.94192 9.5044C1.94192 13.4927 5.17509 16.7259 9.1634 16.7259Z" fill="#8e96a3" stroke="#8e96a3" stroke-width="1"/>
+        </svg><span class="pl-3">Availability</span></a>
+        <a href="{{ url(Auth::user()->utype.'/consultation') }}" class="list-group-item list-group-item-action"><svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.08404 9.80752V9.85656L9.12791 9.8785L11.8635 11.2463C12.2163 11.4227 12.3593 11.8517 12.1829 12.2045C12.0065 12.5573 11.5775 12.7003 11.2247 12.5239L8.05043 10.9368C7.80846 10.8158 7.65562 10.5685 7.65562 10.298V5.53656C7.65562 5.14211 7.97538 4.82235 8.36983 4.82235C8.76428 4.82235 9.08404 5.14211 9.08404 5.53656V9.80752ZM9.1634 18.1543C4.38619 18.1543 0.5135 14.2816 0.5135 9.5044C0.5135 4.72719 4.38619 0.854503 9.1634 0.854503C13.9406 0.854503 17.8133 4.72719 17.8133 9.5044C17.8133 14.2816 13.9406 18.1543 9.1634 18.1543ZM9.1634 16.7259C13.1517 16.7259 16.3849 13.4927 16.3849 9.5044C16.3849 5.51609 13.1517 2.28293 9.1634 2.28293C5.17509 2.28293 1.94192 5.51609 1.94192 9.5044C1.94192 13.4927 5.17509 16.7259 9.1634 16.7259Z" fill="#8e96a3" stroke="#8e96a3" stroke-width="1"/>
+        </svg><span class="pl-3">Consultation</span></a>
+        <a href="{{ url(Auth::user()->utype.'/wallet') }}" class="list-group-item list-group-item-action"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="1">
+          <path d="M8.64984 3.10938L8.72886 4.50526C7.00376 4.62378 6.14779 5.42707 6.14779 6.67809C6.14779 7.91595 6.83256 8.73241 8.99223 9.08797C10.5461 9.35134 10.9807 9.69373 10.9807 10.3522C10.9807 10.9843 10.4803 11.3793 9.38729 11.3793C8.18894 11.3793 7.47783 10.8394 7.2803 9.7464L5.84491 10.0493C6.02927 11.3398 6.79306 12.3406 8.74202 12.4987L8.64984 14.0921H9.86136L9.76918 12.5118C11.6786 12.4065 12.4819 11.5505 12.4819 10.26C12.4819 9.14064 11.942 8.28468 9.58482 7.85011C7.92557 7.54723 7.62268 7.16534 7.62268 6.59908C7.62268 5.98015 8.09676 5.61143 9.09758 5.61143C10.2038 5.61143 10.5988 6.0855 10.8095 7.00731L12.2976 6.7176C12.0605 5.53242 11.3758 4.68962 9.78235 4.51843L9.86136 3.10938H8.64984Z" fill="#8e96a3"/>
+          <rect x="1.25567" y="0.693171" width="15.8154" height="15.8154" rx="1.98392" stroke="#8e96a3" stroke-width="2"/>
+          </g>
+        </svg><span class="pl-3">Wallet</span></a>
+    </div>
+</div>
+

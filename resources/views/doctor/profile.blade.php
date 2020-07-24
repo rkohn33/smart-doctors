@@ -1,7 +1,7 @@
 @extends('main-layout.master')
 @section('content')
-@include('doctor.includes.header')
 @include('doctor.includes.side-nav-bar')
+@include('doctor.includes.header')
 
 
 <img src="{{ url('img/gradient.png') }}" class="top-bar-profile">

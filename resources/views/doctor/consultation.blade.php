@@ -89,5 +89,6 @@
 
     </div>
   </div>
-
-@endsection
+  
+  @include('doctor.includes.footer')
+@endsection@endsection

@@ -1,8 +1,8 @@
 
 @extends('main-layout.master')
 @section('content')
-@include('doctor.includes.header')
 @include('doctor.includes.side-nav-bar')
+@include('doctor.includes.header')
 
 
 <div class="container-fluid">
@@ -89,7 +89,7 @@
                     <div class="card-body">
                         <h6><strong>Peter Thomas</strong></h6>
                         <h3><strong>10:30 AM</strong></h3>
-                        <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
+                        <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <div class="card mb-5" style="margin-top: 20px;background: ">
