@@ -13,7 +13,6 @@ class AppointmentController extends Controller
         $input = $request->all();
         $appointments = Appointments::where('doc_id',Auth::user()->id)
                                   ->paginate(10);
-        
         $next_appointments = optional(Appointments::where('doc_id',Auth::user()->id)
                                   ->where('appointment','>',now())
                                   ->first())->toArray();
