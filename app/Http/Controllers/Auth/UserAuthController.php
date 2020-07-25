@@ -35,7 +35,7 @@ class UserAuthController extends Controller
        if(!empty($user_exists)){
            $user_data = $user_exists->toArray();
            if(Hash::check($input['password'], $user_data['password'])){
-               if($user_data['approval']!= 'A'){
+               if($user_data['approval']!= 'A' && $user_data['utype']!= 'doctor'){
                     return redirect()->back()
                           ->withErrors(['password'=>'Your account is currently not active.']);
                  }
