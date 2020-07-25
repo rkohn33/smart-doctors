@@ -14,21 +14,6 @@ class ProfileController extends Controller
 
         $profile = optional(DoctorDetails::where('user_id',Auth::user()->id)
                                  ->first())->toArray();
-        $profile['salutation'] = 'Dr.';
-        $profile['first_name'] = 'Muhammad';
-        $profile['last_name']  = 'Ahmed';
-        $profile['speciality'] = 'Sleeping';
-        $profile['consultation_type']  = 'Audio';
-        $profile['website']     = 'www.com-wale.com';
-        $profile['bio']         = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae voluptas ut. Quis qui consequuntur rerum vero explicabo architecto, eaque necessitatibus hic repudiandae ipsum ut quod, ea, accusamus quo accusantium.';
-        $profile['education[]']   = ['university National Mayor De san Marcos, Peru Medical Doctor, 2010',
-                                'university National Mayor De san Marcos, Peru Medical Doctor, 2010',
-                                'university National Mayor De san Marcos, Peru Medical Doctor, 2010'];
-
-        $profile['hospital_name[]'] = ['university abcd','university abcd','university abcd'];
-
-        $profile['hospital_details[]'] = ['Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet'];
-        $profile = $this->dataMapping($profile);
         return view('doctor.profile',compact('profile'));
        
     }
