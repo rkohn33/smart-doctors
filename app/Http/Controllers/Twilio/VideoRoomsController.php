@@ -24,11 +24,15 @@ class VideoRoomsController extends Controller
     {
         $rooms = [];
         try {
-            $client = new Client($this->sid, $this->token);
-            $allRooms = $client->video->rooms->read($data);
-                $rooms = array_map(function($room) {
-                return $room->uniqueName;
-                }, $allRooms);
+            if(!empty($data[0]))
+            {
+                $client = new Client($this->sid, $this->token);
+                $allRooms = $client->video->rooms->read(['uniqueName'=>$data[0]]);
+                    $rooms = array_map(function($room) {
+                    return $room->uniqueName;
+                    }, $allRooms);
+            }
+          
 
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();

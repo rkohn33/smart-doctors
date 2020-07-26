@@ -16,7 +16,7 @@ class ConsultationController extends Controller
     public function index(Request $request)
     {
         $input = $request ->all();
-        $join_room = [];
+        $join_room = $rooms = [];
         $appointments = Appointments::where('patient_id',Auth::user()->id)
                                 ->where('appointment.status','Pending')
                                 ->whereDate('appointment',today())

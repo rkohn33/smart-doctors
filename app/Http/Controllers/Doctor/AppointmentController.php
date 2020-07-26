@@ -21,6 +21,7 @@ class AppointmentController extends Controller
                                   ->leftJoin('users as u','u.id','=','appointment.patient_id')
                                   ->where('appointment','>',now())
                                   ->where('appointment','<',now()->addDay(1))
+                                  ->orderBy('appointment','ASC')
                                   ->first(['appointment','patient_id','u.firstname','u.lastname']))->toArray();
         return view('doctor.appointment',compact('appointments','next_appointments'));
      
