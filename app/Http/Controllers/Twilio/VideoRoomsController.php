@@ -20,49 +20,47 @@ class VideoRoomsController extends Controller
         $this->secret = config('services.twilio.secret');
     }
 
-    public function index()
+    public function index($data)
     {
         $rooms = [];
         try {
             $client = new Client($this->sid, $this->token);
-            // dd( $client);
-            $allRooms = $client->video->rooms->read([]);
+            $allRooms = $client->video->rooms->read($data);
                 $rooms = array_map(function($room) {
                 return $room->uniqueName;
                 }, $allRooms);
 
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
-        }  
+        }
+        return $rooms;
         return view('twilio.video', ['rooms' => $rooms]);
     }
 
-    public function createRoom(Request $request)
+    public function createRoom($roomName)
     {
         $client = new Client($this->sid, $this->token);
 
-        $exists = $client->video->rooms->read([ 'uniqueName' => $request->roomName]);
+        $exists = $client->video->rooms->read([ 'uniqueName' => $roomName]);
 
         if (empty($exists)) {
             $client->video->rooms->create([
-                'uniqueName' => $request->roomName,
+                'uniqueName' => $roomName,
                 'type' => 'group',
                 'recordParticipantsOnConnect' => false
             ]);
 
-            \Log::debug("created new room: ".$request->roomName);
+            // \Log::debug("created new room: ".$request->roomName);
         }
+        return $roomName;
 
-        return redirect()->action('twilio\VideoRoomsController@joinRoom', [
-            'roomName' => $request->roomName
-        ]);
     }
 
     public function joinRoom($roomName)
     {
 
         // A unique identifier for this user
-        $identity = Auth::user()->id;
+        $identity = Auth::user()->firstname;
 
         \Log::debug("joined with identity: $identity");
         $token = new AccessToken($this->sid, $this->key, $this->secret, 3600, $identity);
@@ -72,7 +70,8 @@ class VideoRoomsController extends Controller
 
         $token->addGrant($videoGrant);
 
-        return view('twilio.room', [ 'accessToken' => $token->toJWT(), 'roomName' => $roomName ]);
+        return [ 'accessToken' => $token->toJWT(), 'roomName' => $roomName ];
+        // view('twilio.room', [ 'accessToken' => $token->toJWT(), 'roomName' => $roomName ]);
     }
 
 

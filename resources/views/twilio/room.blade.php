@@ -9,6 +9,17 @@
 <div class="content">
     <div class="title m-b-md">
         Video Chat Rooms
+        <form action="" method="GET">
+        @csrf
+            @if($rooms)
+            <select name="room" id="" onchange="this.form.submit()">
+            <option value="">Select</option>
+            @foreach ($rooms as $room)
+                 <option value="{{$room}}" {{(!empty($_GET['room']) && $_GET['room']==$room)  ? 'selected':''}}>{{$room}}</option>
+            @endforeach
+            </select>
+            @endif
+        </form>
     </div>
 
     <div id="media-div">
@@ -16,7 +27,7 @@
 </div>
 
 @endsection
-
+@if(!empty($join_room))
 @section('js')
 <script src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
 <script>
@@ -26,8 +37,8 @@
         width: 300
     }
 }).then(function(localTracks) {
-    return Twilio.Video.connect('{{ $accessToken }}', {
-        name: '{{ $roomName }}',
+    return Twilio.Video.connect('{{ $join_room["accessToken"] }}', {
+        name: '{{ $join_room["roomName"] }}',
         tracks: localTracks,
         video: {
             width: 300
@@ -97,3 +108,4 @@ function trackRemoved(track) {
 }
 </script>
 @endsection
+@endif
