@@ -45,7 +45,7 @@
                     <img class="float-left" src="{{ url('img/profile.svg') }}"><span class="pl-3">My Profile</span>
                   </a>
                 </li>
-                <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                   <a class="nav-link" href="{{ url(Auth::user()->utype.'/appointment') }}">
                     <img class="float-left" src="{{ url('img/calender.svg') }}"><span class="pl-3">Appointment</span>
                   </a>
