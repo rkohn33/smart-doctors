@@ -29,7 +29,10 @@ Route::group(['prefix' => 'doctor'], function(){
 Route::group(['prefix' => 'patient'], function(){
     Auth::routes();
     Route::post('/login', 'Auth\UserAuthController@login');
-
+    Route::get('/signup',function(){
+        return view('signup.patient-signup');
+   });
+   Route::post('/signup', 'Patient\RegistrationController@patientRegister');
 });
 
 Route::group(['middleware' => ['auth']], function () {

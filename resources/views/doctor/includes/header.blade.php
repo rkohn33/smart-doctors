@@ -22,7 +22,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
                   <div class="dropdown-divider"></div>
-                  <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
                   <div class="dropdown-divider"></div>
                   
                 </div>
@@ -45,7 +45,7 @@
                     <img class="float-left" src="{{ url('img/profile.svg') }}"><span class="pl-3">My Profile</span>
                   </a>
                 </li>
-                <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                   <a class="nav-link" href="{{ url(Auth::user()->utype.'/appointment') }}">
                     <img class="float-left" src="{{ url('img/calender.svg') }}"><span class="pl-3">Appointment</span>
                   </a>
@@ -87,7 +87,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
                     <div class="dropdown-divider"></div>
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
                     <div class="dropdown-divider"></div>
                   </div>
                 </li>

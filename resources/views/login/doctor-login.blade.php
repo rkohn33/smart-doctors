@@ -30,7 +30,7 @@
                 <label for="UserName">Email / User ID</label>
                 <div class="row">
                     <div class="form-group col-12">
-                      <input type="email" class="form-control" id="email" placeholder="Enter your email address or user ID">
+                      <input type="email" class="form-control" id="email" value="{{old('email')}}" placeholder="Enter your email address or user ID">
                     </div>
                 </div>
               </div>
