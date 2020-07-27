@@ -22,7 +22,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
                   <div class="dropdown-divider"></div>
-                  <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
                   <div class="dropdown-divider"></div>
                   
                 </div>
@@ -87,7 +87,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
                     <div class="dropdown-divider"></div>
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
                     <div class="dropdown-divider"></div>
                   </div>
                 </li>

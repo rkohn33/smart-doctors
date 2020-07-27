@@ -33,7 +33,6 @@ Route::group(['prefix' => 'patient'], function(){
         return view('signup.patient-signup');
    });
    Route::post('/signup', 'Patient\RegistrationController@patientRegister');
-
 });
 
 Route::group(['middleware' => ['auth']], function () {
