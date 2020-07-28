@@ -16,6 +16,7 @@ class AppointmentController extends Controller
                                        ->whereDate('appointment',today())
                                        ->leftJoin('users as u','u.id','=','appointment.patient_id')
                                        ->select(['appointment.*','u.firstname','u.lastname'])
+                                       ->orderBy('appointment','ASC')
                                        ->paginate(10);
         $next_appointments = optional(Appointments::where('doc_id',Auth::user()->id)
                                   ->leftJoin('users as u','u.id','=','appointment.patient_id')
