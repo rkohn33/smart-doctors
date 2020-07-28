@@ -29,11 +29,13 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>{{!empty($next_appointments['appointment']) ? 'Patient Name' : 'No Further Appointment'}}</p>
+                    <p>{{!empty($next_appointments['appointment']) ?  $next_appointments['firstname']." ".$next_appointments['lastname']  : 'No Further Appointment'}}</p>
                     <h4>{{!empty($next_appointments['appointment']) ? date('H:i:s',strtotime($next_appointments['appointment'])): '00:00'}}</h4>
                     <div class="btn-wrap">
                      @if(!empty($next_appointments))
-                        <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
+                        <a class="btn btn-info startnow" href="consultation/{{base64_encode($next_appointments['patient_id'])}}">
+                          Start Now &nbsp;<i class="fa fa-angle-right"></i>
+                        </a>
                     @endif                    
                     </div>
                   </div>
@@ -84,10 +86,10 @@
               @if(!empty($lists))
               @foreach($lists as $key => $app)
                         <tr>  
-                          <td>Peter Thomas</td>  
+                          <td>{{$app['firstname']." ".$app['lastname']}}</td>  
                           <td>Consultation</td>  
-                          <td>10/22/2020</td>  
-                          <td>10:30 AM</td>  
+                          <td>{{date('d-m-Y',strtotime($app['appointment']))}}</td>  
+                          <td>{{date('H:i:s',strtotime($app['appointment']))}}</td>  
                         </tr>
                         @endforeach
               @else

@@ -47,9 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/availability', function () {
             return view('doctor.availability');
         });
-        Route::get('/consultation', function () {
-            return view('doctor.consultation');
-        });
+        Route::get('/consultation/{patient_id?}','Doctor\ConsultationController@startConsultation');
         Route::get('/wallet', function () {
             return view('doctor.wallet');
         });
@@ -59,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'patient'], function(){
         Route::get('/home', 'Patient\HomeController@index');
+        Route::get('/start-call', 'Patient\ConsultationController@index');
     });
     Route::group(['prefix' => 'nurse'], function(){
         Route::get('/home', 'Nurse\HomeController@index');
