@@ -61,15 +61,17 @@
                     <div class="hosiptals mt-5">
                         <h3 class="font-weight-bold mb-3">Hospitals</h3>
                         <div class="row">
-                        @php
-            $hospitals = json_decode($profile['employment'],true);
-                         @endphp
-                        @foreach($hospitals as $hospital)
-                            <div class="col-md-4 mb-5">
-                                <h5 class="hospital-title" contenteditable="true">{{$hospital['name']}}</h5>
-                                <p contenteditable="true">{{$hospital['detail']}}</p>
-                            </div>
-                            @endforeach
+                            @if(!empty($profile['employment']))    
+                                @php
+                                $hospitals = json_decode($profile['employment'],true);
+                                @endphp
+                                @foreach($hospitals as $hospital)
+                                    <div class="col-md-4 mb-5">
+                                        <h5 class="hospital-title" contenteditable="true">{{$hospital['name']}}</h5>
+                                        <p contenteditable="true">{{$hospital['detail']}}</p>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
 
@@ -78,16 +80,17 @@
                     <div class="hosiptals mt-5">
                         <h3 class="font-weight-bold mb-3">Education</h3>
                         <div class="row">
-                        @php
-            $education = json_decode($profile['education'],true);
-        @endphp
-        @foreach($education as $edu)
-                            <div class="col-md-4">
-                                <p>University National Mayor</p>
-                                <h6 class="font-weight-bold">{{$edu['detail']}}</h6>
-                            </div>
+                        @if(!empty($profile['employment']))    
+                            @php
+                                $education = json_decode($profile['education'],true);
+                            @endphp
+                            @foreach($education as $edu)
+                                <div class="col-md-4">
+                                    <p>University National Mayor</p>
+                                    <h6 class="font-weight-bold">{{$edu['detail']}}</h6>
+                                </div>
                             @endforeach
-
+                        @endif
                         </div>
                     </div>
                 </div>
