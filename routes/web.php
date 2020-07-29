@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'doctor'], function(){
         Route::get('/home', 'Doctor\HomeController@index');
         Route::get('/appointment', 'Doctor\AppointmentController@index');
-        Route::get('/test', 'Doctor\ProfileController@updateOrCreate');
+        Route::post('/profile/update', 'Doctor\ProfileController@updateOrCreate');
         Route::get('/availability', function () {
             return view('doctor.availability');
         });
