@@ -24,9 +24,14 @@ mix.styles(
                 'resources/css/wallet.css',
                 'resources/css/header.css',
                 'resources/css/availibility.css',
+                'resources/css/user-profile.css'
             ]
             , 'public/css/custom.css');
 
-mix.styles('resources/css/patient-custom.css', 'public/css/patient-custom.css');
+mix.styles([
+            'resources/css/user-dashboard.css',
+            'resources/css/user-consultation.css',
+            'resources/css/patient-header.css'
+            ], 'public/css/patient-custom.css');
 
 

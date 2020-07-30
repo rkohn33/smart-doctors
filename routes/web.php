@@ -56,7 +56,22 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['prefix' => 'patient'], function(){
-        Route::get('/home', 'Patient\HomeController@index');
+        Route::get('/home', function () {
+            return view('patient.home');
+        });
+
+        Route::get('/list', function () {
+            return view('patient.doctor-list');
+        });
+
+        Route::get('/consultation', function () {
+            return view('patient.consultation');
+        });
+
+        Route::get('/profile', function () {
+            return view('patient.profile');
+        });
+
         Route::get('/start-call', 'Patient\ConsultationController@index');
     });
     Route::group(['prefix' => 'nurse'], function(){
