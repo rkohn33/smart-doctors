@@ -20,32 +20,22 @@ class ProfileController extends Controller
     public function updateOrCreate(Request $request)
     {
         $input = $request->all();
-        ////////////Dummy Data for testing//////
-        $input['salutation'] = 'Dr.';
-        $input['first_name'] = 'Muhammad';
-        $input['last_name']  = 'Ahmed';
-        $input['speciality'] = 'Sleeping';
-        $input['consultation_type']  = 'Audio';
-        $input['website']     = 'www.com-wale.com';
-        $input['bio']         = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae voluptas ut. Quis qui consequuntur rerum vero explicabo architecto, eaque necessitatibus hic repudiandae ipsum ut quod, ea, accusamus quo accusantium.';
-        $input['education[]']   = ['university National Mayor De san Marcos, Peru Medical Doctor, 2010',
-                                   'university National Mayor De san Marcos, Peru Medical Doctor, 2010',
-                                   'university National Mayor De san Marcos, Peru Medical Doctor, 2010'];
-
-        $input['hospital_name[]'] = ['university abcd','university abcd','university abcd'];
-
-        $input['hospital_details[]'] = ['Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet'];
-        //////////// END Dummy Data for testing//////
 
         $data = $this->dataMapping($input);
         $validator = (new ProfileRequest())->createOrUpdate($data);
         if ($validator->fails()) {
-            return redirect()->back()
-                       ->withErrors($validator)
-                       ->withInput();
+            returnResponse(
+                $code = 0,
+                $message = "Resolve the errors to update profile",
+                $errors = $validator->errors()->messages()
+            );
         }
         $response = DoctorDetails::updateOrCreate(['user_id'=> Auth::user()->id],$data);
-        return $response;
+        return returnResponse(
+            $code = 1000,
+            $data = [],
+            $message = "Profile Updated Successfully"
+        );
     }
 
     public function dataMapping($input){
