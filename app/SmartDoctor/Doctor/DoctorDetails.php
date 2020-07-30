@@ -8,5 +8,5 @@ class DoctorDetails extends Model
 {
     protected $table = 'doctor_details';
     protected $guarded = ['id'];
-    public    $timestamps = false;
+    public    $timestamps = true;
 }

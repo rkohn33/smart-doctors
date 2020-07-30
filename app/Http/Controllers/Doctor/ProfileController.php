@@ -19,7 +19,7 @@ class ProfileController extends Controller
     }
     public function updateOrCreate(Request $request)
     {
-        $input = $request->all();
+        $input = $request->json()->all();
 
         $data = $this->dataMapping($input);
         $validator = (new ProfileRequest())->createOrUpdate($data);
@@ -39,7 +39,6 @@ class ProfileController extends Controller
     }
 
     public function dataMapping($input){
-
         $data['education']  = $data['employment'] = [];
         $data['salutation'] = $input['salutation'];
         $data['first_name'] = $input['first_name'];
@@ -49,22 +48,8 @@ class ProfileController extends Controller
         $data['website']     = $input['website'];
         $data['bio']         = $input['bio'];
         $data['profile_pic'] = '';
-        foreach($input['education[]'] as $key => $education)
-        {
-            $index = $key + 1;
-            $data['education']['education_'.$index]['detail'] = $education; 
-        }
-        foreach($input['hospital_name[]'] as $key => $hospital)
-        {
-            $index = $key + 1;
-            $data['employment']['hospital_'.$index]['name'] = $hospital; 
-            $data['employment']['hospital_'.$index]['detail'] = $input['hospital_details[]'][$key];
-        }
-        $data['education'] = !empty($data['education']) ? json_encode($data['education']): ''; 
-        $data['employment'] = !empty($data['employment']) ? json_encode($data['employment']): ''; 
-        $data['created_at']  = now();
-        $data['updated_at']  = now();
+        $data['education'] = !empty($input['education']) ? $input['education'] : ''; 
+        $data['employment'] = !empty($input['employment']) ? $input['employment'] : ''; 
         return $data;
-
     }
 }
