@@ -27,6 +27,6 @@ mix.styles(
             ]
             , 'public/css/custom.css');
 
-mix.styles('resources/css/patient-custom.css', 'public/css/patient-custom.css');
+mix.styles(['resources/css/Patient/user-profile.css','resources/css/Patient/consulation.css'], 'public/css/wallet.css');
 
 
