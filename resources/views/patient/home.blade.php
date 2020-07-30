@@ -78,61 +78,6 @@
       </tr>
       </tbody>
       </table>
-      <div class="mt-5">
-        <table class="col-lg-12 col-md-12 p-0 table tablebordered">
-          <thead>
-            <tr>
-              <th>
-                <div class="row">
-                  <h6 class="checklist">Checklist</h6>
-                  <div class="check_value">3</div>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hov">
-              <td>
-                <div class="col-lg-12 col-md-12 row">
-                  <div class="col-lg-9 col-md-3 row">
-                    <img src="/img/a.jpg" class="img3">
-                    <div class="ml-3">
-                      <h5 class="text_one">COVID </h5>
-                      <h6 class="text_two"> Dr.baptisite</h6>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 p-0">
-                    <div class="mt-lg-3 pl-3 float-right"><button type="button" class="btn btn-light ">Book
-                        Now</button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-              
-              <tr class="hov">
-              <td>
-                <div class="col-lg-12 col-md-12 row">
-                  <div class="col-lg-9 col-md-3 row">
-                    <img src="{{ url('img/profile.png') }}" class="img3">
-                    <div class="ml-3">
-                      <h5 class="text_one">COVID </h5>
-                      <h6 class="text_two"> Dr.baptisite</h6>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 p-0">
-                    <div class="mt-lg-3 pl-3 float-right"><button type="button" class="btn btn-light ">Book
-                        Now</button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            
-            
-          </tbody>
-        </table>
-      </div>
       <div class="col-lg-12">
         <h2 class="all_doctor_heading">
           See a doctor now

@@ -68,6 +68,10 @@ Route::group(['middleware' => ['auth']], function () {
             return view('patient.consultation');
         });
 
+        Route::get('/profile', function () {
+            return view('patient.profile');
+        });
+
         Route::get('/start-call', 'Patient\ConsultationController@index');
     });
     Route::group(['prefix' => 'nurse'], function(){

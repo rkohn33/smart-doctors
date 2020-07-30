@@ -1,361 +1,239 @@
-.w1{
-	width:30px;
-	height: 30px;
-	margin-top: -6px;
-	
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@font-face {
+    font-family: 'degularbold';
+    src: url('./fonts/degular-bold.woff2') format('woff2'),
+         url('./fonts/degular-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-.bglight{
-	background-color: white;
-	border-bottom: 1px solid #c7c7c7;
+@font-face {
+    font-family: 'degularregular';
+    src: url('./fonts/degular-regular.woff2') format('woff2'),
+         url('./fonts/degular-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
-.text{
-	color: #2e2d60;
-	font-weight: 600;
+@font-face {
+    font-family: 'degularsemibold';
+    src: url('./fonts/degular-semibold.woff2') format('woff2'),
+         url('./fonts/degular-semibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
-.subtext{
-	color: #7e7d9c;
-	font-weight: 600;
-	width: 500px;
+body {
+  font-family: 'degularregular';
+  background: #f5f5f5;
 }
-.w2{
-	width: 100%;
-	height: 60px;
-	padding: 0px
-
+.form-box.registration-page {
+  margin-bottom: 117px;
 }
-
-.w3{
-	width:36px;
-	height: 36px;
+.form-box .heading-wrap {
+  padding: 60px 15px 35px;
 }
-
-tainer1{
-	width: 100%;
-padding-right: 15px;
-padding-left: 15px;
-margin-right: auto;
-margin-left: auto;
+.user-page header {
+  padding-top: 50px !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
-
-.mar_pad{
-	margin-top: 7px;
-	margin-right: 7px;
+.form-box header .signup-wrap a {
+  font-size: 14px;
+  line-height: 24px;
+  color: #06BEF6;
+  font-family: 'degularsemibold';
+  border: 2px solid #06BEF6 !important;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
-
-.vertical_line{
-	width: 3px;
-height: 22px;
-background-color: gray;
+.heading-wrap h2 {
+  font-family: 'degularsemibold';
+  font-size: 51px;
+  line-height: 58px;
+  color: #2E2D60;
 }
-
-/* .mr-10{
-   margin-right: 90px
-} */
-
-.ml-10{
-	margin-left: 90px
-}
-
-.color{
-	color:white
+.heading-wrap p {
+  font-family: 'degularregular';
+  font-size: 24px;
+  line-height: 32px;
+  color: #2E2D60;
+  opacity: 0.6;
 }
 
-.padding{
-	padding: 0px
+
+.user-page #registration_form .card {
+  padding: 42px 45px;
+}
+.user-wrap #registration_form .form-group {
+  margin-bottom: 35px;
+  padding: 0 11px;
+}
+.user-wrap #registration_form label {
+  font-size: 22px;
+  line-height: 20px;
+  color: #2E2D60;
+  font-family: 'degularsemibold';
+  margin-bottom: 20px;
+  width: 100%;
+}
+.user-wrap #registration_form .form-control {
+  height: 60px;
+  padding: 0 26px;
+  /* background: #FFFFFF; */
+  border: 1px solid #B9B9B9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 9px;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 25px;
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.width99{
-	width: 420px;
-}
 
-.color1{
-	background-color: #f5f5f5
-}
 
-.w4{
-	width: 60%
+.user-wrap .form-wrap-container h3 {
+  font-family: degularsemibold;
+  font-size: 30px;
+  line-height: 40px;
+  color: #2E2D60;
 }
-
-.ml-12{
-	margin-left: 75px
+.user-wrap #registration_form {
+  margin: 0;
 }
-
-.height12{
-	height: 50px
+.user-page #registration_form .card {
+  padding: 42px 45px;
 }
-
-.searchbar_height{
-	height: 50px;
-	width: 100%;
-	background-color: white;
-	border-color: white;
-	border-radius: 50px;
-	border: 1px solid #c7c7c7;
-    
+.user-wrap .form-wrap-container h3 {
+  font-family: degularsemibold;
+  font-size: 30px;
+  line-height: 40px;
+  color: #2E2D60;
 }
-
-.date_and_time{
-	border: none;
-	height: 48px;
-	width: 100%;
-	padding: 0px 10px;
-	border-radius: 50px;
-	font-size: 14px
-
+.user-wrap #registration_form .form-group {
+  margin-bottom: 35px;
+  padding: 0 11px;
 }
-
-.search_bar{
-	height: 48px;
-    width: 78%;
-    
-    background-color: white;
-    border-color: white;
-    border-radius: 50px;
-}
-.custom_margen{
-	margin-left: 14px;
-}
-.tablebordered{
-	border: 1px solid #dee2e6;
-width: 100%;
-background-color: white;
-}
-
-.now_style{
-	margin-top: 20px;
-  font-size: 15px;
-}
-
-.text_one{
-	font-size: 20px;font-weight: 600;
-}
-
-.varification_status{
-	border-radius: 50px;
-border: 1px solid green;
-height: 25px;
-width: 80px;
-}
-
-.text_two{
-	color: black;
-font-size: 16px;
-font-weight: 500;
+.user-wrap #registration_form .form-group.btn-profile {
+  margin-top: 25px;
 margin-bottom: 0;
 }
-
-.text_three{
-	font-size: 20px;font-weight: 600;
+.user-wrap #registration_form .form-group.btn-profile .btn {
+  font-size: 25px;
+  line-height: 24px;
+  background: #06BEF6;
+  border: 1px solid #06BEF6;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  font-family: 'degularsemibold';
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  text-transform: capitalize;
 }
-.test_four{
-	color: gray;font-size: 16px;
+.user-wrap #registration_form .form-group.btn-profile .btn:hover {
+  background: #2E2D60 !important;
+  border: 1px solid #2E2D60 !important;color: #fff;
 }
-
-.box_style{
-	/* margin-left: 55%; */
-	margin-top: 9px;
+.user-wrap #registration_form .form-group.btn-profile .btn.btn-info {
+  background: #06BEF6;
+  border: 1px solid #06BEF6;
 }
-
-.provider_style{
-	margin-top: 50px;
-font-size: 25px;
-font-weight: 600;
+.user-wrap #registration_form .form-group.btn-profile .btn.btn-default {
+  background: #FFFFFF;
+  border: 1px solid #B9B9B9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  font-weight: 500;
+  font-size: 19px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-
-.provider_code_style{
-	font-size: 18px;
-color: gray;
-font-weight: inherit;
+.user-wrap #registration_form .file-upload-wrap.form-group {
+  margin: 0;
 }
-
-.dr_image{
-	height: 100px;
-width: 80px;
-border-radius: 7px;
-margin-top: 30px;
+.user-wrap #registration_form .file-upload-wrap.form-group .user-pic {
+    border-radius: 100%;
 }
-
-
-.booknow{
-	margin-left: 43%;margin-top: 10px;
+.user-wrap #registration_form .file-upload-wrap.form-group .user-pic img {
+    border-radius: 100%;
 }
-.text_five{
-	font-size: 14px;font-weight: 600;
+.user-wrap #registration_form .file-upload {
+  display: flex;margin: 0;
+  align-items: center;
 }
-
-.text_six{
-	font-size: 14px;font-weight: 600;
+.user-wrap #registration_form .file-upload-wrap.form-group .file-select {
+  border: none;
+  box-shadow: none;
+  display: block;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
 }
- .check_value{
-	color:red; margin-left: 5px;
- }
-.t_one{
-	font-size: 20px;font-weight: 600;
+.user-wrap #registration_form .file-upload-wrap.form-group .file-select #noFile {
+  font-size: 25px;
+  margin-bottom: 25px;
 }
- .img3{
-	height:40px;margin-top: 8px; width: 40px; border-radius: 50px; margin-left: 15px
- }
-
-.checklist{
-	font-size: 1rem;
-            font-weight: bold;
-            margin-left: 15px;
-            margin-top: 10px
+.user-wrap #registration_form .file-upload-wrap.form-group .user-pic {
+  border-radius: 100%;
+  margin-right: 25px;
 }
-
-.join_now{
-	margin-left: 15px;
-              margin-top: 10px;
+.user-page #registration_form hr {
+  margin-top: 54px;
+  margin-bottom: 54px;
 }
+.user-page #registration_form .form-control::placeholder {color: #2E2D60; opacity: 0.6 }
 
-.now_dot{
-	height: 10px;
-          width: 10px;
-          background-color: #07d1ff;
-          border-radius: 50px;
-          margin-left: 30%;
-  margin-top: 25px;
-  margin-right: 10px;
+.user-page #registration_form .form-control:-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+.user-page #registration_form .form-control::-ms-input-placeholder {color: #2E2D60;opacity: 0.6 }
+
+.user-wrap #registration_form .form-group .measure span {
+  color: #2E2D60;
+  border-right: 1px solid rgba(46, 45, 96, 0.28);
+  opacity: 0.5;
+  margin: 0;cursor: pointer;
+  padding: 0 5px;
+  line-height: 20px !important;
+  display: inline-block;
 }
-
-
-.hov:hover{
-background-color: #eefafe;
+.user-wrap #registration_form .form-group .measure .active {
+  color: #2E2D60;opacity: 1;
 }
-
-.round_circle{
-	height: 35px;
-width: 35px;
-background-color: #ff8541;
-border-radius: 50px;
-margin-top: 7px;
+.user-wrap #registration_form .form-group .measure span:last-child {
+  border: none;
 }
 
-.custom_row{
-	display: flex;
-background-color: white;
-border-radius: 30px;
-width: 100%;
+@media(max-width: 767px){
+.user-wrap #registration_form .form-control {
+    height: 45px;
+    font-size: 16px;
+    padding: 0 15px;
+}
 }
 
-.custom_date_row{
-	display: flex;
-	background-color: white;
-	border-radius: 30px;
-	width: 100%;
+@media(max-width: 575px){
+  .user-wrap #registration_form label {
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 10px;
 }
-
-.process_block{
-	height: 130px;
-	background-color:#2d4d6d;
-	float: left;
-	border-radius: 5px;
+  .user-page #registration_form .card {
+  padding: 15px 30px;
 }
-
-.process_block_heading{
-    color: white;
-    font-size: 18px;
-    margin-top: 20px;
+.user-wrap #registration_form .form-control {
+  height: 40px;
+  font-size: 15px;
 }
-
-.unprogress{
-	height: 10px;
-	border-radius: 20px;
-	background-color: #486c90;
-	margin-top: 20px;
+.user-wrap #registration_form .form-group {
+  margin-bottom: 15px;
+  padding: 0 0px;
 }
-
-.progree_get{
-	width: 180px;
-	height: 10px;
-	border-radius: 20px;
-	background-image: linear-gradient(to right, #2eddf9 , #5bd882);
-	margin-left: 0px;
-	margin-top: 20px;
+.user-wrap #registration_form .form-group.btn-profile .btn {
+  height: 45px;
 }
-
-.progress_value{
-	text-align: center;
-	color: white;
-	margin-top: 10px;
+.user-page #registration_form hr {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
-
-.your_doctors{
-	height: 210px;
-	border: 1px solid  #c8ccd0;
-    float: left;
-    width: 100%;
-    border-radius: 9px;
-    margin-top: 25px;
-    background-color: white;
-    margin-bottom: 30px;
-}	
-
-.your_doctors_heading{
-     font-size: 18px;
-     color: #2b152f;
-     margin-left: 10px;
-     margin-top: 20px;
-     font-weight: 90px;
-}
-
-.doctor_heading{
-	margin-left: 80px;
-     font-size: 18px;
-     color: #2b152f;
-     margin-top: 40px;
-}
-
-.doctor_heading1{
-	margin-left: 80px;
-     font-size: 18px;
-     color: #2b152f;
-     margin-top: 20px;
-}
-
-.doctor_subheading{
-	margin-left: 80px;
-     font-size: 15px;
-     color: #2b152f;
-     margin-top: -10px;
-}
-
-.doctor_edit{
-	margin-right: 20px;
-    margin-top: 10px;
-	
-}
-
-.bottombar{
-	border-top: 1px solid  #c8ccd0;
-}
-
-.all_doctor_heading{
-	color: #2e2d60;
-	margin-top: 50px;
-	font-weight: 700;
-}
-
-.image_box_name{
-	font-size: 18px;
-margin-top: 8px;
-font-weight: 600;
-
-}
-
-.image_box{
-	width: 100px;
-height: 100px;
-border-radius: 50px;
-border: 1px solid #c8ccd0
-}
-
-.appointment_heading{
-	height: 60px;
-    vertical-align: middle !important;
-}
-.button_margin{
-	margin: 9px 15px;
 }
