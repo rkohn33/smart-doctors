@@ -1,7 +1,8 @@
 
-@extends('main-layout.master')
-@include('patient.includes.header')
+@extends('main-layout.patient.master')
+
 @section('content')
+@include('patient.includes.header')
 @include('patient.includes.side-nav-bar')
 
 <div style="background-color:#f5f5f5">
@@ -205,6 +206,6 @@
   </div>
   </div>
 </div>
-
-  @include('patient.includes.footer')
 @endsection
+@include('patient.includes.footer')
+

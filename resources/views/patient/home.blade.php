@@ -1,7 +1,8 @@
 
-@extends('main-layout.master')
-@include('patient.includes.header')
+@extends('main-layout.patient.master')
+
 @section('content')
+@include('patient.includes.header')
 @include('patient.includes.side-nav-bar')
 
 <div style="background-color:#f5f5f5">
@@ -94,7 +95,7 @@
               <td>
                 <div class="col-lg-12 col-md-12 row">
                   <div class="col-lg-9 col-md-3 row">
-                    <img src="images/a.jpg" class="img3">
+                    <img src="/img/a.jpg" class="img3">
                     <div class="ml-3">
                       <h5 class="text_one">COVID </h5>
                       <h6 class="text_two"> Dr.baptisite</h6>
@@ -233,5 +234,6 @@
   </div>
   </div>
   </div>
-  @include('patient.includes.footer')
+
 @endsection
+@include('patient.includes.footer')

@@ -1,6 +1,7 @@
-  @extends('main-layout.master')
-@include('patient.includes.header')
+@extends('main-layout.patient.master')
+
 @section('content')
+@include('patient.includes.header')
 @include('patient.includes.side-nav-bar')
 
 <div class="col-lg-12 p-0">
@@ -10,7 +11,7 @@
         <h6 class="dr_title m-0">General Practitioner</h6>
       </div>
       <div>
-        <img src="images/vedio_call.png" class="w-100 mt-5">
+        <img src="/img/video_call.png" class="w-100 mt-5">
       </div>
 
 
@@ -89,6 +90,6 @@
 
   </div>
 
-  @include('patient.includes.footer')
-@endsection
 
+@endsection
+@include('patient.includes.footer')
