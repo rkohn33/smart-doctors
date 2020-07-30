@@ -1,26 +1,65 @@
-<nav class="navbar navbar-expand-lg navbar-light bglight w2 ">
-    <div class="col-lg-12">
-      <div class="container">
-        <div class="col-2 p-0">
-          <img src="{{ url('img/logo.png') }}" width="45px">
-        </div>
-        <form class=" col-10 pl-0 mt-3">
-          <div class="row float-right">
-            <h6 class="mar_pad">Appointement</h6>
-            <a class="vertical_line mar_pad "></a>
-            <h6 class=" mar_pad  ">John</h6>
-            <div class="dropdown mar_pad">
-              <i class="fa fa-caret-down " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false"></i>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">select</a>
-                <a class="dropdown-item" href="#">select</a>
-                <a class="dropdown-item" href="#">select</a>
-              </div>
+<div class="fixed-nav sticky-footer">
+  <div class="top-nav mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+          <a class="navbar-brand" href="index.html"><img src="/img/logo.png"></a>
+          <div class="container">
+            <ul class="navbar-nav mobile-top">
+              <li class="nav-item">
+                <a class="nav-link" id="messagesDropdown" href="#"> help </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="messagesDropdown" href="#"> john S. </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="user-badge"><img src="/img/user-icon.png"><span class="badge badge-pill badge-warning">6</span></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                  <h6 class="dropdown-header">New Alerts:</h6>
+                  <div class="dropdown-divider"></div>
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-envelope"></i>message</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                  <div class="dropdown-divider"></div>
+                  
+                </div>
+              </li>
+            </ul>
+            
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" id="hamburger">
+             <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto user-nav">
+                <li class="nav-item">
+                  <a class="nav-link" id="messagesDropdown" href="#"> help </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="messagesDropdown" href="#"> john S. </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="user-badge"><img src="/img/user-icon.png"><span class="badge badge-pill badge-warning">6</span></div>
+                    
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">New Alerts:</h6>
+                    <div class="dropdown-divider"></div>
+                      <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-envelope"></i>message</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-fw fa-shopping-cart"></i>orders</a>
+                    <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="{{url('logout')}}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <div class="dropdown-divider"></div>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <img src="{{ url('img/profile.png') }}" alt="..." class="rounded-circle w3 ">
           </div>
-        </form>
-      </div>
+        </nav>
     </div>
-  </nav>

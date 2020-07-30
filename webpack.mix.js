@@ -28,6 +28,10 @@ mix.styles(
             ]
             , 'public/css/custom.css');
 
-mix.styles(['resources/css/user-dashboard.css','resources/css/user-consultation.css'], 'public/css/patient-custom.css');
+mix.styles([
+            'resources/css/user-dashboard.css',
+            'resources/css/user-consultation.css',
+            'resources/css/patient-header.css'
+            ], 'public/css/patient-custom.css');
 
 
