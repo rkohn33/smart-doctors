@@ -24,7 +24,8 @@ mix.styles(
                 'resources/css/wallet.css',
                 'resources/css/header.css',
                 'resources/css/availibility.css',
-                'resources/css/user-profile.css'
+                'resources/css/user-profile.css',
+                'resources/css/editables.css',
             ]
             , 'public/css/custom.css');
 

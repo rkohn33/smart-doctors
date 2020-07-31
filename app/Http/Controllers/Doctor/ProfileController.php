@@ -19,7 +19,7 @@ class ProfileController extends Controller
     }
     public function updateOrCreate(Request $request)
     {
-        $input = $request->json()->all();
+        $input = $request->all();
 
         $data = $this->dataMapping($input);
         $validator = (new ProfileRequest())->createOrUpdate($data);

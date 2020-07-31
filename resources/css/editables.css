@@ -1,0 +1,128 @@
+.editable {
+    border: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: outline .4s;
+}
+
+
+.editable-highlight {
+    border-bottom: 2px solid #04C6FF;
+}
+.edit-icon{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -8px;
+    right: -8px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 50px;
+    padding-top: 1px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .25);
+}
+
+.edit-icon-profile {
+    top: 0;
+    left: 0;
+}
+
+.edit-icon svg {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    fill: #05BEF6;
+    vertical-align: baseline;
+    top: 4px;
+}
+.edit-area {
+    position: relative;
+}
+.edit-area:hover .edit-icon{
+    display: block;
+}
+
+
+/*Input profile  */
+.input-profile-upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.input-profile-upload + label {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 4px;
+    right: 0;
+}
+
+.no-js .input-profile-upload + label {
+    display: none;
+}
+
+.input-profile-upload:focus + label,
+.input-profile-upload.has-focus + label {
+    outline: 0;
+    outline: -webkit-focus-ring-color transparent 0;
+}
+
+.input-profile-upload:focus + label,
+.input-profile-upload.has-focus + label,
+.input-profile-upload + label:hover {
+    background-color: transparent;
+}
+.inner-container.profile-overlap {
+    padding-top: 20px;
+    position: relative;
+}
+.profile-edit-area {
+    top: -100px;
+}
+
+.profile-container {
+    overflow: hidden;
+}
+
+.profile-container .profile-photo {
+    /* flex-shrink: 0; */
+    width: 100%;
+}
+
+/*End Input profile  */
+
+/* Spinner Css */
+.spinner {
+    width: 16px;
+    height: 16px;
+    background-color: #05BEF6;
+  
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  }
+  
+  @-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+  }
+  
+  @keyframes sk-rotateplane {
+    0% { 
+      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+    } 50% { 
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+    } 100% { 
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+  }
+/* End Spinner Css */
