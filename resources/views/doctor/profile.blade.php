@@ -2,7 +2,11 @@
 @section('content')
 @include('doctor.includes.header')
 @include('doctor.includes.side-nav-bar')
-
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">  
+  <symbol id="ico-trash-can" viewBox="0 0 512 512">
+    <g><path id="XMLID_1089_" d="m428.332 135.275-11.167-33.466c-2.248-6.736-8.552-11.278-15.653-11.278h-291.024c-7.101 0-13.405 4.543-15.653 11.278l-11.167 33.466c-2.53 7.582 3.113 15.414 11.106 15.414h322.451c7.994 0 13.637-7.832 11.107-15.414z"/><path id="XMLID_835_" d="m135.615 491.767c1.28 11.519 11.016 20.233 22.606 20.233h193.718c11.59 0 21.326-8.715 22.606-20.233l34.565-311.077h-308.06z"/><path id="XMLID_831_" d="m225.89 42.998c0-7.167 5.831-12.998 12.998-12.998h44.189c7.167 0 12.998 5.831 12.998 12.998v17.533h30v-17.533c0-23.709-19.289-42.998-42.998-42.998h-44.189c-23.709 0-42.998 19.289-42.998 42.998v17.533h30z"/></g>
+  </symbol>  
+</svg>
 <img src="{{ url('img/gradient.png') }}" class="top-bar-profile">
 <div class="container-fluid">
     <div class="inner-container profile-overlap">
@@ -93,6 +97,7 @@
                                 <div class="col-md-4 mb-5 data-set">
                                     <div class="edit-area">
                                         <span class="edit-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span>
+                                        <svg class="delete-icon"><use xlink:href="#ico-trash-can" /></svg>
                                         <h5 class="hospital-title editable data-name">{{$hospital['name']}}</h5>
                                         <p class="editable data-detail">{{$hospital['detail']}}</p>
                                     </div>
@@ -118,6 +123,7 @@
                                 <div class="col-md-4 data-set">
                                     <div class="edit-area">
                                         <span class="edit-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span>
+                                        <svg class="delete-icon"><use xlink:href="#ico-trash-can" /></svg>
                                         <p class="editable data-name">{{$edu['name']}}</p>
                                         <h6 class="font-weight-bold editable data-detail">{{$edu['detail']}}</h6>
                                     </div>
@@ -143,19 +149,19 @@
 @section('js')
 <script>
     console.log('........................... ... Hello script ... ... ...');
-
+    let profileImageFile = null;
     function previewFile(input){
         jQuery(document).ready(function($) {
-        var file = $("#input-profile-upload").get(0).files[0];
+        profileImageFile = $("#input-profile-upload").get(0).files[0];
  
-        if(file){
+        if(profileImageFile){
             var reader = new FileReader();
  
             reader.onload = function(){
                 $("#upload-profile").attr("src", reader.result);
             }
  
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(profileImageFile);
         }})
     }
 
@@ -193,6 +199,25 @@
                                 .attr('contenteditable', 'true');
         });
 
+        // Delete Employment or Education History
+        let previousDeleteIcon;
+        $(document.body).on('click', '.delete-icon', function(e){
+            e.stopPropagation();
+            if(activeEle){
+                activeEle.removeClass('editable-highlight');
+                activeEle.removeAttr('contenteditable');
+            }
+
+            console.log('click.... delete-icon');
+            if(previousDeleteIcon == this) {
+                $(this).closest('.data-set').remove();
+            } else {
+                if(previousDeleteIcon) $(previousDeleteIcon).removeClass('delete-confirm-icon');
+                $(this).addClass('delete-confirm-icon');
+                previousDeleteIcon = this;
+            }                    
+        }) // End Delete Employment or Education History
+
         $(document.body).on('click', '.edit-area', function(e) {
             console.log('click.... edit-area');
             e.stopPropagation();
@@ -205,6 +230,10 @@
                 activeEle.removeClass('editable-highlight');
                 activeEle.removeAttr('contenteditable');
             }
+            if(previousDeleteIcon){
+                $(previousDeleteIcon).removeClass('delete-confirm-icon');
+                previousDeleteIcon = null;
+            };
         })
         // ------------- End Edit area       
 
@@ -241,13 +270,14 @@
             data.append("salutation", $('#export-salutation').first().text());
             data.append("first_name", $('#export-first_name').first().text());
             data.append("last_name", $('#export-last_name').first().text());
-            data.append("profile_pic", "");
             data.append("speciality", $('#export-speciality').first().text());
             data.append("consultation_type", $('#export-consultation_type').first().text());
             data.append("website", $('#export-website').first().text());
             data.append("bio", $('#export-bio').first().text());
             data.append("education", JSON.stringify(institute));            
             data.append("employment", JSON.stringify(employer));
+            if(profileImageFile) data.append("profile_pic", profileImageFile);
+
             
             $.ajaxSetup({
                 headers: {
@@ -284,6 +314,7 @@
                 <div class="col-md-4 data-set">
                     <div class="edit-area">
                         <span class="edit-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span>
+                        <svg class="delete-icon"><use xlink:href="#ico-trash-can" /></svg>
                         <p class="editable data-name">[Institute]</p>
                         <h6 class="font-weight-bold editable data-detail">[Details]</h6>
                     </div>
@@ -298,6 +329,7 @@
                 <div class="col-md-4 mb-5 data-set">
                     <div class="edit-area">
                         <span class="edit-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span>
+                        <svg class="delete-icon"><use xlink:href="#ico-trash-can" /></svg>
                         <h5 class="hospital-title editable data-name">[Employer Title]</h5>
                         <p class="editable data-detail">[Details]</p>
                     </div>
@@ -308,20 +340,5 @@
 
     }); // End jQuery
 
-    /* uri = "doctor/profile/update",
-        method = "POST",
-        method_type = "application/json"
-    data = [{
-        "salutation": "Dr.",
-        "first_name": "Anoosha",
-        "last_name": "Ahmed",
-        "profile_pic": "",
-        "speciality": "Sleeping",
-        "consultation_type": "Audio",
-        "website": "www.com-wale.com",
-        "bio": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae voluptas ut. Quis qui consequuntur rerum vero explicabo architecto, eaque necessitatibus hic repudiandae ipsum ut quod, ea, accusamus quo accusantium.",
-        "education": "{\"education_1\":{\"detail\":\"university National Mayor De san Marcos, Peru Medical Doctor, 2010\"},\"education_2\":{\"detail\":\"university National Mayor De san Marcos, Peru Medical Doctor, 2010\"},\"education_3\":{\"detail\":\"university National Mayor De san Marcos, Peru Medical Doctor, 2010\"}}",
-        "employment": "{\"hospital_1\":{\"name\":\"university abcd\",\"detail\":\"Lorem ipsum dolor sit amet\"},\"hospital_2\":{\"name\":\"university abcd\",\"detail\":\"Lorem ipsum dolor sit amet\"},\"hospital_3\":{\"name\":\"university abcd\",\"detail\":\"Lorem ipsum dolor sit amet\"}}"
-    }] */
 </script>
 @endsection

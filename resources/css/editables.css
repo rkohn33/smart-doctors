@@ -8,7 +8,7 @@
 .editable-highlight {
     border-bottom: 2px solid #04C6FF;
 }
-.edit-icon{
+.edit-icon, .delete-icon{
     display: none;
     cursor: pointer;
     position: absolute;
@@ -36,10 +36,19 @@
     vertical-align: baseline;
     top: 4px;
 }
+.delete-icon {
+    fill: red;
+    top: 22px;
+    transition: top .2s;
+}
+.delete-confirm-icon{
+    top: -8px;
+}
 .edit-area {
     position: relative;
 }
-.edit-area:hover .edit-icon{
+.edit-area:hover .edit-icon,
+.edit-area:hover .delete-icon{
     display: block;
 }
 
