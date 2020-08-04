@@ -78,7 +78,7 @@
                           <th>TIME</th>  
                         </tr>  
                       </thead>  
-                      <tbody>
+                      <tbody id="table-appointments">
               @if(isset($appointments) && !empty($appointments))
               @php
                  $lists = collect($appointments->items())->toArray();
@@ -122,18 +122,93 @@
 
 @section('js')
 <script type="text/javascript">
+  
+
+  /* document.addEventListener('iCalendarDateSelected', function(event) {
+  console.log(iCal.selectedDate);
+  }); */
+jQuery(document).ready(function($){ 
+
   var iCal = new iCalendar('calendar');
   iCal.render();
+  let data;
 
-  document.addEventListener('iCalendarDateSelected', function(event) {
-  console.log(iCal.selectedDate);
-  });
-
-$(document).ready(function(){
   $('#hamburger').click(function(){
     $(this).toggleClass('open');
   });
-});
+
+  $(document).on('iCalendarDateSelected', function(e){
+    console.log('Date picked: ' + iCal.selectedDate);
+    data = {
+      date: iCal.selectedDate,
+    };
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    // $('#submit-spinner').show();
+
+    $.ajax({
+        type: "GET",
+        url: `/doctor/get/appointment`,
+        cache: false,
+        contentType: 'application/json; charset=utf-8',
+        data: data,
+        success: (response) => {
+          // let appointmentData = response[0];
+          let appointments = response.data[0].data;
+          updateAppointmentDataRow(appointments);
+          console.log(response.data[0].data);
+            if(response.code == 1000) {
+
+            }
+        },
+        complete: (response) => {
+            // $('#submit-spinner').hide();
+        },
+        dataType: "json",
+    }); //End Ajax
+  })
+  
+
+  function updateAppointmentDataRow(dataObjectArray) {
+    let tableAppointments = $('#table-appointments');
+    tableAppointments.empty();
+    if(dataObjectArray.length > 0){
+      $.each(dataObjectArray, function(index, dataRow){
+        const dateTime = formatAppointmentTime(dataRow.appointment);
+        console.log(dateTime);
+        tableAppointments.append(
+          `
+          <tr>  
+            <td>${dataRow.firstname + ' ' + dataRow.lastname}</td>  
+            <td>Consultation</td>  
+            <td>${dateTime.date}</td>  
+            <td>${dateTime.time}</td>  
+          </tr>
+          `)      
+      })
+    } else {
+      tableAppointments.append(
+        `
+        <tr>
+            <td colspan=4 class="text-center">No Record Found!</td>
+        </tr>
+        `)
+    }
+    
+  }
+})
+
+function formatAppointmentTime(dateTime) {
+  let dateTimeArr = dateTime.split(' ');
+  return {
+    date: dateTimeArr[0],
+    time: dateTimeArr[1].substr(0, 5)
+  }
+}
 
 
 
