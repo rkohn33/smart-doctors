@@ -26,6 +26,7 @@ mix.styles(
                 'resources/css/availibility.css',
                 'resources/css/user-profile.css',
                 'resources/css/editables.css',
+                'resources/css/block-selector.css',
             ]
             , 'public/css/custom.css');
 
