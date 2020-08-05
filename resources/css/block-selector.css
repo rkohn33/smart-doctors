@@ -1,0 +1,28 @@
+#time-slice-day .block-selector-block-selected,
+#time-slice-day .block-selector-block-between {
+  border: 0.948888px solid #F3C653;
+}
+#time-slice-night .block-selector-block-selected,
+#time-slice-night .block-selector-block-between {
+  border: 0.948888px solid #06BEF6;
+}
+#time-slice-day .block-selector-active-dblock {
+  background: #F3C653;
+}
+#time-slice-night .block-selector-active-dblock {
+  background: #06BEF6;
+}
+
+.time-slice .block-selector-form {
+  margin-bottom: 8px;
+  /* display: none; */
+  transition: display 5s;
+}
+.time-slice.day .block-selector-form input[type="submit"] {
+  background-color: #F3C653;
+  border: 0.948888px solid #E3E3E3;
+}
+.time-slice.night .block-selector-form input[type="submit"] {
+  background-color: #06BEF6;
+  border: 0.948888px solid #E3E3E3;
+}
