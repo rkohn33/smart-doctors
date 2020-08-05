@@ -25,20 +25,20 @@ class ScheduleController extends Controller
 
     public function updateOrCreate(Request $request)
     {
-        //$input = $request->json()->all(); //uncomment if fuctional;
+        $input = $request->all(); //uncomment if fuctional;
         //////Dummy Data //////////
-        $input = '[{
-            "date":"2020-07-31",
-            "timings":["09:00","10:00"],
-            "session_charge":150,
-            "shift_type":"Morning"
-            }, 
-            {
-            "date":"2020-07-31",
-            "timings":["13:00","14:00"],
-            "session_charge":150,
-            "shift_type":"Evening"
-            }]';
+        // $input = '[{
+        //     "date":"2020-07-31",
+        //     "timings":["09:00","10:00"],
+        //     "session_charge":150,
+        //     "shift_type":"Morning"
+        //     }, 
+        //     {
+        //     "date":"2020-07-31",
+        //     "timings":["13:00","14:00"],
+        //     "session_charge":150,
+        //     "shift_type":"Evening"
+        //     }]';
 
          $schedule_data = json_decode($input,true);
          if(!empty($schedule_data)){
