@@ -40,7 +40,7 @@ class ScheduleController extends Controller
         //     "shift_type":"Evening"
         //     }]';
 
-         $schedule_data = json_decode($input,true);
+         $schedule_data = $input;
          if(!empty($schedule_data)){
              if(!empty($schedule_data[0]['date'])){
                 DoctorSchedule::where('doc_id',Auth::user()->id)->where('date',$schedule_data[0]['date'])
