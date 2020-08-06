@@ -29,8 +29,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p id="next-patient">{{!empty($next_appointments['appointment']) ?  $next_appointments['firstname']." ".$next_appointments['lastname']  : 'No Further Appointment'}}</p>
-                    <h4 id="next-appointment">{{!empty($next_appointments['appointment']) ? date('H:i:s',strtotime($next_appointments['appointment'])): '00:00'}}</h4>
+                    <p id="next-patient"></p>
+                    <h4 id="next-appointment"></h4>
                     <div class="btn-wrap">
                      @if(!empty($next_appointments))
                         <a id="next-appointment-link" class="btn btn-info startnow" href="consultation/{{base64_encode($next_appointments['patient_id'])}}">
@@ -130,7 +130,6 @@ jQuery(document).ready(async function($){
 
   var iCal = new iCalendar('calendar');
   iCal.render();
-  let data;
 
   let tableAppointments = $('#table-appointments');
 
