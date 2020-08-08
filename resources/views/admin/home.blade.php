@@ -47,10 +47,23 @@
                                                 <td>{{$app->email}}</td>  
                                                 <td>{{$app->phone}}</td>  
                                                 <td>{{$app->country}}</td>  
-                                                <td>{{$app->city}}</td>  
-                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_registration") }}">View</a></td>  
-                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_proof") }}">View</a></td>  
-                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_degree") }}">View</a></td>  
+                                                <td>{{$app->city}}</td> 
+
+                                                <td>
+                                                @if(!empty($app->medical_registration) && Storage::disk('local')->exists($app->medical_registration))
+                                                  <a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{'data:'.mime_content_type(Storage::disk('local')->path($app->medical_registration)) . ';base64,' .base64_encode(Storage::disk('local')->get($app->medical_registration))}}">View</a>
+                                                @endif
+                                                </td>   
+                                                <td>
+                                                @if(!empty($app->medical_proof) && Storage::disk('local')->exists($app->medical_proof))
+                                                   <a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{'data:'.mime_content_type(Storage::disk('local')->path($app->medical_proof)) . ';base64,' .base64_encode(Storage::disk('local')->get($app->medical_proof))}}">View</a>
+                                                @endif
+                                                </td>  
+                                                <td>
+                                                @if(!empty($app->medical_degree) && Storage::disk('local')->exists($app->medical_degree)))
+                                                  <a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{'data:'.mime_content_type(Storage::disk('local')->path($app->medical_degree)) . ';base64,' .base64_encode(Storage::disk('local')->get($app->medical_degree))}}">View</a>
+                                                @endif
+                                                </td>  
                                                 <td>{{date('H:i:s',strtotime($app->CreatedTime))}}</td> 
                                                 <td>
                                                     <button class="btn btn-sm btn-success">Approve</button>

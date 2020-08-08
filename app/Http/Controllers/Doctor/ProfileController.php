@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Doctor;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\SmartDoctor\Doctor\DoctorDetails;
 use App\Http\Requests\Doctor\ProfileRequest;
+use App\Http\Controllers\DocumentUploadController;
 
 class ProfileController extends Controller
 {
@@ -18,9 +20,14 @@ class ProfileController extends Controller
        
     }
     public function updateOrCreate(Request $request)
-    {
+    { 
         $input = $request->all();
+        if($request->hasFile('profile_pic')){ 
+            $document = new DocumentUploadController();
+            $name = 'profile_'.Auth::user()->id.'_'.uniqid().'.'.$request->file('profile_pic')->extension();
+            $input['profile_pic'] = $document-> documentUpload($request,$name,'profile_pic','doctor_profile');
 
+        }
         $data = $this->dataMapping($input);
         $validator = (new ProfileRequest())->createOrUpdate($data);
         if ($validator->fails()) {
@@ -50,6 +57,10 @@ class ProfileController extends Controller
         $data['profile_pic'] = '';
         $data['education'] = !empty($input['education']) ? $input['education'] : ''; 
         $data['employment'] = !empty($input['employment']) ? $input['employment'] : ''; 
+        if(!empty($input['profile_pic']))
+        {
+            $data['profile_pic'] = $input['profile_pic'];
+        }
         return $data;
     }
 }
