@@ -1,0 +1,9 @@
+#registration_form .form-control.parsley-error {
+    border-color: red;
+}
+.parsley-errors-list {
+    list-style-type: none;
+    padding-left: 14px;
+    color: red;
+    font-style: italic;
+}

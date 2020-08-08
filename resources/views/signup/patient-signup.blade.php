@@ -11,19 +11,19 @@
             </div>
           </div>
           <div class="col-9 col-lg-9">
-            <div class="signup-wrap text-right">
-              <a href="{{url('patient/login')}}" class="btn border border-primary">Patient Login</a>
+            <div class="text-right signup-wrap">
+              <a href="{{url('patient/login')}}" class="border btn border-primary">Patient Login</a>
             </div>
           </div>
         </div>
       </header>
       <div class="bg-light">
-        <div class="heading-wrap text-center">
+        <div class="text-center heading-wrap">
           <h2>New Patient Registration</h2>
           <p>We need a few details to get your first consultation scheduled.</p>
         </div>
 
-        <div class="form-wrap-container mx-auto">
+        <div class="mx-auto form-wrap-container">
           @if($errors->any())
           <div class="alert alert-danger">
               <ul>
@@ -34,7 +34,7 @@
             </div>
           @endif
           @if(session()->has('success'))
-            <div class="alert alert-success text-center">
+            <div class="text-center alert alert-success">
                 {{ session()->get('success') }}
               </div>
           @endif
@@ -51,14 +51,16 @@
           <form name="patient_registration_form" method="POST" id='registration_form' action="{{url('patient/signup')}}" post="#">
             @csrf
             <div class="row">
-              <div class="form-group col-lg-12 pt-3">
+              <div class="pt-3 form-group col-lg-12">
                 <label for="UserName">Name</label>
                 <div class="row">
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="fname" value="{{old('first_name')}}" name="first_name" placeholder="First Name">
+                      <input type="text" class="form-control" id="fname" value="{{old('first_name')}}" name="first_name" placeholder="First Name" minlength="2" required 
+                          data-parsley-required="true" data-parsley-pattern="/^[A-Za-z]+$/" data-parsley-trigger="change" data-parsley-minlength="2">
                     </div>
                     <div class="form-group col-sm-6 col-lg-6">
-                      <input type="text" class="form-control" id="lname" value="{{old('last_name')}}" name="last_name" placeholder="Last Name">
+                      <input type="text" class="form-control" id="lname" value="{{old('last_name')}}" name="last_name" placeholder="Last Name" minlength="2" required 
+                          data-parsley-required="true" data-parsley-pattern="/^[A-Za-z]+$/" data-parsley-trigger="change" data-parsley-minlength="2">
                     </div>
                 </div>
               </div>
@@ -86,20 +88,23 @@
 
               <div class="form-group col-lg-12">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" placeholder="Enter your email address">
+                <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" placeholder="Enter your email address" required 
+                    data-parsley-required="true" data-parsley-type="email" data-parsley-trigger="change">
               </div>
               
               <div class="form-group col-lg-12">
                 <label for="pwd">Choose Password</label>
-                <input type="password" class="form-control" id="pwd" name="password" placeholder="••••••">
+                <input type="password" class="form-control" id="pwd" name="password" placeholder="••••••" required minlength="6"
+                    data-parsley-required="true" data-parsley-trigger="change" data-parsley-minlength="2">
               </div>
 
               <div class="form-group col-lg-12">
                 <label for="cpwd">Confirm Password</label>
-                <input type="password" class="form-control" id="cpwd" name="password_confirmation" placeholder="••••••">
+                <input type="password" class="form-control" id="cpwd" name="password_confirmation" placeholder="••••••"
+                    data-parsley-equalto="#pwd" data-parsley-trigger="change">
               </div>
               
-              <div class="btn-wrap text-center col-12">
+              <div class="text-center btn-wrap col-12">
                 <button type="submit" class="btn btn-info btn-lg">Register</button>
               </div>
           </div>
@@ -112,9 +117,18 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('js/parsley.min.js') }}"></script>
 <script>
-$(document).ready(function() {
-	$("#countries").msDropdown();
-});
+  jQuery(document).ready(function($){
+    $(document).ready(function() {
+      $("#countries").msDropdown();
+    });
+
+
+    $('#registration_form').parsley().on('field:validated', function() {
+      var ok = $('.parsley-error').length === 0;
+    });
+  })
+
 </script>
 @endsection
