@@ -1,7 +1,7 @@
 @extends('main-layout.master')
 
 @section('content')
-@include('doctor.includes.header')
+@include('admin.includes.header')
 
 <div class="container login-container">
   <div class="row d-flex justify-content-center">
