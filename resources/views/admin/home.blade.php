@@ -73,7 +73,7 @@
                                                 @endif
                                                 </td>  
                                                 <td>
-                                                @if(!empty($app->medical_degree) && Storage::disk('local')->exists($app->medical_degree)))
+                                                @if(!empty($app->medical_degree) && Storage::disk('local')->exists($app->medical_degree))
                                                   <a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{'data:'.mime_content_type(Storage::disk('local')->path($app->medical_degree)) . ';base64,' .base64_encode(Storage::disk('local')->get($app->medical_degree))}}">View</a>
                                                 @endif
                                                 </td>  
