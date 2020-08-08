@@ -23,15 +23,9 @@
                 <div class="card mb-5">
                     <div class="card-header">Appointments
                         <div class="dropdown float-right ">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                                Today
-                            </button>
-                            <img >
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
+                        <select class="form-control js-special-tags" id="select-day">
+                            <option value="0">Today</option>
+                        </select>
                         </div>
                     </div>
                     <div class="card-body" style="padding: 0;">
@@ -72,7 +66,7 @@
                     <div class="card-body">
                         <h6><strong id="next-patient"></strong></h6>
                         <h3><strong id="next-appointment"></strong></h3>
-                        <a id="next-appointment-link" href="" class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></a>
+                        <a id="next-appointment-link" href="" class="btn btn-info startnow" hidden>Start Now &nbsp;<i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="card mb-5" style="margin-top: 20px;">
@@ -113,136 +107,44 @@
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="{{ asset('js/doctor.data.js') }}" type="text/javascript"></script>
 <script>
 jQuery(document).ready(async function($){ 
+    let momentToday = moment();
+    let tableAppointment = $('#table-appointments');
 
-let momentToday = moment();
-let responseTimeFormat = 'YYYY-MM-DD HH:mm:ss';
-let tableAppointments = $('#table-appointments');
+    $('#hamburger').click(function(){
+    $(this).toggleClass('open');
+    }); 
 
-$('#hamburger').click(function(){
-  $(this).toggleClass('open');
-}); 
-
-$selectDay = $('#select-day');
-for(let i=1; i<6; i++){
-  $selectDay.append(
-    `<option value="${i}">${moment().add(i, 'days').format('dddd')}</option>`
-  )
-}
-
-// Next cosultation 
-let appointmentsToday = await getAppointments(momentToday.format('YYYY-MM-DD'));
-// appointmentsToday = appointmentsToday.filter
-displayNextConsultation(nextConsultation());
-
-getAppointments(moment().format('YYYY-MM-DD'))
-    .catch(error=>{
-        console.info('Rejection: ' + error.msg);
-    })
-    .then(appointments=>{
-        updateAppointmentDataRow(appointments);
-    })
-
-function displayNextConsultation(nextData) {
-  if(nextData == null) {
-    $('#next-patient').text('No Further Appointment');
-    $('#next-appointment').text();
-    $('#next-appointment-link').attr('href', '');
-    return;
-  }
-
-  $('#next-patient').text(nextData.firstname + ' ' + nextData.lastname);
-  $('#next-appointment').text(moment(nextData.appointment, responseTimeFormat).format('h:mm A'));
-  $('#next-appointment-link').attr('href', `consultation/${nextData.patient_id}`);
-}
-
-function nextConsultation() {
-  console.log('appointments Today: ' + appointmentsToday);
-  for(let i=0; i < appointmentsToday.length; i++) {
-    if(moment().isSameOrBefore(moment(appointmentsToday[i].appointment, responseTimeFormat))) {
-      return appointmentsToday[i];
+    $selectDay = $('#select-day');
+    for(let i=1; i<6; i++){
+        $selectDay.append(`<option value="${i}">${moment().add(i, 'days').format('dddd')}</option>`)
     }
-    return null;
-  }
-}
 
-$selectDay.on('change', function(e){
-  let upcomingDay = moment().add($(this).val(), 'days');
-  getAppointments(upcomingDay.format('YYYY-MM-DD'))
+    // Next cosultation 
+    let doctorData = DoctorData(tableAppointment);
+    console.log(Date());
+    let appointments = await doctorData.getAppointments(momentToday);
+    console.log(Date());
+    console.log(appointments);
+    doctorData.appointmentsToday = appointments;
+
+    doctorData.updateAppointmentsTable(appointments);
+    doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
+
+
+    $selectDay.on('change', function(e){
+        let upcomingDay = moment().add($(this).val(), 'days');
+
+        doctorData.getAppointments(upcomingDay)
         .catch(error=>{
-          console.info('Rejection: ' + error.msg);
+            console.info('Rejection: ' + error.msg);
         })
         .then(appointments=>{
-          updateAppointmentDataRow(appointments);
+            doctorData.updateAppointmentsTable(appointments);
         })
-
-})  
-
-
-
-async function getAppointments(date) {
-    return new Promise((resolve, reject)=>{
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        // $('#submit-spinner').show();
-
-        $.ajax({
-            type: "GET",
-            url: `/doctor/get/appointment`,
-            cache: false,
-            contentType: 'application/json',
-            data: { date },
-            success: (response) => {
-                // let appointmentData = response[0];
-                let appointments = response.data[0].data;
-                if(response.code == 1000) {
-                  resolve(appointments);
-                }
-            },
-            error: () => {
-                // $('#submit-spinner').hide();
-                reject({msg: 'connection error'});
-            },
-            dataType: "json",
-        }); //End Ajax
     })
-}
-
-
-function updateAppointmentDataRow(dataObjectArray) {    
-  tableAppointments.empty();
-  if(dataObjectArray.length > 0){
-    $.each(dataObjectArray, function(index, dataRow){
-        //appointment format 2020-08-07 08:00:00
-        console.log('appointment time: ' + dataRow.appointment);
-        const dateTime = moment(dataRow.appointment, 'YYYY-MM-DD HH:mm:ss');
-        console.log(dateTime);
-        tableAppointments.append(
-            `
-            <tr>  
-            <td>${dataRow.firstname + ' ' + dataRow.lastname}</td>  
-            <td>Consultation</td>  
-            <td>${dateTime.format('DD-MM-YYYY')}</td>  
-            <td>${dateTime.format('h:mm A')}</td>  
-            </tr>
-        `)       
-    })
-  } else {
-    tableAppointments.append(
-      `
-      <tr>
-          <td colspan=4 class="text-center">No Record Found!</td>
-      </tr>
-      `)
-  }
-//   class="table-success"
-  
-}
-
-}) // End Ajsx on ready
+})
 </script>
 @endsection

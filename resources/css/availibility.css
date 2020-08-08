@@ -569,6 +569,18 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 .appointments-box .time-slice.day .card-header h1 span {
 	background: #F3C653;
 }
+.appointments-box .time-slice.day .card-header h1 span::before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	background: #fff;
+	top: 12px;
+}
+
+.appointments-box .time-slice.afternoon .card-header h1 span {
+	background: #a7d42c;
+}
 
 .appointments-box .time-slice.night .card-header h1 span {
 	background: #06BEF6;

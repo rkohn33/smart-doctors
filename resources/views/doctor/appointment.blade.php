@@ -33,7 +33,7 @@
                     <h4 id="next-appointment"></h4>
                     <div class="btn-wrap">
                      @if(!empty($next_appointments))
-                        <a id="next-appointment-link" class="btn btn-info startnow" href="consultation/{{base64_encode($next_appointments['patient_id'])}}">
+                        <a id="next-appointment-link" class="btn btn-info startnow" href="consultation/{{base64_encode($next_appointments['patient_id'])}}" hidden>
                           Start Now &nbsp;<i class="fa fa-angle-right"></i>
                         </a>
                     @endif                    
@@ -117,6 +117,7 @@
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="{{ asset('js/doctor.data.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
   
 
@@ -132,6 +133,7 @@ jQuery(document).ready(async function($){
   iCal.render();
 
   let tableAppointments = $('#table-appointments');
+  let doctorData = DoctorData(tableAppointments);
 
   $('#hamburger').click(function(){
     $(this).toggleClass('open');
@@ -149,43 +151,20 @@ jQuery(document).ready(async function($){
   changeDisplayDate(moment());
 
   // Next cosultation 
-  let appointmentsToday = await getAppointments(momentToday.format('YYYY-MM-DD'));
-  // appointmentsToday = appointmentsToday.filter
-  displayNextConsultation(nextConsultation());
-
-  function displayNextConsultation(nextData) {
-    if(nextData == null) {
-      $('#next-patient').text('No Further Appointment');
-      $('#next-appointment').text();
-      $('#next-appointment-link').attr('href', '');
-      return;
-    }
-
-    $('#next-patient').text(nextData.firstname + ' ' + nextData.lastname);
-    $('#next-appointment').text(moment(nextData.appointment, responseTimeFormat).format('h:mm A'));
-    $('#next-appointment-link').attr('href', `consultation/${nextData.patient_id}`);
-  }
-  
-  function nextConsultation() {
-    console.log('appointments Today: ' + appointmentsToday);
-    for(let i=0; i < appointmentsToday.length; i++) {
-      if(moment().isSameOrBefore(moment(appointmentsToday[i].appointment, responseTimeFormat))) {
-        return appointmentsToday[i];
-      }
-      return null;
-    }
-  }
-
-  
+  let appointmentsToday = await doctorData.getAppointments(momentToday);
+  doctorData.appointmentsToday = appointmentsToday;
+  doctorData.updateAppointmentsTable(appointmentsToday);
+  doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
+ 
   $(document).on('iCalendarDateSelected', function(e){
       console.log('Date picked: ' + iCal.selectedDate);
       // fetchAppointmentByDate(iCal.selectedDate); 
-      getAppointments(iCal.selectedDate)
+      doctorData.getAppointments(moment(iCal.selectedDate, 'YYYY-MM-DD'))
           .catch(error=>{
             console.info('Rejection: ' + error.msg);
           })
           .then(appointments=>{
-            updateAppointmentDataRow(appointments);
+            doctorData.updateAppointmentsTable(appointments);
           })
 
       changeDisplayDate(moment(iCal.selectedDate, 'YYYY-MM-DD'));   
@@ -193,79 +172,16 @@ jQuery(document).ready(async function($){
 
   $selectDay.on('change', function(e){
     let upcomingDay = moment().add($(this).val(), 'days');
-    getAppointments(upcomingDay.format('YYYY-MM-DD'))
+    doctorData.getAppointments(upcomingDay)
           .catch(error=>{
             console.info('Rejection: ' + error.msg);
           })
           .then(appointments=>{
-            updateAppointmentDataRow(appointments);
+            doctorData.updateAppointmentsTable(appointments);
           })
 
     changeDisplayDate(upcomingDay); 
-  })  
-
-  
-
-  async function getAppointments(date) {
-      return new Promise((resolve, reject)=>{
-          $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-          });
-          // $('#submit-spinner').show();
-
-          $.ajax({
-              type: "GET",
-              url: `/doctor/get/appointment`,
-              cache: false,
-              contentType: 'application/json',
-              data: { date },
-              success: (response) => {
-                  // let appointmentData = response[0];
-                  let appointments = response.data[0].data;
-                  if(response.code == 1000) {
-                    resolve(appointments);
-                  }
-              },
-              error: () => {
-                  // $('#submit-spinner').hide();
-                  reject({msg: 'connection error'});
-              },
-              dataType: "json",
-          }); //End Ajax
-      })
-  }
-  
-
-  function updateAppointmentDataRow(dataObjectArray) {    
-    tableAppointments.empty();
-    if(dataObjectArray.length > 0){
-      $.each(dataObjectArray, function(index, dataRow){
-        //appointment format 2020-08-07 08:00:00
-        console.log('appointment time: ' + dataRow.appointment);
-        const dateTime = moment(dataRow.appointment, 'YYYY-MM-DD HH:mm:ss');
-        console.log(dateTime);
-        tableAppointments.append(
-          `
-          <tr>  
-            <td>${dataRow.firstname + ' ' + dataRow.lastname}</td>  
-            <td>Consultation</td>  
-            <td>${dateTime.format('DD-MM-YYYY')}</td>  
-            <td>${dateTime.format('h:mm A')}</td>  
-          </tr>
-          `)      
-      })
-    } else {
-      tableAppointments.append(
-        `
-        <tr>
-            <td colspan=4 class="text-center">No Record Found!</td>
-        </tr>
-        `)
-    }
-    
-  }
+  }) 
 
   function changeDisplayDate(dateMoment) {
     dateDisplay.text(dateMoment.format('MMMM D, YYYY'));
