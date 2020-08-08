@@ -1,10 +1,9 @@
 @extends('main-layout.master')
 
-@include('admin.includes.header')
 @section('content')
-@include('admin.includes.side-nav-bar')
 
-<div id="content-wrapper">
+@include('admin.includes.header')
+<div id="content-wrapper" class="pt-5 mt-5">
 
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
@@ -20,6 +19,20 @@
                             </div>
                         </div>
                       </div>
+                      @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{!! $error !!}</li>  
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if(session()->has('success'))
+              <div class="alert alert-success text-center">
+                   {{ session()->get('success') }}
+                </div>
+            @endif
                       <div class="card-body">
                         <div class="table-responsive">
                           <table id="myTable" class="table table-hover table-responsive">  
@@ -53,8 +66,16 @@
                                                 <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_degree") }}">View</a></td>  
                                                 <td>{{date('H:i:s',strtotime($app->CreatedTime))}}</td> 
                                                 <td>
-                                                    <button class="btn btn-sm btn-success">Approve</button>
-                                                    <button class="btn btn-sm btn-danger">Reject</button>
+                                                    <form method="POST" action="{{ url('admin/approval') }}"> 
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{$app->id}}">
+                                                        <input type="hidden" name="approval" value="{{$app->approval}}">
+                                                        @if($app->approval == 'A')
+                                                            <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                                                        @else
+                                                            <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                                                        @endif
+                                                    </form>
                                                 </td>   
                                             </tr>
                                         @endforeach
