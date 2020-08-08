@@ -48,9 +48,9 @@
                                                 <td>{{$app->phone}}</td>  
                                                 <td>{{$app->country}}</td>  
                                                 <td>{{$app->city}}</td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_registration") }}">View</a></td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_proof") }}">View</a></td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_degree") }}">View</a></td>  
+                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_registration") }}">View</a></td>  
+                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_proof") }}">View</a></td>  
+                                                <td><a href="#imagemodal" class="image-modal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_degree") }}">View</a></td>  
                                                 <td>{{date('H:i:s',strtotime($app->CreatedTime))}}</td> 
                                                 <td>
                                                     <button class="btn btn-sm btn-success">Approve</button>
@@ -122,3 +122,15 @@
 @endsection
 
 @include('admin.includes.footer')
+
+
+@section('js')
+    <script>
+      $(function(){
+      $(".image-modal").on("click",function(){
+        var src = $(this).data("photo");
+        $(".modal-img").prop("src",src);
+      });
+    });
+    </script>
+@endsection
