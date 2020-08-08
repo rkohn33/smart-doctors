@@ -48,9 +48,9 @@
                                                 <td>{{$app->phone}}</td>  
                                                 <td>{{$app->country}}</td>  
                                                 <td>{{$app->city}}</td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_registration}}">View</a></td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_proof}}"">View</a></td>  
-                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_degree}}">View</a></td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_registration") }}">View</a></td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_proof") }}">View</a></td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{ storage_path("/app/$app->medical_degree") }}">View</a></td>  
                                                 <td>{{date('H:i:s',strtotime($app->CreatedTime))}}</td> 
                                                 <td>
                                                     <button class="btn btn-sm btn-success">Approve</button>
