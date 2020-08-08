@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-8 col-xs-12">
                 <br>
-                <h1 class="top-heading">Welcome Back, Dr John</h1>
+                <h1 class="top-heading">Welcome Back, {{ucfirst($profile['salutation']).'. '.ucfirst($profile['last_name'])}}</h1>
                 <p class="sub-heading">Here is your account at a glance.</p>
             </div>
             <div class="col-lg-4  col-xs-12">
@@ -23,15 +23,9 @@
                 <div class="card mb-5">
                     <div class="card-header">Appointments
                         <div class="dropdown float-right ">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                                Today
-                            </button>
-                            <img >
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
+                        <select class="form-control js-special-tags" id="select-day">
+                            <option value="0">Today</option>
+                        </select>
                         </div>
                     </div>
                     <div class="card-body" style="padding: 0;">
@@ -45,25 +39,8 @@
                                 <th scope="col">TIME</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr class="table-success">
-                                    <td>Peter Thomas</td>
-                                    <td>Consultation</td>
-                                    <td>10/22/2020</td>
-                                    <td>10:30AM</td>
-                                </tr>
-                                <tr>
-                                    <td>Enrique Loss</td>
-                                    <td>Follow-up</td>
-                                    <td>10/22/2020</td>
-                                    <td>11:30AM</td>
-                                </tr>
-                                <tr>
-                                    <td>Marissa Laos</td>
-                                    <td>Follow-up</td>
-                                    <td>10/22/2020</td>
-                                    <td>03:00PM</td>
-                                </tr>
+                                <tbody id="table-appointments">
+                                
                                 </tbody>
                             </table>
                         </div>
@@ -87,12 +64,12 @@
                 <div class="card mb-5">
                     <div class="card-header">Next Consultation</div>
                     <div class="card-body">
-                        <h6><strong>Peter Thomas</strong></h6>
-                        <h3><strong>10:30 AM</strong></h3>
-                        <button class="btn btn-info startnow">Start Now &nbsp;<i class="fa fa-angle-right"></i></button>
+                        <h6><strong id="next-patient"></strong></h6>
+                        <h3><strong id="next-appointment"></strong></h3>
+                        <a id="next-appointment-link" href="" class="btn btn-info startnow" hidden>Start Now &nbsp;<i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
-                <div class="card mb-5" style="margin-top: 20px;background: ">
+                <div class="card mb-5" style="margin-top: 20px;">
                     <div class="chart-data">
                         <div class="row">
                             <div class="col-8">
@@ -126,4 +103,48 @@
 
 
 @include('doctor.includes.footer')
+@endsection
+
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="{{ asset('js/doctor.data.js') }}" type="text/javascript"></script>
+<script>
+jQuery(document).ready(async function($){ 
+    let momentToday = moment();
+    let tableAppointment = $('#table-appointments');
+
+    $('#hamburger').click(function(){
+    $(this).toggleClass('open');
+    }); 
+
+    $selectDay = $('#select-day');
+    for(let i=1; i<6; i++){
+        $selectDay.append(`<option value="${i}">${moment().add(i, 'days').format('dddd')}</option>`)
+    }
+
+    // Next cosultation 
+    let doctorData = DoctorData(tableAppointment);
+    console.log(Date());
+    let appointments = await doctorData.getAppointments(momentToday);
+    console.log(Date());
+    console.log(appointments);
+    doctorData.appointmentsToday = appointments;
+
+    doctorData.updateAppointmentsTable(appointments);
+    doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
+
+
+    $selectDay.on('change', function(e){
+        let upcomingDay = moment().add($(this).val(), 'days');
+
+        doctorData.getAppointments(upcomingDay)
+        .catch(error=>{
+            console.info('Rejection: ' + error.msg);
+        })
+        .then(appointments=>{
+            doctorData.updateAppointmentsTable(appointments);
+        })
+    })
+})
+</script>
 @endsection

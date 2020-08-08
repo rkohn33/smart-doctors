@@ -16,7 +16,9 @@ class HomeController extends Controller
         // {
         //    abort(404);
         // }
-        return view('doctor.dashboard');
+        $profile = optional(DoctorDetails::where('user_id',Auth::user()->id)
+                                 ->first())->toArray();
+        return view('doctor.dashboard', compact('profile'));
     }
 
     public function checkProfileCompleted(){

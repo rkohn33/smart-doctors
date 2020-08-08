@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/custom.js": "/js/custom.js",
+    "/js/doctor.data.js": "/js/doctor.data.js",
     "/css/custom.css": "/css/custom.css",
     "/css/patient-custom.css": "/css/patient-custom.css"
 }

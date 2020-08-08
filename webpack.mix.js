@@ -11,10 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js')    
     .sass('resources/sass/app.scss', 'public/css');
 
 mix.js('resources/js/custom.js', 'public/js');
+mix.copy('resources/js/doctor.data.js', 'public/js');
 mix.styles(
             [
                 'resources/css/custom.css',
@@ -24,7 +25,9 @@ mix.styles(
                 'resources/css/wallet.css',
                 'resources/css/header.css',
                 'resources/css/availibility.css',
-                'resources/css/user-profile.css'
+                'resources/css/user-profile.css',
+                'resources/css/editables.css',
+                'resources/css/block-selector.css',
             ]
             , 'public/css/custom.css');
 
