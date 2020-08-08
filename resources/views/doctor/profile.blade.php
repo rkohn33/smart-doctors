@@ -115,9 +115,9 @@
                         <h3 class="font-weight-bold mb-3">Education</h3>
                         <div class="editable-group" id="export-education">
                             <div class="row data-set-container">
-                                @if(!empty($profile['employment']))
+                                @if(!empty($profile['education']))
                                 @php
-                                $education = json_decode($profile['education'],true);
+                                  $education = json_decode($profile['education'],true);
                                 @endphp
                                 @foreach($education as $edu)
                                 <div class="col-md-4 data-set">
