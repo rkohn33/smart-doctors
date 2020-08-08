@@ -36,16 +36,16 @@ class LoginController extends Controller
     public function showLoginForm()
     {  
         if(request()->getRequestUri() == '/doctor/login'){
-            return view('auth.doctor-login');
+            return view('login.doctor-login');
         }
         else if(request()->getRequestUri() == '/patient/login'){
-            return view('auth.patient-login');
+            return view('login.patient-login');
         }
         else if(request()->getRequestUri() == '/nurse/login'){
-            return view('auth.nurse-login');
+            return view('login.nurse-login');
         }
         else if(request()->getRequestUri() == '/admin/login'){
-            return view('auth.admin-login');
+            return view('login.admin-login');
         }
        
     }
