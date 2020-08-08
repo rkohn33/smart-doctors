@@ -3,6 +3,92 @@
 @include('admin.includes.header')
 @section('content')
 @include('admin.includes.side-nav-bar')
+
+<div id="content-wrapper">
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <h4 class="text-secondary mb-3 mt-2 font-weight-bold">Doctors List</h4>
+            <div class="row">
+                <div class="appointments-box col-lg-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-10 col-lg-10 title-tag p-0">
+                            <h5>Appointments</h5>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table id="myTable" class="table table-hover table-responsive">  
+                            <thead>  
+                              <tr>  
+                                <th>NAME</th>  
+                                <th>EMAIL</th>  
+                                <th>PHONE</th> 
+                                <th>COUNTRY</th>
+                                <th>CITY</th> 
+                                <th>MEDICAL REGISTRATION</th>
+                                <th>MEDICAL PROOF</th>
+                                <th>MEDICAL DEGREE</th>
+                                <th>REGISTRATION TIME</th>  
+                                <th>ACTION's</th>  
+                              </tr>  
+                            </thead>  
+                            <tbody>
+                                @if(isset($doctors_list) && !empty($doctors_list))
+                                    @php $lists = collect($doctors_list->items()); @endphp
+                                    @if(!empty($lists))
+                                        @foreach($lists as $key => $app)
+                                            <tr>  
+                                                <td>{{$app->firstname." ".$app->lastname}}</td>  
+                                                <td>{{$app->email}}</td>  
+                                                <td>{{$app->phone}}</td>  
+                                                <td>{{$app->country}}</td>  
+                                                <td>{{$app->city}}</td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_registration}}">View</a></td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_proof}}"">View</a></td>  
+                                                <td><a href="#imagemodal" data-toggle="modal" data-target="#imagemodal" data-photo="{{url('/').$app->medical_degree}}">View</a></td>  
+                                                <td>{{date('H:i:s',strtotime($app->CreatedTime))}}</td> 
+                                                <td>
+                                                    <button class="btn btn-sm btn-success">Approve</button>
+                                                    <button class="btn btn-sm btn-danger">Reject</button>
+                                                </td>   
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan=4 class="text-center">No Record Found!</td>
+                                        </tr>
+                                    @endif
+                                @else
+                                        <tr>
+                                            <td colspan=4 class="text-center">No Record Found!</td>
+                                        </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                        {{$doctors_list->links()}}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="imagemodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <img class="modal-img" />
+        </div>
+    </div>
+</div>
+{{-- 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -32,7 +118,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
 
 @include('admin.includes.footer')
