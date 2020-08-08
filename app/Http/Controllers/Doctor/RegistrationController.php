@@ -39,11 +39,11 @@ class RegistrationController extends Controller
         }
         if($request->hasFile('medical_degree')){ 
             $name = 'medical_degree_'.md5(uniqid()).'.'.$request->file('medical_degree')->extension();
-            $medical_registration = $document-> documentUpload($request,$name,'medical_degree','doctors_documents');
+            $medical_degree = $document-> documentUpload($request,$name,'medical_degree','doctors_documents');
         }
         if($request->hasFile('medical_proof')){ 
             $name = 'medical_proof_'.md5(uniqid()).'.'.$request->file('medical_proof')->extension();
-            $medical_registration = $document-> documentUpload($request,$name,'medical_proof','doctors_documents');
+            $medical_proof = $document-> documentUpload($request,$name,'medical_proof','doctors_documents');
         }
         return ['medical_registration_path'=>$medical_registration,'medical_degree_path'=>$medical_degree,'medical_proof_path'=>$medical_proof];
     }
