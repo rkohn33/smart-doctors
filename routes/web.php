@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', function () {
             return view('patient.home');
         });
+        Route::post('/create/appointment','Patient\AppointmentController@createAppointment');
 
         Route::get('/list', function () {
             return view('patient.doctor-list');
