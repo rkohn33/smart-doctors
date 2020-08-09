@@ -39,6 +39,7 @@ class AppointmentController extends Controller
         $data['symptoms']     = $input['symptoms'];
         $data['status']       = 'Pending';
         $data['payment']      = 'Pending';
+        return $data;
 
     }
 }
