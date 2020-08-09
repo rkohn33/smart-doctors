@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/js/custom.js', 'public/js');
 mix.copy('resources/js/doctor.data.js', 'public/js');
+mix.copy('resources/js/parsley.min.js', 'public/js');
+mix.copyDirectory('node_modules/intl-tel-input/build', 'public/itel');
 mix.styles(
             [
                 'resources/css/custom.css',
@@ -28,6 +30,7 @@ mix.styles(
                 'resources/css/user-profile.css',
                 'resources/css/editables.css',
                 'resources/css/block-selector.css',
+                'resources/css/form-validation.css',
             ]
             , 'public/css/custom.css');
 

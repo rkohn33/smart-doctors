@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/js/custom.js": "/js/custom.js",
     "/js/doctor.data.js": "/js/doctor.data.js",
+    "/js/parsley.min.js": "/js/parsley.min.js",
     "/css/custom.css": "/css/custom.css",
     "/css/patient-custom.css": "/css/patient-custom.css"
 }
