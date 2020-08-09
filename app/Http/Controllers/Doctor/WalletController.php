@@ -51,7 +51,7 @@ class WalletController extends Controller
         $earning   = $this->earningByDate($date);
         return returnResponse(
             $code = 1000,
-            $data = [$earning],
+            $data = $earning,
             $message = "Successfull"
         );
 
@@ -64,7 +64,7 @@ class WalletController extends Controller
                                 ->where('ap.doc_id',Auth::user()->id) 
                                 ->where('ap.status','Completed')
                                 ->whereDate('p.created_at','>=',$date)
-                                ->get(['p.pid','p.amount'])
+                                ->get(['p.pid','p.amount','p.created_at as date'])
                                 ->toArray();
         return $earnings;
      }
