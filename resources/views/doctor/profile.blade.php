@@ -18,7 +18,11 @@
                     <input type="file" name="file-profile" id="input-profile-upload" class="input-profile-upload" data-multiple-caption="{count} files selected" onchange="previewFile(this)" />
                     <label for="input-profile-upload"><span class="edit-icon edit-icon-profile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span></label>
                     <div class="profile-container">
-                        <img src="{{ url('img/profile.png') }}" class="profile-photo" id="upload-profile">
+                        @if(!empty($profile['profile_pic']))
+                           <img src="{{'data:'.mime_content_type(Storage::disk('local')->path($profile['profile_pic'])) . ';base64,'.base64_encode(Storage::disk('local')->get($profile['profile_pic']))}}" class="profile-photo" id="upload-profile">
+                        @else
+                          <img src="{{url('img/profile.png')}}" class="profile-photo" id="upload-profile">
+                        @endif
                     </div>
                 </div>
                 <h4><strong>Profile Completeness</strong></h4>
@@ -115,9 +119,9 @@
                         <h3 class="font-weight-bold mb-3">Education</h3>
                         <div class="editable-group" id="export-education">
                             <div class="row data-set-container">
-                                @if(!empty($profile['employment']))
+                                @if(!empty($profile['education']))
                                 @php
-                                $education = json_decode($profile['education'],true);
+                                  $education = json_decode($profile['education'],true);
                                 @endphp
                                 @foreach($education as $edu)
                                 <div class="col-md-4 data-set">

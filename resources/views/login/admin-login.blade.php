@@ -1,6 +1,8 @@
 @extends('main-layout.master')
 
 @section('content')
+@include('admin.includes.header')
+
 <div class="container login-container">
   <div class="row d-flex justify-content-center">
      <div class="col-sm-10 col-md-6 login-form-1" style="background-color: #F5F8FF;">

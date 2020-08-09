@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'admin'], function(){
         Route::get('/home', 'Admin\HomeController@index');
+        Route::post('/approval', 'Admin\HomeController@doctorApproval'); 
+
     });
     Route::group(['prefix' => 'doctor'], function(){
         Route::get('/home', 'Doctor\HomeController@index');
@@ -58,17 +60,17 @@ Route::group(['middleware' => ['auth']], function () {
             return view('doctor.availability');
         });
         Route::get('/consultation/{patient_id?}','Doctor\ConsultationController@startConsultation');
-        Route::get('/wallet', function () {
-            return view('doctor.wallet');
-        });
+  
         Route::get('/profile', 'Doctor\ProfileController@index');
-
+        Route::get('/wallet','Doctor\WalletController@index');
+        Route::get('/get/earning','Doctor\WalletController@getEarnings');
     });
 
     Route::group(['prefix' => 'patient'], function(){
         Route::get('/home', function () {
             return view('patient.home');
         });
+        Route::post('/create/appointment','Patient\AppointmentController@createAppointment');
 
         Route::get('/list', function () {
             return view('patient.doctor-list');
