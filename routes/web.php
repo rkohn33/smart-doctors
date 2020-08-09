@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'admin'], function(){
         Route::get('/home', 'Admin\HomeController@index');
-        Route::post('/approval', 'Admin\HomeController@doctorApproval');
+        Route::post('/approval', 'Admin\HomeController@doctorApproval'); 
 
     });
     Route::group(['prefix' => 'doctor'], function(){
