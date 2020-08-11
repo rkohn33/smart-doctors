@@ -9,18 +9,18 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-8 col-12">
-        <div class="mt-5 float-left">
-          <div class="col-12 col-lg-12 float-left">
+        <div class="float-left mt-5">
+          <div class="float-left col-12 col-lg-12">
             <h1 class="">Hello,Jhon!</h1>
             <p class="">we are happy to help you stay healthy</p>
           </div>
         </div>
-        <div class="col-12 col-lg-12 p-0 float-left ">
-          <div class="input-group p-0 col-lg-9 col-12">
+        <div class="float-left p-0 col-12 col-lg-12 ">
+          <div class="p-0 input-group col-lg-9 col-12">
 
-            <span class="col-lg-9 p-0 m-md-0 mt-3">
+            <span class="p-0 mt-3 col-lg-9 m-md-0">
             <div class="custom_row">
-              <i class="fa fa-search ml-3 mt-3" aria-hidden="true"></i>
+              <i class="mt-3 ml-3 fa fa-search" aria-hidden="true"></i>
 
               <input type="text" style="border: none; height: 49px; width: 77%; " class="mr-lg-2 form-control search_bar" placeholder="Doctor,Speciality,etc"
                 aria-label="Username">
@@ -31,7 +31,7 @@
             </div>
           </span>
         </div>
-        <table class="col-lg-12 col-12 p-0 mt-4 float-left table tablebordered">
+        <table class="table float-left p-0 mt-4 col-lg-12 col-12 tablebordered">
           <thead>
             <tr>
               <th class="appointment_heading">Appointement</th>
@@ -41,11 +41,11 @@
             <tr class="hov">
               <td>
                 <div class="row ">
-                  <div class="col-lg-7 col-md-6 ml-3">
-                    <h5 class="text_one m-0">Gernal Appointement </h5>
+                  <div class="ml-3 col-lg-7 col-md-6">
+                    <h5 class="m-0 text_one">Gernal Appointement </h5>
                     <p class="text_two"> Dr.Jonne baptisite</p>
                   </div>
-                  <div class="col-lg-5 col-md-6  pl-4 row ">
+                  <div class="pl-4 col-lg-5 col-md-6 row ">
                     <div class=" now_dot"></div>
                     <h5 class="now_style">Now</h5>
                     <div class="btn-wrap">
@@ -59,15 +59,15 @@
       <tr class="hov">
         <td>
           <div class="row ">
-            <div class="col-lg-6 col-md-6  ml-3">
+            <div class="ml-3 col-lg-6 col-md-6">
               <h5 class="text_one">COVID Assessement </h5>
               <h6 class="text_two"> Dr.Jonne baptisite</h6>
             </div>
-            <div class="col-lg-5 col-md-6 pr-5 float-right">
-              <div class="box_style float-right">
-                <h5 class="text_five">07/07/2020 <i class="fa fa-calendar ml-1" style="color: #07d1ff;"
+            <div class="float-right pr-5 col-lg-5 col-md-6">
+              <div class="float-right box_style">
+                <h5 class="text_five">07/07/2020 <i class="ml-1 fa fa-calendar" style="color: #07d1ff;"
                     aria-hidden="true"></i> </h5>
-                <h6 class="text_six">3:00 PM <i class="fa fa-clock-o ml-4" style="color: #07d1ff;"
+                <h6 class="text_six">3:00 PM <i class="ml-4 fa fa-clock-o" style="color: #07d1ff;"
                     aria-hidden="true"></i> </h6>
                 <!-- <i class="fas fa-clock"></i> -->
                 <i class="far fa-clock"></i>
@@ -107,7 +107,7 @@
               Cardiologist
             </h5>
           </div>
-          <div class="  m-4  ">
+          <div class="m-4 ">
             <img src="{{ url('img/profile.png') }}" class="image_box">
             <h5 class="image_box_name">
               Cardiologist
@@ -143,35 +143,13 @@
           Complete Signup Process <i class="fa fa-angle-right" aria-hidden="true"></i>
         </p>
         <div class="unprogress">
-          <div class="progree_get">
-          </div>
-          <p class="progress_value">
-            55%
-          </p>
+          <div class="progree_get" style="width: 0;"></div>
+          <p class="progress_value">0%</p>
         </div>
       </div>
       <div class="your_doctors">
-        <h4 class="your_doctors_heading">
-          Your doctor
-        </h4>
-        <div>
-          <h4 class="doctor_heading1">
-            Dr.Joanne Baptiste<i class="fa fa-ellipsis-h doctor_edit float-right" aria-hidden="true"></i>
-          </h4>
-          <p class="doctor_subheading">
-            General Practitioner
-          </p>
-        </div>
-
-        <div class="bottombar">
-          <h4 class="doctor_heading1">
-            Dr.Joanne Baptiste<i class="fa fa-ellipsis-h doctor_edit float-right" aria-hidden="true"></i>
-          </h4>
-          <p class="doctor_subheading">
-            General Practitioner
-          </p>
-        </div>
-
+        <h4 class="your_doctors_heading">Your doctor</h4>
+        <div id="your-doctor-list-container"></div>
       </div>
     </div>
   </div>
@@ -179,6 +157,27 @@
   </div>
   </div>
   </div>
-
+<p id="asset-url" data-asset="{{ asset('') }}" hidden></p>
 @endsection
 @include('patient.includes.footer')
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="{{ asset('js/patient.data.js') }}" type="text/javascript"></script>
+<script>
+jQuery(document).ready(async function($){
+    let assetUrl = $('#asset-url').data('asset');
+    let patientData = PatientData();
+
+    // render profile progress
+    patientData.getProfileCompletion().catch(error=>console.log(error)).then(progress=>populateProgress(progress));
+
+    // render my doctor
+    patientData.getMyDoctors().catch(error=>console.log(error)).then(doctors=>patientData.populateYourDoctor(doctors, $('#your-doctor-list-container')));    
+
+    function populateProgress(progress){
+      $('.process_block .progree_get').attr('style', `width: ${progress};`);
+      $('.process_block .progress_value').text(progress);
+    }    
+}) // End jQuery block
+</script>
+@endsection

@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/js/custom.js', 'public/js');
 mix.copy('resources/js/doctor.data.js', 'public/js');
+mix.copy('resources/js/patient.data.js', 'public/js');
+mix.copy('resources/js/calendar-oneline.js', 'public/js');
 mix.copy('resources/js/parsley.min.js', 'public/js');
 mix.copyDirectory('node_modules/intl-tel-input/build', 'public/itel');
 mix.styles(
@@ -37,7 +39,8 @@ mix.styles(
 mix.styles([
             'resources/css/user-dashboard.css',
             'resources/css/user-consultation.css',
-            'resources/css/patient-header.css'
+            'resources/css/patient-header.css',
+            'resources/css/calendar-oneline.css',
             ], 'public/css/patient-custom.css');
 
 

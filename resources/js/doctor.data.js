@@ -81,6 +81,37 @@ DoctorData = function($tableAppointment){
             $appointLink.removeAttr('hidden');
             $appointLink.attr('href', `consultation/${nextData.patient_id}`);            
         },
+        getEarnings: function(momentDate) {
+            let date = momentDate.format(requestTimeFormat);
+            console.log('requesting for date: ' + date);
+            return new Promise((resolve, reject)=>{
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+      
+                $.ajax({
+                    type: "GET",
+                    url: `/doctor/get/earning`,
+                    cache: false,
+                    contentType: 'application/json',
+                    data: { date },
+                    success: (response) => {
+                        // let appointmentData = response[0];
+                        // let appointments = response.data[0].data;
+                        if(response.code == 1000) {
+                          resolve(response);
+                        }
+                    },
+                    error: () => {
+                        // $('#submit-spinner').hide();
+                        reject({msg: 'connection error'});
+                    },
+                    dataType: "json",
+                }); //End Ajax
+            })
+        },
         responseTimeFormat : responseTimeFormat,
         requestTimeFormat : requestTimeFormat,
         appointmentsToday : null,
