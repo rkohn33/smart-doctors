@@ -1,12 +1,16 @@
 @extends('main-layout.master')
 
 @section('css')
+<style>
+  #ct-indicator.fa-long-arrow-alt-down {
+    color: #E07979;
+  }
+</style>
 @endsection
 
 @section('content')
 @include('doctor.includes.side-nav-bar')
 @include('doctor.includes.header')
-
 <div class="container-fluid">
   <div class="inner-container">
         <div class="title-wrap">
@@ -35,18 +39,18 @@
                               <div class="chart-caption">
                                 <div class="row">
                                 <div class="col-7 col-sm-10 col-lg-10 ">
-                                  <h1>$2,503 <span><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i> 2%</span></h1>
-                                  <p>Earnings this week</p>
+                                  <h1><span id="ct-last-amount"></span>
+                                      <span><i class="fas" aria-hidden="true" id="ct-indicator"></i></span>
+                                      <span id="ct-percent-change"></span>
+                                    </h1>
+                                  <p id="ct-message"></p>
                                 </div>
                                 
                                 <div class="col-4 col-sm-2 col-lg-2 day-box p-0">
-                                    <select class="form-control js-special-tags">
-                                      <option selected="selected">today</option>
-                                      <option>select 1</option>
-                                      <option>select 2</option>
-                                      <option>select 3</option>
-                                      <option>select 4</option>
-                                      <option>select 5</option>
+                                    <select class="form-control js-special-tags" id="report-group">
+                                      <option selected="selected" value="day">By Day</option>
+                                      <option value="week">By Week</option>
+                                      <option value="month">By Month</option>
                                     </select>
                                   </div>
                               </div>
@@ -99,7 +103,8 @@
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="{{asset('js/doctor.data.js')}}"></script>
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -146,14 +151,14 @@
   
   
   var data  = {
-      labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ],
+      labels: ['', '', '', '', '', '', ''  ],
       datasets: [{
-        label: 'Custom Label Name',
+        label: 'Earning',
         backgroundColor: gradient,
         pointBackgroundColor: '#06BEF6',
         borderWidth: 1,
         borderColor: 'blue',
-        data: [50, 55, 80, 81, 54, 50, 20]
+        data: [0, 0, 0, 0, 0, 0, 0]
       }]
   };
   
@@ -212,5 +217,50 @@
       data: data,
       options: options
   });
+
+  function addData(chart, label, data) {
+      chart.data.labels.push(label);
+      // console.log(chart.data.datasets);
+      chart.data.datasets[0].data = [100, 200, 150, 250, 400, 500, 550];
+      /* chart.data.datasets.forEach((dataset) => {
+          dataset.data.push(data);
+      }); */
+      chart.update();
+  }
+  $(document).ready(function($){
+    let doctorData = DoctorData(null);
+    updateChart();
+    $('#report-group').on('change', function(e){
+      updateChart(e.target.value);
+    })
+
+    function updateChart(group = 'day') {      
+      doctorData.getEarnings(group)
+        .catch(e=>console.log(e))
+        .then(processedData=>{
+          //console.log('chart data ..........................');
+          //console.log(data);
+          console.log(processedData);
+          $('#ct-indicator').removeClass('fa-long-arrow-alt-up');
+          $('#ct-indicator').removeClass('fa-long-arrow-alt-down');
+          let iconClass = processedData.extra.icon != -1 ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down';
+
+          $('#ct-last-amount').text('$' + processedData.extra.current);
+          $('#ct-indicator').addClass(iconClass);
+          $('#ct-percent-change').text(processedData.extra.change);
+          $('#ct-message').text(processedData.extra.message);
+  
+          chartInstance.data.labels = [];
+          chartInstance.data.datasets[0].data = [];
+          processedData.data.forEach(dataPair=>{
+            chartInstance.data.labels.push(dataPair.label);
+            chartInstance.data.datasets[0].data.push(dataPair.amount);
+          })
+          
+          chartInstance.update();
+        });// End then block
+    }
+
+  })
   </script>
 @endsection

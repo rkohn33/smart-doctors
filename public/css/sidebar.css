@@ -344,12 +344,15 @@ p {
 .hompage .chart-data {
     background:#202F4C;
     color:#fff;
-    padding: 50px;
+    padding: 16px;
     padding-bottom: 0;
     padding-top: 30px;
 }
 .hompage .chart-data h5 {
     color:#04C6FF;
+}
+.hompage .chart-data select {
+    font-size: 16px;
 }
 
 
@@ -358,11 +361,11 @@ p {
     padding-right: 15px;
 }
 
-.hompage .revenue-arrow {
+.hompage .fa-arrow-up {
     color: greenyellow;
     font-size: 18px;
 }
-.hompage .revenue-arrow-down {
+.hompage .fa-arrow-down {
     color: indianred;
     font-size: 18px;
 }

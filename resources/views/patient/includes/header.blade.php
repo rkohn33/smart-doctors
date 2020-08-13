@@ -8,7 +8,7 @@
                 <a class="nav-link" id="messagesDropdown" href="#"> help </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="messagesDropdown" href="#"> john S. </a>
+                <a class="nav-link" id="messagesDropdown" href="#">{{ Auth::user()->firstname . ' ' . strtoupper(substr(Auth::user()->lastname, 0, 1)) . '.'}}</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
                   <a class="nav-link" id="messagesDropdown" href="#"> help </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="messagesDropdown" href="#"> john S. </a>
+                  <a class="nav-link" id="messagesDropdown" href="#">{{ Auth::user()->firstname . ' ' . strtoupper(substr(Auth::user()->lastname, 0, 1)) . '.'}}</a>
                 </li>
 
                 <li class="nav-item dropdown">
