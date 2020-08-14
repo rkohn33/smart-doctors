@@ -99,8 +99,6 @@
               @endif
                                 </tbody>
                             </table>
-
-              {{$appointments->links()}}
                   </div>
                   <div class="paginate">
                       <div class="row">
@@ -171,12 +169,14 @@ jQuery(document).ready(async function($){
   changeDisplayDate(moment());
 
   // Initialize doctordata and store Todays appointment
-  let appointments = await doctorData.getAppointments(momentToday);
-  doctorData.appointmentsToday = appointments.data[0].data;
+  let appointments = await doctorData.getAppointments(momentToday, null, true);
+  doctorData.appointmentsToday = appointments.data[0];
 
-  doctorData.updateAppointmentsTable(doctorData.appointmentsToday);
+  // doctorData.updateAppointmentsTable(doctorData.appointmentsToday);
   doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
-  doctorData.updatePaginate(appointments.data[0]);
+  // doctorData.updatePaginate(appointments.data[0]);
+
+  doctorData.prepareAppointment(moment());
  
   $(document).on('iCalendarDateSelected', function(e){
       momentSelected = moment(iCal.selectedDate, 'YYYY-MM-DD');

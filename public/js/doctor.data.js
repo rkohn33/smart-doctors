@@ -7,7 +7,7 @@ DoctorData = function($tableAppointment){
     var requestTimeFormat = 'YYYY-MM-DD';
 
     return {
-        getAppointments : function (momentDate, page = null) {
+        getAppointments : function (momentDate, page = null, all = false) {
             let date = momentDate.format(requestTimeFormat)
             let url = page == null ?  '/doctor/get/appointment' : `/doctor/get/appointment?page=${page}`;
             return new Promise((resolve, reject)=>{
@@ -22,7 +22,7 @@ DoctorData = function($tableAppointment){
                     url,
                     cache: false,
                     contentType: 'application/json',
-                    data: { date },
+                    data: { date, all },
                     success: (response) => {
                         // let appointmentData = response[0];
                         if(response.code == 1000) {
@@ -38,14 +38,14 @@ DoctorData = function($tableAppointment){
             })
         },
         nextConsultation : function() {
-            console.log('appointments Today: ')
-            console.dir(this.appointmentsToday);
+            let now = moment();
             for(let i=0; i < this.appointmentsToday.length; i++) {
-                if(moment().isSameOrBefore(moment(this.appointmentsToday[i].appointment, responseTimeFormat))) {
+                let momentAppointment = moment(this.appointmentsToday[i].appointment, responseTimeFormat);
+                if(now.isSameOrBefore(moment(momentAppointment))) {
                     return this.appointmentsToday[i];
                 }
-                return null;
             }
+            return null;
         },
         updateAppointmentsTable : function(appointmentsArray) {
             $tableAppointment.empty();
@@ -69,6 +69,7 @@ DoctorData = function($tableAppointment){
             }
         },
         updateNextConsultation: function($patient, $appointment, $appointLink) {
+            console.log('fn: updateNextConsultation...');
             let nextData = this.nextConsultation();
             if(nextData == null) {
                 $patient.text('No Further Appointment');
@@ -88,6 +89,8 @@ DoctorData = function($tableAppointment){
                 console.info('Rejection: ' + error.msg);
             })
             .then(appointments=>{
+                console.log('prepareAppointment Promise');
+                console.log(appointments);
                 this.updateAppointmentsTable(appointments.data[0].data);
                 this.updatePaginate(appointments.data[0]);
             })
