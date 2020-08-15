@@ -1,0 +1,21 @@
+#h-calendar-container {
+    display: flex;
+}
+#h-calendar-container .h-calendar-date-selected {
+    background-color: #CBF2F4;
+}
+#h-calendar-container .h-calendar-date-selector {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+}
+#h-calendar-container .h-calendar-date-selector:hover {
+    background-color: #CBF2F4;
+}
+#h-calendar-container .h-calendar-date-selector p {
+    line-height: 1em;
+}
+#h-calendar-container .h-calendar-date-today {
+    border-bottom: 2px solid #CBF2F4;
+}

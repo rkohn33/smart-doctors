@@ -12,7 +12,7 @@
               <h1>Appointments</h1>
             </div>
           </div>
-        <div class="container">
+        <div class="container fluid-child-container">
           
           <div class="row">
             <div class="calendar-box col-lg-4">
@@ -99,8 +99,19 @@
               @endif
                                 </tbody>
                             </table>
-
-              {{$appointments->links()}}
+                  </div>
+                  <div class="paginate">
+                      <div class="row">
+                          <div class="col-4">
+                              <button class="btn btn-light" disabled id="paginate-prev"><img src="{{ url('img/prev.svg') }}">Previous</button>
+                          </div>
+                          <div class="col-4 text-center">
+                              <strong><span id="paginate-current-total"></span></strong> of <span id="paginate-total"></span> results
+                          </div>
+                          <div class="col-4">
+                              <button class="btn btn-light float-right" disabled id="paginate-next">Next<img src="{{ url('img/next.svg') }}"></button>
+                          </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -127,6 +138,7 @@
 jQuery(document).ready(async function($){ 
 
   let momentToday = moment();
+  let momentSelected = moment();
   let responseTimeFormat = 'YYYY-MM-DD HH:mm:ss'; 
 
   var iCal = new iCalendar('calendar');
@@ -141,47 +153,54 @@ jQuery(document).ready(async function($){
 
   $selectDay = $('#select-day');
   for(let i=1; i<6; i++){
-    $selectDay.append(
-      `<option value="${i}">${moment().add(i, 'days').format('dddd')}</option>`
-    )
+    if( i == 1 ) {
+      $selectDay.append(
+        `<option value="${i}">Tomorrow</option>`
+      )
+    } else {
+      $selectDay.append(
+        `<option value="${i}">${moment().add(i, 'days').format('dddd')}</option>`
+      )
+    }
   }
 
   // Set Date display at top
   let dateDisplay = $('#date-display');
   changeDisplayDate(moment());
 
-  // Next cosultation 
-  let appointmentsToday = await doctorData.getAppointments(momentToday);
-  doctorData.appointmentsToday = appointmentsToday;
-  doctorData.updateAppointmentsTable(appointmentsToday);
+  // Initialize doctordata and store Todays appointment
+  let appointments = await doctorData.getAppointments(momentToday, null, true);
+  doctorData.appointmentsToday = appointments.data[0];
+
+  // doctorData.updateAppointmentsTable(doctorData.appointmentsToday);
   doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
+  // doctorData.updatePaginate(appointments.data[0]);
+
+  doctorData.prepareAppointment(moment());
  
   $(document).on('iCalendarDateSelected', function(e){
-      console.log('Date picked: ' + iCal.selectedDate);
-      // fetchAppointmentByDate(iCal.selectedDate); 
-      doctorData.getAppointments(moment(iCal.selectedDate, 'YYYY-MM-DD'))
-          .catch(error=>{
-            console.info('Rejection: ' + error.msg);
-          })
-          .then(appointments=>{
-            doctorData.updateAppointmentsTable(appointments);
-          })
-
+      momentSelected = moment(iCal.selectedDate, 'YYYY-MM-DD');
+      doctorData.prepareAppointment(momentSelected.clone());
+      
       changeDisplayDate(moment(iCal.selectedDate, 'YYYY-MM-DD'));   
-  })
+    })
+    
+    $selectDay.on('change', function(e){
+      momentSelected = moment().add($(this).val(), 'days');
+      doctorData.prepareAppointment(momentSelected.clone());
 
-  $selectDay.on('change', function(e){
-    let upcomingDay = moment().add($(this).val(), 'days');
-    doctorData.getAppointments(upcomingDay)
-          .catch(error=>{
-            console.info('Rejection: ' + error.msg);
-          })
-          .then(appointments=>{
-            doctorData.updateAppointmentsTable(appointments);
-          })
-
-    changeDisplayDate(upcomingDay); 
+    changeDisplayDate(momentSelected); 
   }) 
+
+  // click handler on Paginate button
+  $('#paginate-prev').on('click', function(e){
+        $(this).attr('disabled', '');
+        doctorData.prepareAppointment(momentSelected, $(this).data('page'));
+    })
+    $('#paginate-next').on('click', function(e){
+        $(this).attr('disabled', '');
+        doctorData.prepareAppointment(momentSelected, $(this).data('page'));
+    }) 
 
   function changeDisplayDate(dateMoment) {
     dateDisplay.text(dateMoment.format('MMMM D, YYYY'));

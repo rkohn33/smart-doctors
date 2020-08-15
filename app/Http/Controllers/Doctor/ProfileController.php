@@ -14,9 +14,10 @@ class ProfileController extends Controller
 {
     public function index(){
 
+        $title = 'My profile';
         $profile = optional(DoctorDetails::where('user_id',Auth::user()->id)
                                  ->first())->toArray();
-        return view('doctor.profile',compact('profile'));
+        return view('doctor.profile',compact('title', 'profile'));
        
     }
     public function updateOrCreate(Request $request)

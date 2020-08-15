@@ -9,19 +9,18 @@
 </svg>
 <img src="{{ url('img/gradient.png') }}" class="top-bar-profile">
 <div class="container-fluid">
-    <div class="inner-container profile-overlap">
-        <div id="submit-spinner" class="spinner" style="position: absolute; right: 84px; top: -86px;"></div>
-        <button class="btn" id="check-btn" style="position: absolute; right: 0; top: 0; background-color: #05BEF6">Update</button>
+    <div class="content-wrapper profile-overlap">
+    <div class="container fluid-child-container">        
         <div class="row">
             <div class="col-lg-3">
-                <div class="edit-area profile-edit-area">
-                    <input type="file" name="file-profile" id="input-profile-upload" class="input-profile-upload" data-multiple-caption="{count} files selected" onchange="previewFile(this)" />
+                <div class="edit-area profile-edit-area" data-toggle="popover" data-content="Image files only!" data-placement="top">
+                    <input type="file" accept=".jpg,.jpeg,.png" name="file-profile" id="input-profile-upload" class="input-profile-upload" data-multiple-caption="{count} files selected" onchange="previewFile(this)" />
                     <label for="input-profile-upload"><span class="edit-icon edit-icon-profile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" aria-hidden="true" role="img"><path d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z"></path></svg></span></label>
                     <div class="profile-container">
                         @if(!empty($profile['profile_pic']))
-                           <img src="{{'data:'.mime_content_type(Storage::disk('local')->path($profile['profile_pic'])) . ';base64,'.base64_encode(Storage::disk('local')->get($profile['profile_pic']))}}" class="profile-photo" id="upload-profile">
+                            <img src="{{'data:'.mime_content_type(Storage::disk('local')->path($profile['profile_pic'])) . ';base64,'.base64_encode(Storage::disk('local')->get($profile['profile_pic']))}}" class="profile-photo" id="upload-profile">
                         @else
-                          <img src="{{url('img/profile.png')}}" class="profile-photo" id="upload-profile">
+                            <img src="{{url('img/profile.png')}}" class="profile-photo" id="upload-profile">
                         @endif
                     </div>
                 </div>
@@ -121,7 +120,7 @@
                             <div class="row data-set-container">
                                 @if(!empty($profile['education']))
                                 @php
-                                  $education = json_decode($profile['education'],true);
+                                    $education = json_decode($profile['education'],true);
                                 @endphp
                                 @foreach($education as $edu)
                                 <div class="col-md-4 data-set">
@@ -142,11 +141,12 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
 
 
 
-
+@include('doctor.includes.footer')
 @endsection
 
 
@@ -154,9 +154,19 @@
 <script>
     console.log('........................... ... Hello script ... ... ...');
     let profileImageFile = null;
+    const supported = ['jpg','jpeg','png'];
     function previewFile(input){
         jQuery(document).ready(function($) {
         profileImageFile = $("#input-profile-upload").get(0).files[0];
+
+        let filename = profileImageFile.name;
+        var ext = filename.substring(filename.lastIndexOf('.') + 1).toLowerCase();
+        if(supported.indexOf(ext) === -1) {
+            $("#input-profile-upload").val('');
+            console.log('Not supported');
+            showPopoverAndHide($('.profile-edit-area'));
+            return;
+        }
  
         if(profileImageFile){
             var reader = new FileReader();
@@ -185,6 +195,10 @@
                 selection.getRangeAt(0).insertNode(document.createTextNode(paste));
 
             });
+        });
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
         });
 
         // --------------- Edit area
@@ -343,6 +357,13 @@
 
 
     }); // End jQuery
+
+    function showPopoverAndHide($poper) {
+        $poper.popover('show');
+        setTimeout(() => {
+            $poper.popover('hide');
+        }, 3000);
+    }
 
 </script>
 @endsection

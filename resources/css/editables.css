@@ -86,10 +86,6 @@
 .input-profile-upload + label:hover {
     background-color: transparent;
 }
-.inner-container.profile-overlap {
-    padding-top: 20px;
-    position: relative;
-}
 .profile-edit-area {
     top: -100px;
 }

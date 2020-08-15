@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "intl-tel-input": "^17.0.3",
         "twilio-video": "^2.7.0"
     }
 }

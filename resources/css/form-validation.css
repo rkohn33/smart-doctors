@@ -1,0 +1,53 @@
+#registration_form .form-control.parsley-error {
+    border-color: red;
+}
+.parsley-errors-list {
+    list-style-type: none;
+    padding-left: 14px;
+    color: red;
+    font-style: italic;
+}
+
+#registration_form input[type="tel"].form-control {
+    padding-left: 48px;
+    width: 100%;
+}
+#registration_form .iti.iti--allow-dropdown {
+    width: 100%;
+}
+
+#registration_form .form-control.iti-phone-no-error {
+    border-color: red;
+}
+#registration_form .iti--allow-dropdown .iti__flag-container {
+    height: 58px;
+}
+#registration_form .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+    background-color: transparent;
+}
+
+#registration_form .file-upload {
+    position: relative;
+}
+#registration_form .file-upload .parsley-errors-list {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+#registration_form .file-upload .file-name {
+    font-style: italic;
+    position: absolute;
+    top: 4.9em;
+    font-size: 15px;
+}
+
+#registration_form #file-select-patient-profile.file-select {
+    position: relative;
+}
+#registration_form #file-select-patient-profile.file-select .parsley-errors-list {
+    top: 30px;
+    left: 0;
+}

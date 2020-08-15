@@ -11,6 +11,7 @@ class AppointmentController extends Controller
 {
     public function index(Request $request){
         $input = $request->all();
+        $title = 'Appointments';
         $appointments = Appointments::where('doc_id',Auth::user()->id)
                                        ->where('appointment.status','Pending')
                                        ->whereDate('appointment',today())
@@ -24,13 +25,14 @@ class AppointmentController extends Controller
                                   ->where('appointment','<',now()->addDay(1))
                                   ->orderBy('appointment','ASC')
                                   ->first(['appointment','patient_id','u.firstname','u.lastname']))->toArray();
-        return view('doctor.appointment',compact('appointments','next_appointments'));
+        return view('doctor.appointment',compact('title','appointments','next_appointments'));
     }
      
 
      public function getAppointmentsByDate(Request $request){
         $input = $request->all();
         $date = \DateTime::createFromFormat('Y-m-d', $input['date']);
+        $sendAll = $input['all'];
         if(!$date) {
             return returnResponse(
                 $code = 1000,
@@ -39,13 +41,25 @@ class AppointmentController extends Controller
             );
         } // invalid date
 
-        $appointments = Appointments::where('doc_id',Auth::user()->id)
+
+        // For computer next consultation all data should send;
+        if($sendAll == 'true') {
+            $appointments = Appointments::where('doc_id',Auth::user()->id)
+                                       ->where('appointment.status','Pending')
+                                       ->whereDate('appointment',$date)
+                                       ->leftJoin('users as u','u.id','=','appointment.patient_id')
+                                       ->select(['appointment.*','u.firstname','u.lastname'])
+                                       ->orderBy('appointment','ASC')
+                                       ->get();
+        } else {
+            $appointments = Appointments::where('doc_id',Auth::user()->id)
                                        ->where('appointment.status','Pending')
                                        ->whereDate('appointment',$date)
                                        ->leftJoin('users as u','u.id','=','appointment.patient_id')
                                        ->select(['appointment.*','u.firstname','u.lastname'])
                                        ->orderBy('appointment','ASC')
                                        ->paginate(10);
+        }        
         
         return returnResponse(
             $code = 1000,
