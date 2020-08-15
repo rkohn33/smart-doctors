@@ -12,7 +12,8 @@
 @include('doctor.includes.side-nav-bar')
 @include('doctor.includes.header')
 <div class="container-fluid">
-  <div class="inner-container">
+  <div class="content-wrapper">
+  <div class="container inner-container fluid-child-container">
         <div class="title-wrap">
           <div class="container">
             <div class="row">
@@ -97,8 +98,9 @@
               </div>
           </div>
     </div>
+    </div>
   </div>
-
+  @include('doctor.includes.footer')
 @endsection
 
 @section('js')

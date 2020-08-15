@@ -93,6 +93,10 @@ body {font-family: 'degularregular';
     color: white;
     opacity: 1;
   }
+
+  table.curr td {
+    padding: 0;
+  }
   
   th, td, p, h3 {
     font: 15px 'Segoe UI';
@@ -1702,6 +1706,50 @@ a.calendarLink:hover {
   border-radius: 100px;
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
+}
+
+.profile-overlap {
+  padding-top: 10px !important;
+  position: relative;
+}
+
+.top-title-page {
+  /* margin-left: 15px; */
+  display: flex;  
+}
+
+.top-title-page h1 {
+  font-size: 2.2rem;
+}
+
+.profile-control-container {
+  display: flex;
+  position: relative;
+  margin-left: 8px;
+}
+
+.profile-control-container .btn {
+  padding: 8px 16px;
+  background: #06BEF6;
+  align-self: center;
+  flex: 0;
+  border-radius: 500px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .25);
+}
+.profile-control-container .btn:hover {
+  color: white;
+  background: #07a5d4;
+}
+
+.profile-control-container .spinner {
+  position: absolute;
+  right: -32px;
+  top: -80px;
+}
+
+#footer-doctor {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 @media only screen and (max-width: 400px) {

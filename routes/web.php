@@ -50,19 +50,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
     Route::group(['prefix' => 'doctor'], function(){
-        Route::get('/home', 'Doctor\HomeController@index');
-        Route::get('/appointment', 'Doctor\AppointmentController@index');
+        Route::get('/home', 'Doctor\HomeController@index')->name('d.home');
+        Route::get('/appointment', 'Doctor\AppointmentController@index')->name('d.appointment');
         Route::get('/get/appointment', 'Doctor\AppointmentController@getAppointmentsByDate');
         Route::post('/schedule/update', 'Doctor\ScheduleController@updateOrCreate');
         Route::get('/get/schedule', 'Doctor\ScheduleController@index');
         Route::post('/profile/update', 'Doctor\ProfileController@updateOrCreate');
         Route::get('/availability', function () {
-            return view('doctor.availability');
-        });
+            return view('doctor.availability')->with('title', 'Availability');
+        })->name('d.availability');
         Route::get('/consultation/{patient_id?}','Doctor\ConsultationController@startConsultation');
   
-        Route::get('/profile', 'Doctor\ProfileController@index');
-        Route::get('/wallet','Doctor\WalletController@index');
+        Route::get('/profile', 'Doctor\ProfileController@index')->name('d.profile');
+        Route::get('/wallet','Doctor\WalletController@index')->name('d.wallet');
         Route::get('/get/earning','Doctor\WalletController@getEarnings');
     });
 

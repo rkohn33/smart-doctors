@@ -12,7 +12,7 @@
               <h1>Appointments</h1>
             </div>
           </div>
-        <div class="container">
+        <div class="container fluid-child-container">
           
           <div class="row">
             <div class="calendar-box col-lg-4">

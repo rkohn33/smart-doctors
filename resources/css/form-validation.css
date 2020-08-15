@@ -37,6 +37,12 @@
     padding: 0;
     line-height: 1em;
 }
+#registration_form .file-upload .file-name {
+    font-style: italic;
+    position: absolute;
+    top: 4.9em;
+    font-size: 15px;
+}
 
 #registration_form #file-select-patient-profile.file-select {
     position: relative;

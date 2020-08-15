@@ -987,7 +987,7 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 
 @media (max-width: 991px) {
 	.content-wrapper.bg-light {
-		padding-top: 90px;
+		padding-top: 78px;
 	}
 	.content-wrapper.bg-light .page-header {
 		background: #f5f5f5;
@@ -1065,10 +1065,6 @@ div.dataTables_wrapper div.dataTables_paginate span a {
 	}
 	.page-header {
 		display: none;
-	}
-	.content-wrapper {
-		padding: 90px 0;
-		margin-left: 0;
 	}
 	.earning-box .earning-wrap,
 	.title-header {

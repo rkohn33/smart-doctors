@@ -11,6 +11,7 @@ class AppointmentController extends Controller
 {
     public function index(Request $request){
         $input = $request->all();
+        $title = 'Appointments';
         $appointments = Appointments::where('doc_id',Auth::user()->id)
                                        ->where('appointment.status','Pending')
                                        ->whereDate('appointment',today())
@@ -24,7 +25,7 @@ class AppointmentController extends Controller
                                   ->where('appointment','<',now()->addDay(1))
                                   ->orderBy('appointment','ASC')
                                   ->first(['appointment','patient_id','u.firstname','u.lastname']))->toArray();
-        return view('doctor.appointment',compact('appointments','next_appointments'));
+        return view('doctor.appointment',compact('title','appointments','next_appointments'));
     }
      
 

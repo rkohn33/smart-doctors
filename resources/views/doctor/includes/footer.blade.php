@@ -1,3 +1,5 @@
+<footer id="footer-doctor">
+</footer>
 <script type="text/javascript">
     $('#navbar-custom-title').text('My Profile');
     $("#menu-toggle").click(function(e) {

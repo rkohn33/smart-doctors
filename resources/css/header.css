@@ -106,8 +106,24 @@ body {
 }
 
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link svg {
-	margin-right: 15px;
+	stroke: #fff;
 }
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link.active svg {
+	stroke: #06BEF6;
+}
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link.active span {
+	color: #fff;
+}
+ 
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link svg.fillable {
+	fill: #fff;
+}
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link:hover svg.fillable,
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link.active svg.fillable {
+	fill: #06BEF6;
+}
+
+
 
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link:hover svg,
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item>.nav-link:hover svg path,
@@ -115,7 +131,7 @@ body {
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item.active>.nav-link svg,
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item.active>.nav-link svg path,
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item.active>.nav-link svg rect {
-	stroke: #06BEF6;
+	stroke: #06BEF6;	
 }
 
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a {
@@ -163,8 +179,8 @@ body {
 
 .content-wrapper {
 	background: #f5f5f5;
-	margin-top: 0;
-	padding: 90px 0;
+	padding-top: 94px;
+	margin-top: 0;	
 	margin-left: 195px;
 }
 
@@ -172,10 +188,17 @@ body {
 	display: none;
 }
 
+.container.fluid-child-container {
+	padding-left: 0;
+	padding-right: 0;
+}
 
 /*responsive start*/
 
 @media (min-width: 992px) {
+	.content-wrapper {
+		padding: 78px 0;
+	}
 	#mainNav .navbar-brand {
 		width: 180px;
 		padding: 0;
@@ -203,6 +226,13 @@ body {
 	}
 	#mainNav .navbar-collapse .navbar-sidenav>.nav-item>.nav-link {
 		padding: 1em;
+	}
+	#mainNav .navbar-collapse .navbar-sidenav>.nav-item>.nav-link svg {
+		margin-right: 0;
+		stroke: white;
+	}
+	#mainNav .navbar-collapse .navbar-sidenav>.nav-item>.nav-link:hover svg {
+		stroke: red;
 	}
 	#mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link {
 		min-width: 0;
@@ -384,11 +414,11 @@ body {
 		width: 30px !important;
 	}
 	.content-wrapper {
-		padding: 90px 0;
 		margin-left: 0;
 	}
 	.content-wrapper .page-header {
 		display: block;
+		margin-top: 8px;
 		margin-bottom: 20px;
 		background: #fff;
 		z-index: 99;
@@ -405,11 +435,6 @@ body {
 	}
 }
 
-@media(max-width: 767px) {
-	#mainNav.bg-light .container {
-		width: 80%;
-	}
-}
 
 @media(max-width: 575px) {
 	.navbar-nav.mobile-top li .user-badge .badge-warning {

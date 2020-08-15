@@ -6,21 +6,22 @@
 
 
 <div class="container-fluid">
-    <div class="inner-container hompage">
+    <div class="content-wrapper">
+    <div class="container fluid-child-container inner-container hompage">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <div class="row">
-            <div class="col-lg-8 col-xs-12">
+            <div class="col-lg-8 col-xs-12">                
                 <br>
                 <h1 class="top-heading">Welcome Back, {{ucfirst($profile['salutation']).'. '.ucfirst($profile['last_name'])}}</h1>
-                <p class="sub-heading">Here is your account at a glance.</p>
+                <p class="sub-heading mb-0 pb-0">Here is your account at a glance.</p>
             </div>
             <div class="col-lg-4  col-xs-12">
-                <img src="{{ url('img/doctor.jpg') }}" style="width: 100%;height: 100%">
+                <img src="{{ url('img/doctor.jpg') }}" class="img-fluid">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8  col-xs-12">
-                <div class="card mb-5">
+                <div class="card mb-5">                
                     <div class="card-header">Appointments
                         <div class="dropdown float-right ">
                         <select class="form-control js-special-tags" id="select-day">
@@ -95,6 +96,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </div>
 
@@ -198,13 +200,15 @@ jQuery(document).ready(async function($){
 
     // Store todays appointment
     let doctorData = DoctorData(tableAppointment);
-    let appointments = await doctorData.getAppointments(momentToday);
-    doctorData.appointmentsToday = appointments.data[0].data;
+    let appointments = await doctorData.getAppointments(momentToday, null, true);
+    doctorData.appointmentsToday = appointments.data[0];
 
     // Show appointments when page loads
-    doctorData.updateAppointmentsTable(doctorData.appointmentsToday);
+    // doctorData.updateAppointmentsTable(doctorData.appointmentsToday);
     doctorData.updateNextConsultation($('#next-patient'), $('#next-appointment'), $('#next-appointment-link'));
-    doctorData.updatePaginate(appointments.data[0]);
+    // doctorData.updatePaginate(appointments.data[0]);
+
+    doctorData.prepareAppointment(moment());
 
     updateChart();
 

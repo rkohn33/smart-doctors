@@ -61,7 +61,7 @@ p {
 
 
 .inner-container .top-heading {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: bold;
 }
 
@@ -77,6 +77,10 @@ p {
     font-weight: bold;
     padding-left: 30px;
     padding-top: 20px;
+    padding-right: 30px;
+}
+.inner-container .card-body {
+    padding-left: 30px;
     padding-right: 30px;
 }
 
@@ -494,7 +498,10 @@ p {
     .inner-container {
         padding-right: 100px;
         padding-left: 300px;
-        padding-top: 100px;
+        /* padding-top: 78px; */
+    }
+    .inner-container .top-heading {
+        font-size: 40px;
     }
 
     #navbar-custom-title {

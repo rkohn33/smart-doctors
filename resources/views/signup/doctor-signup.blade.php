@@ -78,13 +78,13 @@
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="city">City</label>
                 <input tabindex="6" type="text" class="form-control" id="city" name="city" value="{{old('city')}}" placeholder="City" minlength="3"
-                    data-parsley-required="true" data-parsley-trigger="change" data-parsley-minlength="3">
+                    data-parsley-required="true" data-parsley-pattern="/^[A-Za-z]+$/" data-parsley-trigger="change" data-parsley-minlength="3">
               </div>
 
               <div class="form-group col-sm-6 col-lg-4">
                 <label for="state">State</label>
                 <input tabindex="7" type="text" class="form-control" id="state" name="state" value="{{old('state')}}" placeholder="State" minlength="3"
-                    data-parsley-required="true" data-parsley-trigger="change" data-parsley-minlength="3">
+                    data-parsley-required="true" data-parsley-pattern="/^[A-Za-z]+$/" data-parsley-trigger="change" data-parsley-minlength="3">
               </div>
 
               <div class="form-group col-sm-12 col-lg-4">
@@ -126,28 +126,31 @@
               <div class="file-upload-wrap form-group col-lg-12">
                 <div class="file-upload">
                   <div class="file-select">
-                    <div class="file-select-name" id="noFile">Medical Registration Proof</div> 
-                    <div class="file-select-button" id="medical_registration">Choose File...</div>
-                    <input tabindex="12" type="file" name="medical_registration" required
-                      data-parsley-required="true" data-parsley-max-file-size="1" data-parsley-required-message="Please upload related document.">
+                    <div class="file-select-name" class="noFile">Medical Registration Proof</div> 
+                    <p class="file-name"></p>
+                    <div class="file-select-button" id="medical_registration" data-toggle="popover" data-content="Image or document files only!" data-placement="left">Choose File...</div>
+                    <input tabindex="12" class="chooseFile" type="file" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.txt" name="medical_registration" required
+                      data-parsley-required="true" data-parsley-max-file-size="10" data-parsley-required-message="Please upload related document.">
                   </div>
                 </div>
 
                 <div class="file-upload">
                   <div class="file-select">
-                    <div class="file-select-name" id="noFile">Medical Degree Certification Proof</div> 
-                    <div class="file-select-button" id="medical_degree">Choose File...</div>
-                    <input tabindex="13" type="file" name="medical_degree" required
-                      data-parsley-required="true" data-parsley-max-file-size="1" data-parsley-required-message="Please upload related document.">
+                    <div class="file-select-name">Medical Degree Certification Proof</div> 
+                    <p class="file-name"></p>
+                    <div class="file-select-button" id="medical_degree" data-toggle="popover" data-content="Image or document files only!" data-placement="left">Choose File...</div>
+                    <input tabindex="13" class="chooseFile" type="file" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.txt" name="medical_degree" required
+                      data-parsley-required="true" data-parsley-max-file-size="10" data-parsley-required-message="Please upload related document.">
                   </div>
                 </div>
 
                 <div class="file-upload">
                   <div class="file-select">
-                    <div class="file-select-name" id="noFile">Government-Issued Photo ID Proof</div> 
-                    <div class="file-select-button" id="medical_proof">Choose File...</div>
-                    <input tabindex="14" type="file" name="medical_proof" required
-                      data-parsley-required="true" data-parsley-max-file-size="1" data-parsley-required-message="Please upload related document.">
+                    <div class="file-select-name">Government-Issued Photo ID Proof</div> 
+                    <p class="file-name"></p>
+                    <div class="file-select-button" id="medical_proof" data-toggle="popover" data-content="Image or document files only!" data-placement="left">Choose File...</div>
+                    <input tabindex="14" class="chooseFile" type="file" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.txt" name="medical_proof" required
+                      data-parsley-required="true" data-parsley-max-file-size="10" data-parsley-required-message="Please upload related document.">
                   </div>
                 </div>
               </div>
@@ -173,6 +176,10 @@
   });  
   
 $(document).ready(function($) {
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  });
+
   Parsley.addValidator('phone', {
     validateString: function(value) {
       return iti.isValidNumber();
@@ -194,23 +201,38 @@ $(document).ready(function($) {
     },
     requirementType: 'integer',
     messages: {
-      en: 'Maximum file size %s mb',
+      en: 'Maximum file size %s MB',
     }
-  });
+  });  
 
-  
-
-  $('#chooseFile').bind('change', function () {
-    var filename = $("#chooseFile").val();
+  let supported = ['jpg', 'jpeg', 'png', 'doc', 'docx', 'txt', 'pdf'];
+  $('.chooseFile').bind('change', function () {
+    let $parent = $(this).parent().parent();
+    var filename = $(this).val();
+    var ext = filename.substring(filename.lastIndexOf('.') + 1).toLowerCase();
+    if(supported.indexOf(ext) === -1) {
+      $(this).val('');
+      console.log('Not supported');
+      showPopoverAndHide($parent.find('.file-select-button'));
+      return;
+    }
+    console.log('file name ext: ' + ext);
     if (/^\s*$/.test(filename)) {
-      $(".file-upload").removeClass('active');
-      $("#noFile").text("No file chosen..."); 
+      $parent.removeClass('active');
+      $parent.find('.file-name').text('');
     }
     else {
-      $(".file-upload").addClass('active');
-      $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+      $parent.addClass('active');
+      $parent.find('.file-name').text(filename.replace("C:\\fakepath\\", ""));
     }
   });
+
+  function showPopoverAndHide($poper) {
+    $poper.popover('show');
+    setTimeout(() => {
+        $poper.popover('hide');
+      }, 3000);
+  }
 });
 
 

@@ -7,15 +7,15 @@
 @include('doctor.includes.header')
 
   <div class="container-fluid">
-    <div class="inner-container">
+    <div class="content-wrapper">
       <div class="page-header">
           <div class="container d-flex">
             <h1>Availability</h1>
             <button class="ml-auto btn btn-primary align-self-center" id="export">Update</button>
           </div>
       </div>
-    </div>
-    <div class="inner-container">
+
+      <div class="container fluid-child-container">
       <div class="row">
           <div class="calendar-box col-lg-4">
             <div class="heading-wrap">
@@ -33,8 +33,8 @@
                 <div class="time-slice day" id="time-slice-day">
                   <div class="card-header">
                       <h1><span></span>Morning</h1>
-                      <a href="#">+ ADD SLOT </a>
-                      <p>7:00 AM to 12:00 PM</p>
+                      <!-- <a href="#">+ ADD SLOT </a> -->
+                      <p>7:00 AM to 11:59 AM</p>
                   </div>                  
                   <div class="card-body">   
                       <div class="block-selector-form" style="width: 50%;">
@@ -53,7 +53,7 @@
                 <div class="time-slice afternoon" id="time-slice-afternoon">
                   <div class="card-header">
                       <h1><span></span>Afternoon</h1>
-                      <a href="#">+ ADD SLOT </a>
+                      <!-- <a href="#">+ ADD SLOT </a> -->
                       <p>12:00 PM to 5:00 PM</p>
                   </div>
                   <div class="card-body">
@@ -73,8 +73,8 @@
                 <div class="time-slice night" id="time-slice-night">
                   <div class="card-header">
                       <h1><span></span>Evening</h1>
-                      <a href="#">+ ADD SLOT </a>
-                      <p>5:00 PM to 12:00 AM</p>
+                      <!-- <a href="#">+ ADD SLOT </a> -->
+                      <p>5:00 PM to 11:59 PM</p>
                   </div>
                   <div class="card-body">
                       <div class="tags block-selector-blocks" data-shift="night">
@@ -90,7 +90,7 @@
                       </div>
                   </div>
                 </div>
-                <div class="card-footer small text-muted">
+                <!-- <div class="card-footer small text-muted">
                   <div class="row align-items-center">
                       <div class="col-sm-6 col-lg-6">
                         <p><i class="far fa-clock"></i> Waiting List</p>
@@ -99,11 +99,13 @@
                         <a class="btn btn-info" href="">Add to waitlist <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
                       </div>
                   </div>
-                </div>
+                </div> -->
             </div>
           </div>
       </div>
     </div>
+    </div>
+    
   </div>
 </div>
 
